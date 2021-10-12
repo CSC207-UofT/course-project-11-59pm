@@ -27,9 +27,9 @@ public class userInterface {
 
     public int getDecisions(){
         /* Get the choice of the player, and return the choice as an integer*/
-        int choice = 0;
+        this.displayDecisions("Please choose your choice:");
         //TODO: implement code based on the event class, which will be done later
-        return choice;
+        return input.nextLine();
     }
 
     public void displayDecisions(String decisions){
