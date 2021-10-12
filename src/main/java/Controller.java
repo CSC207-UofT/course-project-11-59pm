@@ -10,10 +10,6 @@ public class Controller {
         return "TO DO";
     }
 
-    public String getStatus(){
-        return "TO DO";
-    }
-
     public String choiceOfProvince(){
         /* Maybe a go or not. Choose what province you will fight as*/
         return "CHOICE OF PROVINCE";
