@@ -1,7 +1,7 @@
 package main.java;
 import java.util.Scanner;
 
-public class Controller {
+public class userInterface {
     /* This class is responsible for taking user inputs for the choice of event and translating them to other use
     * Case Classes. This class also displays anything from other classes*/
 
@@ -36,5 +36,4 @@ public class Controller {
         /*This method will display the decisions or text that is given to it*/
         System.out.println(decisions);
     }
-
 }
