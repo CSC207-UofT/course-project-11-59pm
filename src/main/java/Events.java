@@ -1,6 +1,8 @@
+package main.java;
+
 import java.util.*;
 
-class events {
+class Events {
     /*This class is called on my gameManager to present random events to players.
      * It alters province resources and player entities
      * It will take input from the controller

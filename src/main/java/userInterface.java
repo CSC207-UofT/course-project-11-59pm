@@ -25,10 +25,12 @@ public class userInterface {
         return "CHOICE OF PROVINCE";
     }
 
-    public int getDecisions(){
-        /* Get the choice of the player, and return the choice as an integer*/
+    public int getDecisions(String decisions){
+        /* Display choices and Get the choice of the player, and return the choice as an integer*/
         this.displayDecisions("Please choose your choice:");
-        //TODO: implement code based on the event class, which will be done later
+
+        //TODO: update this when we know how decisions will be given
+        displayDecisions("1. Nobility \n2. Peasant");
         return Integer.parseInt(input.nextLine());
     }
 

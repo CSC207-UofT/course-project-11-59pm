@@ -3,6 +3,7 @@ package main.java;
 The class is responsible for the Player. This class
 can be extended to the NobilityPlayer
  */
+
 public class Player {
     private int money;
     private String name;
@@ -21,5 +22,4 @@ public class Player {
     public boolean getStatus(){
         return isDead;
     }
-
 }
