@@ -3,7 +3,7 @@
  * Province Interface.
  **/
 
-package main.java.provinces;
+package main.java;
 
 public class Province1 extends Province {
     /*
