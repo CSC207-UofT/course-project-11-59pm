@@ -9,6 +9,7 @@ public class Provinces {
     /*
     * Instances Variables
     */
+    private boolean active = true;
     private int populationCount;
     private int money;// TODO: For now keeping it only to money
     private String raja = "OOGA BOOGA";
@@ -26,6 +27,10 @@ public class Provinces {
 
     public int getMoney(){
         return money;
+    }
+
+    public boolean getAliveStatus(){
+        return active;
     }
 
 }
