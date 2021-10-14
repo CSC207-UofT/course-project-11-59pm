@@ -29,7 +29,7 @@ public class userInterface {
         /* Get the choice of the player, and return the choice as an integer*/
         this.displayDecisions("Please choose your choice:");
         //TODO: implement code based on the event class, which will be done later
-        return input.nextLine();
+        return Integer.parseInt(input.nextLine());
     }
 
     public void displayDecisions(String decisions){
