@@ -1,4 +1,9 @@
+package main.java;
+
 public class GameManager {
+    public GameManager() {
+        /* Creates game manager*/
+    }
     public void RunGame() {
         /* Starts the game */
     }
