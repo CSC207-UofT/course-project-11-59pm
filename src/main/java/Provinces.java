@@ -9,16 +9,17 @@ public class Provinces {
     /*
     * Instances Variables
     */
-    private boolean active = true;
+    private boolean active;
     private int populationCount;
     private int money;// TODO: For now keeping it only to money
     private String raja = "OOGA BOOGA";
 
     // Constructors
-    public Provinces(int count, String kingName, int money){
-        this.populationCount = count;
-        this.raja = kingName;
+    public Provinces(int populationCount, String raja, int money, boolean active){
+        this.populationCount = populationCount;
+        this.raja = raja;
         this.money = money;
+        this.active = true;
     }
 
     public int getPopulationCount() {
