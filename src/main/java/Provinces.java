@@ -25,10 +25,6 @@ public class Provinces {
         return populationCount;
     }
 
-    public int getMoney(){
-        return money;
-    }
-
     public boolean getAliveStatus(){
         return active;
     }
