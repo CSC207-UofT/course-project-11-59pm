@@ -2,7 +2,7 @@
 * Provinces which will be used to extend within
 * each province
 */
-package main.java.provinces;
+package main.java;
 
 abstract class Province {
     public abstract int population();

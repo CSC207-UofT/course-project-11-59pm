@@ -1,4 +1,4 @@
-package main.java.provinces;
+package main.java;
 
 public class Province2 extends Province {
      /*
