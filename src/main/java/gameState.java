@@ -1,27 +1,49 @@
 package main.java;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class gameState {
     /* This class is responsible for keeping track of game data, and creating and saving data to a file */
 
-    public static gameState getState()
-    {
-        return gameState;
+    private  String filePathway;
+    private ArrayList saveInfo;
+
+    public gameState(String filePathway, ArrayList saveInfo) {
+        this.saveInfo = saveInfo;
+        this.filePathway = filePathway;
     }
 
-    public static void setState(gameState state)
+
+    public ArrayList getState()
     {
-        gameState = state;
+        return this.saveInfo;
     }
 
-    private void saveGame(String filePath, arrayList saveInfo) {
+    public void setState(ArrayList state)
+    {
+        this.saveInfo = state;
+    }
+
+    public void setPath(String path)
+    {
+        this.filePathway = path;
+    }
+
+    public String getPath()
+    {
+        return this.filePathway;
+    }
+
+    private void saveGame(String filePath, ArrayList saveInfo) {
         File outputFile;
         BufferedWriter outputWriter;
 
         try {
             outputFile = new File(filePath);
             outputWriter = new BufferedWriter(new FileWriter(outputFile));
-            for(int i = 0; i < saveInfo.length; i++){
-                outputWriter.write(Integer.toString(saveInfo[i]) + "\n");
+            for(int i = 0; i < saveInfo.size(); i++){
+                outputWriter.write(saveInfo.get(i) + "\n");
             }
             outputWriter.close();
         } catch (Exception e) {
@@ -29,19 +51,20 @@ public class gameState {
         }
     }
 
-    private void loadGame(String filePath) {
-        File inputFile;
-        BufferedWriter inputWriter;
-        //TODO: Set up input writer
+    private ArrayList loadGame(String filePath) {
+        var saveInfo = new ArrayList<>();
         try {
-            inputFile = new File(filePath);
-            inputWriter = new BufferedWriter(new FileWriter(outputFile));
-            for(int i = 0; i < saveInfo.length; i++){
-                outputWriter.write(Integer.toString(saveInfo[i]) + "\n");
+            File inputFile = new File(filePath);
+            Scanner inputReader = new Scanner(inputFile);
+
+            while (inputReader.hasNextLine()) {
+                String data = inputReader.nextLine();
+                saveInfo.add(data);
             }
-            outputWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return saveInfo;
     }
+
 }
