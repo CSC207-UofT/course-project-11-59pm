@@ -1,8 +1,16 @@
+/**
+ * This file is responsible for the running and keeping track of the rounds.
+ * This file will would be doing the most work since it will be tracking
+ * all the objects and calling other entity classes to further manipulate the stats.
+ */
 package main.java;
 
 import java.util.ArrayList;
 
 public class GameManager {
+    /*Constructor: Declares the Variables for the Province Objects and a
+    * gameState Object for saving purposes.
+    */
     private Provinces P1;
     private Provinces P2;
     private Provinces P3;
@@ -12,7 +20,10 @@ public class GameManager {
 
 
     public GameManager() {
-        /* Preset */
+        /* Loads the Preset Provinces. Will be changed in the future such that
+        * the user has a choice between the provinces to choose with provinces being good
+        * in some attributes and lack in others, that describe the province.
+        * (ie: Military: 95, however, Religion: 20) */
          P1 = new Provinces(100, "Deven",
                 "Bandar", 800);
 
@@ -26,17 +37,17 @@ public class GameManager {
                 "Vayu", 1000);
     }
     public static void startProvince(String name) {
-        /* Starts the game */
-
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
-
         Provinces PlayerProvince = new Provinces(200, name,
                 "Zulfein", 800);
-
     }
 
+    /*
+     * Saves every Province within an ArrayList
+     * and then returns that ArrayList
+    */
     public ArrayList<Provinces> getAIprovinces(){
         ArrayList<Provinces> AIprovinces = new ArrayList<Provinces>();
         AIprovinces.add(P1);
