@@ -14,16 +14,16 @@ public class GameManager {
     public GameManager() {
         /* Preset */
          P1 = new Provinces(100, "Deven",
-                "Bandar", 800, true, false);
+                "Bandar", 800);
 
          P2 = new Provinces(200, "Saj",
-                "Kela", 500, true, false);
+                "Kela", 500);
 
          P3 = new Provinces(400, "Ashwin",
-                "Pahaad", 600, true, false);
+                "Pahaad", 600);
 
          P4 = new Provinces(500, "Maya",
-                "Vayu", 1000, true, false);
+                "Vayu", 1000);
     }
     public static void startProvince(String name) {
         /* Starts the game */
@@ -33,7 +33,7 @@ public class GameManager {
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
 
         Provinces PlayerProvince = new Provinces(200, name,
-                "Zulfein", 800, true, true);
+                "Zulfein", 800);
 
     }
 
