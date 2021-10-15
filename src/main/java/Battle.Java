@@ -11,7 +11,7 @@ import java.util.*;
  */
 class Battle{
 
-    private final Map<Player, List> participant;
+    private final Map<Provinces, List<Object>> participant;
 
     /**
      * Construct a battle with the given participants
@@ -43,18 +43,29 @@ class Battle{
      * Prints the participants and their choice of attack and maginitude in the
      * order of the lis returned from setUpBattle
      */
-    public void printBattle(ArrayList<String> lst){
-        for(String p: lst){
-            System.out.println("Battle participant "+ p + " has chosen to attack" + this.participant.get(p).get(0) +
-                    " With battle attack " + this.participant.get(p).get(1) + ".");
-        }
+    public void printBattle() {
+       for(Provinces p: this.participant.keySet()){
+           Provinces other_province = (Provinces) this.participant.get(p).get(0);
+           System.out.println("Province " + p.getName() + " has entered into battle with " +
+                   other_province.getName() + " province, and is using " + this.participant.get(p).get(1)
+                   + " force capacity.");
+       }
     }
 
     /**
      * Returns whether this province will surrender to the attacking participant
      */
-
+    public boolean willSurrender(String province){
+        return true;
+    }
     /**
      * updates each provinces stats after each battle has taken place
      */
+    public void updateStats(){
+        for(Provinces p: this.participant.keySet()){
+            Provinces province = (Provinces) this.participant.get(p).get(0);
+            Integer attack = (Integer) this.participant.get(p).get(1);
+            province.changeStats(attack);
+        }
+    }
 }
