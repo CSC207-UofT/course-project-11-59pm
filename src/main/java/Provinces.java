@@ -50,11 +50,12 @@ public class Provinces {
     public String getName(){ return this.provinceName; }
 
     /**
-     * change the stats for the given province after a Battle
-     * @param attack //TODO: WHAT DOES ATTACK REPRESENTS?????
+     * Changes the stats for the given province by decreasing
+     * the population within the province
+     * @param death represents the number of people that died during a Battle
      * */
-    public void changeStats(int attack){
-        this.populationCount -= attack;
+    public void changeStats(int death){
+        this.populationCount -= death;
     }
 
 }
