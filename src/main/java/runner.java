@@ -5,15 +5,7 @@ package main.java;
 
 public class runner {
     public static void main(String[] args) {
-        // TODO: Implement the runner
-
-        // Instantiate Game
-        GameManager game = new GameManager();
-        game.RunGame();
-
-
-
-
-        // TODO: PLACEHOLDER
+        userInterface ui = new userInterface();
+        ui.startPlayer();
     }
 }
