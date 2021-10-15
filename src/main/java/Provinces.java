@@ -17,18 +17,18 @@ public class Provinces {
      * provinceName: represents the Name of the province.
      * IsPlayer: represents whether the Province is owned by the Player.
     */
-    private boolean active;
+    private boolean active = true;
     private int populationCount;
     private int money;// TODO: For now keeping it only to money
     private String raja;
     private String provinceName;
-    private boolean IsPlayer;
+    private boolean IsPlayer = false;
 
     /**
      * A new LoginController for the use case defined by the LoginInputBoundary
      */
-    public Provinces(int populationCount, String raja, String provinceName,
-                     int money, boolean active, boolean IsPlayer){
+    public Provinces(int populationCount, String raja,
+                     String provinceName, int money){
         this.populationCount = populationCount;
         this.raja = raja;
         this.provinceName = provinceName;
