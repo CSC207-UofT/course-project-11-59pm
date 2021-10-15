@@ -9,10 +9,10 @@ public class Player {
     private String name;
     private boolean isDead;
 
-    public Player(String name, boolean isDead) {
+    public Player(String name, boolean isDead, int money) {
         this.name = name;
         this.isDead = isDead;
-        this.money = 999;
+        this.money = money;
     }
 
     public int getMoney() {

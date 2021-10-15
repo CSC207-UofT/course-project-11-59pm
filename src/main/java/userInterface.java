@@ -38,4 +38,12 @@ public class userInterface {
         /*This method will display the decisions or text that is given to it*/
         System.out.println(decisions);
     }
+
+    public void startPlayer() {
+        System.out.println("What is your name: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+
+        api.runStartPlayer(name);
+    }
 }
