@@ -44,9 +44,7 @@ class Battle{
      * order of the lis returned from setUpBattle
      */
     public String printBattle(ArrayList<String> lst) {
-        for (String p : lst) {
-            return "battle"
-        }
+       return "battle";
     }
 
     /**
