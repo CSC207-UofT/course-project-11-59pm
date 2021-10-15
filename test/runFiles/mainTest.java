@@ -18,7 +18,8 @@ public class mainTest {
     @After
     public void tearDown() {
     }
-
+    /*This function will test the Player class and make sure that the object is created properly
+    * The test assigns values to the object and makes sure that the correct value is returned*/
     @Test
     public void testPlayer(){
         Player person = new Player("bruh", false, 200);
@@ -26,7 +27,10 @@ public class mainTest {
         assertEquals(200, person.getMoney());
 
     }
-
+    /*This function will test the Province class and make sure that the object is created properly
+     * The test assigns values to the object and makes sure that the correct value is returned
+     * In addition, this test also sees if changeStats() will actually alter the populationCount
+     * */
     @Test
     public void testProvinces(){
         Provinces province = new Provinces(30000, "allah", "Krukutee", 2000);
