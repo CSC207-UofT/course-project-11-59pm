@@ -1,8 +1,7 @@
-package main.java;
-/*
-The class is responsible for the Player. This class
-can be extended to the NobilityPlayer
+/**
+The class is responsible for the Player.
  */
+package main.java;
 
 public class Player {
     private int money;
@@ -15,10 +14,12 @@ public class Player {
         this.money = money;
     }
 
+    /*Getter for the getMoney*/
     public int getMoney() {
         return money;
     }
 
+    /*Getter for the alive or dead*/
     public boolean getStatus(){
         return isDead;
     }
