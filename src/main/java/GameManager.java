@@ -32,7 +32,6 @@ public class GameManager {
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
 
-        String raja = name;
         Provinces PlayerProvince = new Provinces(200, name,
                 "Zulfein", 800, true, true);
 
