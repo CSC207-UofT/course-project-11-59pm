@@ -46,4 +46,8 @@ public class userInterface {
 
         api.runStartPlayer(name);
     }
+    public static userInterface initializeUI() {
+        userInterface ui = new userInterface();
+        return ui;
+    }
 }
