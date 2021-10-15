@@ -11,19 +11,19 @@ public class GameManager {
     public void StartBattle (Battle battle) {
         /* uses Battle class to begin a battle after the end of the choice selection*/
     }
-    public void PromptEvents (userInterface controller) {
+    public void PromptEvents (Controller controller) {
         /* uses Controller to ask the user to select between available game choices*/
     }
 
-    public void updatePlayer (gameState gamestate, int updated_variables) {
+    public void updatePlayer (Gamestate gamestate, int updated_variables) {
         /* updates player's variables using GameState*/
     }
 
-    public void updateProvince (gameState gamestate, Provinces province, int updated_variables) {
+    public void updateProvince (Gamestate gamestate, Province province, int updated_variables) {
         /* updates a province's variables using GameState*/
     }
 
-    public void GameStateSaver (gameState gamestate) {
+    public void GameStateSaver (GameState gamestate) {
         /* uses GameState to save game*/
     }
 

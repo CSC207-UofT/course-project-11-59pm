@@ -13,6 +13,7 @@ public class Provinces {
     private int populationCount;
     private int money;// TODO: For now keeping it only to money
     private String raja = "OOGA BOOGA";
+    private String name = "CANADA";
 
     // Constructors
     public Provinces(int populationCount, String raja, int money, boolean active){
@@ -28,6 +29,12 @@ public class Provinces {
 
     public boolean getAliveStatus(){
         return active;
+    }
+
+    public String getName(){ return this.name; }
+
+    public void changeStats(int attack){
+        this.populationCount -= attack;
     }
 
 }
