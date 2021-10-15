@@ -5,7 +5,7 @@ package main.java;
 
 public class runner {
     public static void main(String[] args) {
-        userInterface ui = new userInterface();
+        userInterface ui = api.runInitializeUI();
         ui.startPlayer();
     }
 }

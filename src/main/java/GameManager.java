@@ -1,25 +1,28 @@
 package main.java;
 
+import java.util.ArrayList;
+
 public class GameManager {
     private Provinces P1;
     private Provinces P2;
     private Provinces P3;
     private Provinces P4;
     private Provinces PlayerProvince;
+    private gameState currGS;
 
 
     public GameManager() {
         /* Preset */
-        Provinces P1 = new Provinces(100, "Deven",
+         P1 = new Provinces(100, "Deven",
                 "Bandar", 800, true, false);
 
-        Provinces P2 = new Provinces(200, "Saj",
+         P2 = new Provinces(200, "Saj",
                 "Kela", 500, true, false);
 
-        Provinces P3 = new Provinces(400, "Ashwin",
+         P3 = new Provinces(400, "Ashwin",
                 "Pahaad", 600, true, false);
 
-        Provinces P4 = new Provinces(500, "Maya",
+         P4 = new Provinces(500, "Maya",
                 "Vayu", 1000, true, false);
     }
     public static void startProvince(String name) {
@@ -33,11 +36,17 @@ public class GameManager {
         Provinces PlayerProvince = new Provinces(200, name,
                 "Zulfein", 800, true, true);
 
-        // Now, the stats for the players and the other provinces have to be
-        // saved within the gameState for saving purpose.
-
     }
 
+    public ArrayList<Provinces> getAIprovinces(){
+        ArrayList<Provinces> AIprovinces = new ArrayList<Provinces>();
+        AIprovinces.add(P1);
+        AIprovinces.add(P2);
+        AIprovinces.add(P3);
+        AIprovinces.add(P4);
+        AIprovinces.add(getPlayerProvince());
+        return AIprovinces;
+    }
     public void StartBattle (Battle battle) {
         /* uses Battle class to begin a battle after the end of the choice selection*/
     }
