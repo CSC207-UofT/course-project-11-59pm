@@ -1,6 +1,16 @@
+/**
+ * This file is responsible for the running and keeping track of the rounds.
+ * This file will would be doing the most work since it will be tracking
+ * all the objects and calling other entity classes to further manipulate the stats.
+ */
 package main.java;
 
+import java.util.ArrayList;
+
 public class GameManager {
+    /*Constructor: Declares the Variables for the Province Objects and a
+    * gameState Object for saving purposes.
+    */
     private Provinces P1;
     private Provinces P2;
     private Provinces P3;
@@ -9,33 +19,50 @@ public class GameManager {
 
 
     public GameManager() {
-        /* Preset */
-        Provinces P1 = new Provinces(100, "Deven",
-                "Bandar", 800, true, false);
+        /* Loads the Preset Provinces. Will be changed in the future such that
+        * the user has a choice between the provinces to choose with provinces being good
+        * in some attributes and lack in others, that describe the province.
+        * (ie: Military: 95, however, Religion: 20) */
+          P1 = new Provinces(100, "Deven",
+                "Bandar", 800);
 
-        Provinces P2 = new Provinces(200, "Saj",
-                "Kela", 500, true, false);
+          P2 = new Provinces(200, "Saj",
+                "Kela", 500);
 
-        Provinces P3 = new Provinces(400, "Ashwin",
-                "Pahaad", 600, true, false);
+          P3 = new Provinces(400, "Ashwin",
+                "Pahaad", 600);
 
-        Provinces P4 = new Provinces(500, "Maya",
-                "Vayu", 1000, true, false);
+          P4 = new Provinces(500, "Maya",
+                "Vayu", 1000);
     }
-    public static void startProvince(String name) {
-        /* Starts the game */
-
+    public void startProvince(String name) {
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
+         PlayerProvince = new Provinces(200, name,
+                "Zulfein", 800);
+    }
 
-        String raja = name;
-        Provinces PlayerProvince = new Provinces(200, name,
-                "Zulfein", 800, true, true);
+    /*
+     * Saves every Province within an ArrayList
+     * and then returns that ArrayList
+    */
+    public ArrayList<Provinces> getAllProvinces(){
+        ArrayList<Provinces> AIprovinces = new ArrayList<>();
+         AIprovinces.add(P1);
+        AIprovinces.add(P2);
+        AIprovinces.add(P3);
+        AIprovinces.add(P4);
+        AIprovinces.add(PlayerProvince);
+        return AIprovinces;
+    }
 
-        // Now, the stats for the players and the other provinces have to be
-        // saved within the gameState for saving purpose.
-
+    /* Saves the Player's Provinces and the AI Provinces with their
+    * provided attributes.
+    */
+    public void saveProgress(){
+        gameState currGS = new gameState("", getAllProvinces());
+        System.out.println(currGS.getState());
     }
 
     public void StartBattle (Battle battle) {
@@ -57,7 +84,6 @@ public class GameManager {
         /* uses GameState to save game*/
     }
 
-    public Provinces getPlayerProvince() {
-        return PlayerProvince;
-    }
+    // Getter for the PlayerProvince
+
 }

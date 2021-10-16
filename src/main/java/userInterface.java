@@ -1,10 +1,11 @@
+/** This class is responsible for taking user inputs for the choice of event
+ * and translating them to other use Case Classes.
+ * This class also displays anything from other classes
+ */
 package main.java;
 import java.util.Scanner;
 
 public class userInterface {
-    /* This class is responsible for taking user inputs for the choice of event and translating them to other use
-    * Case Classes. This class also displays anything from other classes*/
-
     //This Scanner object takes the input on the next line, it will be used commonly
     Scanner input = new Scanner(System.in);
 
@@ -45,5 +46,9 @@ public class userInterface {
         String name = scanner.nextLine();
 
         api.runStartPlayer(name);
+    }
+    public static userInterface initializeUI() {
+        userInterface ui = new userInterface();
+        return ui;
     }
 }
