@@ -16,7 +16,6 @@ public class GameManager {
     private Provinces P3;
     private Provinces P4;
     private Provinces PlayerProvince;
-    private gameState currGS;
 
 
     public GameManager() {
@@ -24,23 +23,23 @@ public class GameManager {
         * the user has a choice between the provinces to choose with provinces being good
         * in some attributes and lack in others, that describe the province.
         * (ie: Military: 95, however, Religion: 20) */
-         P1 = new Provinces(100, "Deven",
+          P1 = new Provinces(100, "Deven",
                 "Bandar", 800);
 
-         P2 = new Provinces(200, "Saj",
+          P2 = new Provinces(200, "Saj",
                 "Kela", 500);
 
-         P3 = new Provinces(400, "Ashwin",
+          P3 = new Provinces(400, "Ashwin",
                 "Pahaad", 600);
 
-         P4 = new Provinces(500, "Maya",
+          P4 = new Provinces(500, "Maya",
                 "Vayu", 1000);
     }
-    public static void startProvince(String name) {
+    public void startProvince(String name) {
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
-        Provinces PlayerProvince = new Provinces(200, name,
+         PlayerProvince = new Provinces(200, name,
                 "Zulfein", 800);
     }
 
@@ -48,15 +47,24 @@ public class GameManager {
      * Saves every Province within an ArrayList
      * and then returns that ArrayList
     */
-    public ArrayList<Provinces> getAIprovinces(){
-        ArrayList<Provinces> AIprovinces = new ArrayList<Provinces>();
-        AIprovinces.add(P1);
+    public ArrayList<Provinces> getAllProvinces(){
+        ArrayList<Provinces> AIprovinces = new ArrayList<>();
+         AIprovinces.add(P1);
         AIprovinces.add(P2);
         AIprovinces.add(P3);
         AIprovinces.add(P4);
-        AIprovinces.add(getPlayerProvince());
+        AIprovinces.add(PlayerProvince);
         return AIprovinces;
     }
+
+    /* Saves the Player's Provinces and the AI Provinces with their
+    * provided attributes.
+    */
+    public void saveProgress(){
+        gameState currGS = new gameState("", getAllProvinces());
+        System.out.println(currGS.getState());
+    }
+
     public void StartBattle (Battle battle) {
         /* uses Battle class to begin a battle after the end of the choice selection*/
     }
@@ -76,7 +84,6 @@ public class GameManager {
         /* uses GameState to save game*/
     }
 
-    public Provinces getPlayerProvince() {
-        return PlayerProvince;
-    }
+    // Getter for the PlayerProvince
+
 }

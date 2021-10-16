@@ -6,9 +6,11 @@ package main.java;
 public class api {
     public static void runStartPlayer(String name) {
         // This function starts a new player object, 
-        //and initializes a provience for the player using game manager 
+        //and initializes a provience for the player using game manager
+        GameManager gm = new GameManager();
         new Player(name, false, 500);
-        GameManager.startProvince(name);
+        gm.startProvince(name);
+        gm.saveProgress();
     }
     public static userInterface runInitializeUI() {
         // Defines a new user interface, in the userInterface class
@@ -16,5 +18,6 @@ public class api {
         userInterface ui = userInterface.initializeUI();
         return ui;
     }
+
 
 }
