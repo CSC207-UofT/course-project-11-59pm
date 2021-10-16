@@ -49,7 +49,7 @@ public class GameManager {
     */
     public ArrayList<Provinces> getAllProvinces(){
         ArrayList<Provinces> AIprovinces = new ArrayList<>();
-         AIprovinces.add(P1);
+        AIprovinces.add(P1);
         AIprovinces.add(P2);
         AIprovinces.add(P3);
         AIprovinces.add(P4);
@@ -84,6 +84,8 @@ public class GameManager {
         /* uses GameState to save game*/
     }
 
-    // Getter for the PlayerProvince
+    public static GameManager initializeGM() {
+        return new GameManager();
+    }
 
 }

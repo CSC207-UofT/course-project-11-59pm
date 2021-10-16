@@ -8,7 +8,7 @@ class Events {
      * It will take input from the controller
      * */
 //    ArrayList ma = new ArrayList();
-    Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
+    private Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
     public void constructEvents(){
         map.put("province1MarryDaughter", Arrays.asList(80, 60, 70, 50, 20));
         map.put("province4holdParty", Arrays.asList(20, 80, 10, 40, 30));
