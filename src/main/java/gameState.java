@@ -48,11 +48,10 @@ public class gameState {
     * This is the saveGame function. Open and edits a file, that for each line adds one index 
     * of the ArrayList called saveInfo.
     *
-    * @param saveInfo      ArrayList repersenting an ArrayList with game data 
-    * @param filePathway    String repersenting the file pathway to a save file
-    * @throws              If this fails, an expection is thrown, and the stack trace is printed
+    * @param saveInfo ArrayList representing an ArrayList with game data
+    * @param filePath String representing the file pathway to a save file
     */
-    private void saveGame(String filePath, ArrayList saveInfo) throws expection{
+    private void saveGame(String filePath, ArrayList saveInfo){
         File outputFile;
         BufferedWriter outputWriter;
 
@@ -72,11 +71,9 @@ public class gameState {
     * This is the loadGame function. Opens the save file, that for each line of the file adds one index 
     * to the ArrayList called saveInfo.
     *
-    * @param saveInfo      ArrayList repersenting an ArrayList with game data 
-    * @param filePathway    String repersenting the file pathway to a save file
-    * @throws              If this fails, an expection is thrown, and the stack trace is printed
+    * @param filePath String representing the file pathway to a save file
     */
-    private ArrayList loadGame(String filePath) {
+    private ArrayList loadGame(String filePath){
         var saveInfo = new ArrayList<>();
         try {
             File inputFile = new File(filePath);
