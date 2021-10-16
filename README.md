@@ -6,5 +6,3 @@ Our game is an text based adventure game. The user will get a chance to play as 
 There will be a limited amount of years before the game ends. If the player gets the chance to win all five provinces before the game ends, they win. Otherwise, the province with the most amount of land concurred will win the game.
 
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
