@@ -12,28 +12,16 @@ public class userInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
     Scanner input = new Scanner(System.in);
 
-    public String getName(){
-        /*This method will get the name of the user used at the beginning of the game*/
-        this.displayDecisions("Please enter your name: ");
-        return input.nextLine();
-    }
-
     public String getStatus(){
         //TODO: decide what this function gets the status of
         return "TODO";
-    }
-
-    public String choiceOfProvince(){
-        /* Maybe a go or not. Choose what province you will fight as*/
-        //TODO: decide if we will allow the user to choose a province to start as
-        return "CHOICE OF PROVINCE";
     }
 
     public String getDecisions(){
         /* Display choices and Get the choice of the player, and return the choice as a string
         *
         * This function should be called after display decisions so that the UI is clean and makes sense*/
-        this.displayDecisions("Please choose your choice (Enter a number, 1-5):");
+        this.displayText("Please choose your choice (Enter a number, 1-5):");
         String choice = input.nextLine();
         // The following line is how many choices we provide
         List<String> validChoices = Arrays.asList("1","2","3","4","5");
@@ -41,7 +29,7 @@ public class userInterface {
 
         // This function will loop until it gets a valid input
         while (!valid) {
-            this.displayDecisions("Please enter a valid choice (Enter a number, 1-5)");
+            this.displayText("Please enter a valid choice (Enter a number, 1-5)");
             choice = input.nextLine();
             valid = validChoices.contains(choice);
         }
@@ -49,18 +37,23 @@ public class userInterface {
         return choice;
     }
 
-    public void displayDecisions(String decisions){
+    public void displayText(String Text){
         /*This method will display the decisions or text that is given to it*/
-        System.out.println(decisions);
+        System.out.println(Text);
     }
 
-    public void startPlayer() {
-        System.out.println("What is your name: ");
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
+    public List<String> startPlayer() {
+        this.displayText("What is your name: "); // ask user for their name
+        String name = input.nextLine();
 
-        controller.runStartPlayer(name);
+        // choosing a name for the province that the player will play as
+        this.displayText(name + ", choose a name for your province:");
+        String provinceName = input.nextLine();
+
+        this.displayText(name + ", your province name is " + provinceName);
+        return Arrays.asList(name,provinceName);
     }
+
     public static userInterface initializeUI() {
         userInterface ui = new userInterface();
         return ui;
