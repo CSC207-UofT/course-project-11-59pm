@@ -1,26 +1,19 @@
-/**
-The class is responsible for the Player.
- */
+/*Player Interface which manages both the AI-pLayers and the user player. */
+
 package main.java;
 
-public class Player {
-    private int money;
-    private String name;
-    private boolean isDead;
+public interface Player {
+    //TODO: Document.
 
-    public Player(String name, boolean isDead, int money) {
-        this.name = name;
-        this.isDead = isDead;
-        this.money = money;
-    }
+    /* Trade for food units in exchange for gold */
+    public void buyFood(int desirableFoodUnits, Provinces p);
 
-    /*Getter for the getMoney*/
-    public int getMoney() {
-        return money;
-    }
+    /* Trade for additional soldiers in exchange for gold*/
+    public void enlistSoldiers(int soldierCount, Provinces p);
 
-    /*Getter for the alive or dead*/
-    public boolean getStatus(){
-        return isDead;
-    }
+    /* Trains the civilians of the province into soldiers */
+    public void trainCivilians(int trainCount, Provinces p);
+
+    /*Collects gold from the population of the given province at the end of each round */
+    public void collectTax(Provinces p);
 }

@@ -3,12 +3,12 @@
 */
 package main.java;
 
-public class api {
+public class controller {
     public static void runStartPlayer(String name) {
         // This function starts a new player object, 
         //and initializes a province for the player using game manager
         GameManager gm = GameManager.initializeGM();
-        new Player(name, false, 500);
+        new oldPlayer(name, false, 500);
         gm.startProvince(name);
         gm.saveProgress();
     }

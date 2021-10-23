@@ -1,14 +1,12 @@
 package runFiles;
 
-import main.java.Player;
+import main.java.oldPlayer;
 
 import main.java.Provinces;
 
 import org.junit.*;
 
 import static org.junit.Assert.*;
-
-import java.io.*;
 
 public class mainTest {
     @Before
@@ -22,7 +20,7 @@ public class mainTest {
     * The test assigns values to the object and makes sure that the correct value is returned*/
     @Test
     public void testPlayer(){
-        Player person = new Player("bruh", false, 200);
+        oldPlayer person = new oldPlayer("bruh", false, 200);
         assertEquals(false, person.getStatus());
         assertEquals(200, person.getMoney());
 

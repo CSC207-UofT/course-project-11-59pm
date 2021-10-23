@@ -37,6 +37,8 @@ public class Provinces {
         this.soldiers = soldier;
         this.food = food;
 
+    //TODO: Delete the duplicate methods from the UserPlayer class.
+
     }
     /**
     * Get the total number of people in a province. The total population is the sum
