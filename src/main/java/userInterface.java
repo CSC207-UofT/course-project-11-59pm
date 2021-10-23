@@ -3,7 +3,10 @@
  * This class also displays anything from other classes
  */
 package main.java;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class userInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
@@ -26,13 +29,24 @@ public class userInterface {
         return "CHOICE OF PROVINCE";
     }
 
-    public int getDecisions(String decisions){
-        /* Display choices and Get the choice of the player, and return the choice as an integer*/
-        this.displayDecisions("Please choose your choice:");
+    public String getDecisions(){
+        /* Display choices and Get the choice of the player, and return the choice as a string
+        *
+        * This function should be called after display decisions so that the UI is clean and makes sense*/
+        this.displayDecisions("Please choose your choice (Enter a number, 1-5):");
+        String choice = input.nextLine();
+        // The following line is how many choices we provide
+        List<String> validChoices = Arrays.asList("1","2","3","4","5");
+        boolean valid = validChoices.contains(choice);
 
-        //TODO: update this when we know how decisions will be given
-        displayDecisions("1. Nobility \n2. Peasant");
-        return Integer.parseInt(input.nextLine());
+        // This function will loop until it gets a valid input
+        while (!valid) {
+            this.displayDecisions("Please enter a valid choice (Enter a number, 1-5)");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+
+        return choice;
     }
 
     public void displayDecisions(String decisions){
@@ -45,7 +59,7 @@ public class userInterface {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        api.runStartPlayer(name);
+        controller.runStartPlayer(name);
     }
     public static userInterface initializeUI() {
         userInterface ui = new userInterface();
