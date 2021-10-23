@@ -21,10 +21,10 @@ public class Provinces {
     private int civilians = 100;
     private int soldiers = 100;
     private int food = 200;
-    private String raja;
-    private String provinceName;
-    private boolean IsPlayer = false;
-    private boolean active = true;
+    private final String raja;
+    private final String provinceName;
+    private final boolean IsPlayer = false;
+    private final boolean active = true;
 
     /**
     * Constructor
@@ -47,20 +47,20 @@ public class Provinces {
     }
     /**
     * Purchase food, where food is in a ratio of 2:1 with the gold for the population within the province.
-    * @param desisredFoodUnits is the number of food that a province wants to purchase
+    * @param desiredFoodUnits is the number of food that a province wants to purchase
     */
-    public void buyFood(int desisredFoodUnits){
-        boolean check = false;
+    public void buyFood(int desiredFoodUnits){
+
         // check if the province has enough gold -- this.gold > 0.
         if (this.gold == 0) {
-            // TODO: Need to find a way to print a Execption: NotEnoughMoney
+            // TODO: Need to find a way to print a Exception: NotEnoughMoney
         // check if the desiredFoodUnits are affordable with the current gold
-        } else if (this.gold - (desisredFoodUnits / 2) < 0){
-              // TODO: Need to find a way to print a Execption: NotEnoughMoney
+        } else if (this.gold - (desiredFoodUnits / 2) < 0){
+              // TODO: Need to find a way to print a Exception: NotEnoughMoney
         // Otherwise, update food and gold.
         } else {
-            this.food += (desisredFoodUnits * 2);
-            this.gold -= desisredFoodUnits / 2;
+            this.food += (desiredFoodUnits * 2);
+            this.gold -= desiredFoodUnits / 2;
         }
     }
 
@@ -69,7 +69,6 @@ public class Provinces {
      * @param soldierCount is the number of food that a province wants to purchase
      */
     public void enlistSoldiers(int soldierCount){
-        boolean check = false;
 
         // check if the province has enough money
         if (this.gold == 0) {
@@ -87,7 +86,6 @@ public class Provinces {
      * @param desiredSoldiers is the number of food that a province wants to purchase
      */
     public void trainCivilains(int desiredSoldiers){
-        boolean check = false;
 
         if (this.civilians == 0){
             // TODO: Need to find a way to print a Execption: NotEnoughMoney
