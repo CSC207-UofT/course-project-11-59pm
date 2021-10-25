@@ -16,4 +16,7 @@ public interface Player {
 
     /*Collects gold from the population of the given province at the end of each round */
     public void collectTax(Provinces p);
+
+    /* Returns whether the Player will be participating in the battle or not*/
+    public boolean getBattleDecision();
 }
