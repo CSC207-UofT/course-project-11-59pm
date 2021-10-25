@@ -68,4 +68,10 @@ public class UserPlayer<Province> implements Player {
     public void collectTax(Provinces p) {
         p.setGold((int) ((p.getSoldiers() + p.getCivilians()) *0.2)) ;
     }
+
+    @Override
+    public boolean getBattleDecision() {
+        //TODO: Need to get this decision made by the user, for now it's as true;
+        return true;
+    }
 }
