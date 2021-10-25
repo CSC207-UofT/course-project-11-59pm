@@ -14,10 +14,6 @@ public class controller {
         //create the province
         Provinces province = gm.startProvince(provinceName);
 
-        // possibility of an event to the player
-        String event = gm.PromptEvents();
-        controller.sendEvents(event);
-
         // create Userplayer and assign province to it
         gm.startPlayer(name, province);
 
@@ -29,10 +25,16 @@ public class controller {
         //start battle
 
     }
-    public static String sendEvents(String event, userInterface ui){
+    public static String sendEvents(userInterface ui){
 
         //send event to ui
 
+        // possibility of an event to the player
+        GameManager gm = GameManager.initializeGM();
+        gm.loadGameState(); // we have player and province that we created
+        // load the game state that has the player and province in it here
+        String event = gm.PromptEvents();
+        ui.displayText(event);
         //get answer back to gamemanager
     }
 //    public static userInterface runInitializeUI() {

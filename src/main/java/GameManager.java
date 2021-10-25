@@ -92,6 +92,11 @@ public class GameManager {
         /* uses GameState to save game*/
     }
 
+    public void loadGameState() {
+        // update the player and province and all the other stuff
+        // saved from the previous game state
+    }
+
     public static GameManager initializeGM() {
         return new GameManager();
     }
