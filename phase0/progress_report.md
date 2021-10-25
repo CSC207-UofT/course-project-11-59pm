@@ -51,4 +51,4 @@ add features to Province.
 Armaan implemented the Player class, and will be adding AI decisions and strengthening relationships between other 
 classes.
 
-Girish implemented the API and will be continually updating the APi to bridge the gap from user interface and use cases.
+Girish implemented the gameState class and API class, and will be continually updating the API to bridge the gap from user interface and use cases.

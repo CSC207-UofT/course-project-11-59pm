@@ -12,8 +12,8 @@ public class gameState {
     /**
     * This is the constructor for the gameState Class
     *
-    * @param saveInfo      ArrayList repersenting an ArrayList with game data 
-    * @param filePathway    String repersenting the file pathway to a save file
+    * @param saveInfo ArrayList repersenting an ArrayList with game data
+    * @param filePathway String repersenting the file pathway to a save file
     */
     public gameState(String filePathway, ArrayList saveInfo) {
         this.saveInfo = saveInfo;
