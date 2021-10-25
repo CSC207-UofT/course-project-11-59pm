@@ -72,16 +72,24 @@ public class GameManager {
         int int_random = rand.nextInt(upperbound);
         if (int_random > 20){
             // create an event
-            // TODO: plz make events for us :c
-            Events events;
-            return events;
+            Events event_list = new Events();
+
+            String event;
+
+            // TODO: may need to create an Events attribute to mark which ones have already been chosen
+            event = event_list.getRandomEvent();
+            return event;
         }
+        return "";
         /* uses Controller to ask the user to select between available game choices*/
+
+
     }
 
 
     public void updatePlayer (gameState gamestate, int updated_variables) {
         /* updates player's variables using GameState*/
+
     }
 
     public void updateProvince (gameState gamestate, Provinces province, int updated_variables) {

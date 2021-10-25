@@ -35,14 +35,18 @@ public class controller {
         // load the game state that has the player and province in it here
         String event = gm.PromptEvents();
         ui.displayText(event);
+
+        String choice = ui.getEventChoice();
         //get answer back to gamemanager
+
+        return choice;
     }
 //    public static userInterface runInitializeUI() {
 //        // Defines a new user interface, in the userInterface class
 //        //ui is being defined in the top layer to maintain clean architecture.
 //        userInterface ui = userInterface.initializeUI();
 //        return ui;
-    }
+//    }
 
 
 }

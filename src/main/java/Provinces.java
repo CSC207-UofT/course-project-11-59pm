@@ -50,6 +50,7 @@ public class Provinces {
      * TODO: WRITE THE DOCUMENTATION!
      */
     public void changeStats(int death){
+        // Reduces the number of soldiers based on how many died
         this.soldiers -= death;
     }
     /**
