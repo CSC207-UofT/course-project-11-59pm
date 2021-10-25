@@ -1,7 +1,14 @@
 /*Represents the user and it's respective province*/
 package main.java;
 
-public class UserPlayer implements Player {
+public class UserPlayer<Province> implements Player {
+    private Province userProvince;
+    private String userName;
+
+    public UserPlayer(Province userProvince, String userName) {
+        this.userProvince = userProvince;
+        this.userName = userName;
+    }
 
     /**
      * Purchase food, where food is in a ratio of 2:1 with the gold for the population within the province.
