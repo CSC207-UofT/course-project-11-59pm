@@ -1,9 +1,9 @@
 package main.java;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class gameState {
+public class gameState implements Serializable  {
     /* This class is responsible for keeping track of game data, and creating and saving data to a file */
 
     private  String filePathway;
@@ -51,19 +51,19 @@ public class gameState {
     * @param saveInfo ArrayList representing an ArrayList with game data
     * @param filePath String representing the file pathway to a save file
     */
-    private void saveGame(String filePath, ArrayList saveInfo){
-        File outputFile;
-        BufferedWriter outputWriter;
-
-        try {
-            outputFile = new File(filePath);
-            outputWriter = new BufferedWriter(new FileWriter(outputFile));
-            for(int i = 0; i < saveInfo.size(); i++){
-                outputWriter.write(saveInfo.get(i) + "\n");
+    public void saveGame(String filePath, ArrayList saveInfo) throws IOException {
+        ObjectOutputStream oos = null;
+        FileOutputStream fileOutput = null;
+        try{
+            fileOutput = new FileOutputStream(filePath, true);
+            oos = new ObjectOutputStream(fileOutput);
+            oos.writeObject(saveInfo);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if(oos != null){
+                oos.close();
             }
-            outputWriter.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -73,21 +73,25 @@ public class gameState {
     *
     * @param filePath String representing the file pathway to a save file
     */
-    private ArrayList loadGame(String filePath){
-        var saveInfo = new ArrayList<>();
+    public ArrayList loadGame(String filePath) throws IOException {
+        ArrayList<Object> saveList = new ArrayList<Object>();
+        ObjectInputStream objectinputstream = null;
         try {
-            File inputFile = new File(filePath);
-            Scanner inputReader = new Scanner(inputFile);
-
-            while (inputReader.hasNextLine()) {
-                String data = inputReader.nextLine();
-                saveInfo.add(data);
-            }
-        } catch (Exception e) {
+            FileInputStream streamIn = new FileInputStream(filePath);
+            objectinputstream = new ObjectInputStream(streamIn);
+            ArrayList saveInfo = (ArrayList) objectinputstream.readObject();
+            saveList.add(saveInfo);
+            //Testing out list to see if it throws error
+            }catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if(objectinputstream != null){
+                objectinputstream.close();
         }
-        return saveInfo;
     }
+        return saveList;
+    }
+
 
 }
 
