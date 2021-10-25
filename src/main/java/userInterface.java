@@ -17,25 +17,45 @@ public class userInterface {
         return "TODO";
     }
 
-    public String getDecisions(){
+    public String getDecisionsChoice(){
         /* Display choices and Get the choice of the player, and return the choice as a string
         *
         * This function should be called after display decisions so that the UI is clean and makes sense*/
         this.displayText("Please choose your choice (Enter a number, 1-5):");
         String choice = input.nextLine();
         // The following line is how many choices we provide
-        List<String> validChoices = Arrays.asList("1","2","3","4","5");
+        List<String> validChoices = Arrays.asList("1","2","3");
         boolean valid = validChoices.contains(choice);
 
         // This function will loop until it gets a valid input
         while (!valid) {
-            this.displayText("Please enter a valid choice (Enter a number, 1-5)");
+            this.displayText("Please enter a valid choice (Enter a number, 1-3)");
             choice = input.nextLine();
             valid = validChoices.contains(choice);
         }
 
         return choice;
     }
+
+    public String getEventChoice(){
+        /* This even is very simmilar to getDecisions, but it only gets a y/n for events.
+
+        upper or lower case is accepted */
+        this.displayText("Do you want this event y/n?");
+        String choice = input.nextLine();
+        List<String> validChoices = Arrays.asList("y","n","Y","N");
+        boolean valid = validChoices.contains(choice);
+
+        //this function will loop until a valid input is given
+        while (!valid) {
+            this.displayText("Please enter a valid choice (Enter a number, 1-3)");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+
+        return choice;
+    }
+
 
     public void displayText(String Text){
         /*This method will display the decisions or text that is given to it*/
