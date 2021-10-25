@@ -45,63 +45,7 @@ public class Provinces {
     public int getTotalPopulation(){
         return this.civilians + this.soldiers;
     }
-    /**
-    * Purchase food, where food is in a ratio of 2:1 with the gold for the population within the province.
-    * @param desiredFoodUnits is the number of food that a province wants to purchase
-    */
-    public void buyFood(int desiredFoodUnits){
 
-        // check if the province has enough gold -- this.gold > 0.
-        if (this.gold == 0) {
-            // TODO: Need to find a way to print a Exception: NotEnoughMoney
-        // check if the desiredFoodUnits are affordable with the current gold
-        } else if (this.gold - (desiredFoodUnits / 2) < 0){
-              // TODO: Need to find a way to print a Exception: NotEnoughMoney
-        // Otherwise, update food and gold.
-        } else {
-            this.food += (desiredFoodUnits * 2);
-            this.gold -= desiredFoodUnits / 2;
-        }
-    }
-
-    /**
-     * Adds the number of soldiers, where 1:5 with the gold in a province.
-     * @param soldierCount is the number of food that a province wants to purchase
-     */
-    public void enlistSoldiers(int soldierCount){
-
-        // check if the province has enough money
-        if (this.gold == 0) {
-            // TODO: Need to find a way to print a Execption: NotEnoughMoney
-        } else if (this.gold - soldierCount * 5 < 0){
-            // TODO: Need to find a way to print a Execption: NotEnoughMoney
-        } else {
-            this.soldiers += soldierCount;
-            this.gold -= soldierCount * 5;
-        }
-    }
-
-    /**
-     * Trains the number of civilians to soldiers.
-     * @param desiredSoldiers is the number of food that a province wants to purchase
-     */
-    public void trainCivilains(int desiredSoldiers){
-
-        if (this.civilians == 0){
-            // TODO: Need to find a way to print a Execption: NotEnoughMoney
-        } else {
-            this.soldiers += desiredSoldiers;
-            this.civilians -= desiredSoldiers;
-        }
-    }
-
-    /**
-     * Collects the tax from the population of the given province as revenue at the end of each round,
-     * where teh tax is the number of golds.
-     */
-    public void collectTax() {
-        this.gold += ((this.soldiers + this.civilians) * 0.2);
-    }
     /**
      * TODO: WRITE THE DOCUMENTATION!
      */
@@ -143,45 +87,4 @@ public class Provinces {
         this.gold = gold;
     }
 }
-//    private boolean active = true;
-//    private int populationCount;
-//    private int money;// TODO: For now keeping it only to money
-//    private String raja;
-//    private String provinceName;
-//    private boolean IsPlayer = false;
-//
-//    /**
-//     * A new LoginController for the use case defined by the LoginInputBoundary
-//     */
-//    public Provinces(int populationCount, String raja,
-//                     String provinceName, int money){
-//        this.populationCount = populationCount;
-//        this.raja = raja;
-//        this.provinceName = provinceName;
-//        this.money = money;
-//        this.active = true;
-//        this.IsPlayer = false;
-//    }
-//
-//    /** Getter for the populationCount */
-//    public int getPopulationCount() {
-//        return populationCount;
-//    }
-//    /** Getter for the populationCount */
-//    public boolean getAliveStatus(){
-//        return active;
-//    }
-//
-//    /** Getter for the getProvinceName=*/
-//    public String getName(){ return this.provinceName; }
-//
-//    /**
-//     * Changes the stats for the given province by decreasing
-//     * the population within the province
-//     * @param death represents the number of people that died during a Battle
-//     * */
-//    public void changeStats(int death){
-//        this.populationCount -= death;
-//    }
-//
-//}
+
