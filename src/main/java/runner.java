@@ -15,8 +15,17 @@ public class runner {
         // creating a province and player and assign province to player
         controller.runStartPlayer((String) list.get(0), (String) list.get(1));
 
+        // send decision to the ui
+
+        // get decisions from ui to game manager
+
         // create and send the events
         controller.sendEvents(ui);
+
+        // ask user whether they want to participate in battle
+
+        // send answer to game manager
+
         // get answer from ui about event to the game manager
         Decisions d = new Decisions();
         d.displayQuestions();
