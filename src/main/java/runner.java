@@ -12,8 +12,12 @@ public class runner {
     public static void main(String[] args) {
         userInterface ui = userInterface.initializeUI();
         ArrayList list = new ArrayList<>(ui.startPlayer());
+        // creating a province and player and assign province to player
         controller.runStartPlayer((String) list.get(0), (String) list.get(1));
-        controller.sendEvents()
+
+        // create and send the events
+        controller.sendEvents(ui);
+        // get answer from ui about event to the game manager
         Decisions d = new Decisions();
         d.displayQuestions();
     }
