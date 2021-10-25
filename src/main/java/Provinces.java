@@ -21,7 +21,6 @@ public class Provinces {
     private int civilians = 100;
     private int soldiers = 100;
     private int food = 200;
-    private final String raja;
     private final String provinceName;
     private final boolean IsPlayer = false;
     private final boolean active = true;
@@ -29,8 +28,7 @@ public class Provinces {
     /**
     * Constructor
     */
-    public Provinces(String raja, String provinceName, int money, int civilians, int soldier, int food){
-        this.raja = raja;
+    public Provinces(String provinceName, int money, int civilians, int soldier, int food){
         this.provinceName = provinceName;
         this.gold = money;
         this.civilians = civilians;

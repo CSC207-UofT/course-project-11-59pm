@@ -6,6 +6,8 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Random;
 
 public class GameManager {
     /*Constructor: Declares the Variables for the Province Objects and a
@@ -23,24 +25,20 @@ public class GameManager {
         * the user has a choice between the provinces to choose with provinces being good
         * in some attributes and lack in others, that describe the province.
         * (ie: Military: 95, however, Religion: 20) */
-          P1 = new Provinces(100, "Deven",
-                "Bandar", 800);
+          P1 = new Provinces("A", 200, 1000, 200, 800);
 
-          P2 = new Provinces(200, "Saj",
-                "Kela", 500);
+          P2 = new Provinces("B", 200, 1000, 200, 800);
 
-          P3 = new Provinces(400, "Ashwin",
-                "Pahaad", 600);
+          P3 =  new Provinces("C", 200, 1000, 200, 800);
 
-          P4 = new Provinces(500, "Maya",
-                "Vayu", 1000);
+          P4 =  new Provinces("D", 200, 1000, 200, 800);
     }
-    public void startProvince(String name) {
+    public Provinces startProvince(String provinceName) {
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
-         PlayerProvince = new Provinces(200, name,
-                "Zulfein", 800);
+         PlayerProvince = new Provinces(provinceName, 200, 1000, 200, 800);
+         return PlayerProvince;
     }
 
     /*
@@ -64,13 +62,23 @@ public class GameManager {
         gameState currGS = new gameState("", getAllProvinces());
         System.out.println(currGS.getState());
     }
-
     public void StartBattle (Battle battle) {
         /* uses Battle class to begin a battle after the end of the choice selection*/
     }
-    public void PromptEvents (userInterface controller) {
+    public String PromptEvents() {
+        Random rand = new Random();
+        int upperbound = 25;
+        //generate random values from 0-24
+        int int_random = rand.nextInt(upperbound);
+        if (int_random > 20){
+            // create an event
+            // TODO: plz make events for us :c
+            Events events;
+            return events;
+        }
         /* uses Controller to ask the user to select between available game choices*/
     }
+
 
     public void updatePlayer (gameState gamestate, int updated_variables) {
         /* updates player's variables using GameState*/
@@ -88,4 +96,7 @@ public class GameManager {
         return new GameManager();
     }
 
+    public void startPlayer(String name, Provinces province) {
+        UserPlayer player = new UserPlayer(province, name);
+    }
 }

@@ -51,7 +51,7 @@ public class userInterface {
         String provinceName = input.nextLine();
 
         this.displayText(name + ", your province name is " + provinceName);
-        return Arrays.asList(name,provinceName);
+        return Arrays.asList(name, provinceName);
     }
 
     public static userInterface initializeUI() {
