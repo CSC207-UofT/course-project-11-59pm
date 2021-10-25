@@ -10,9 +10,10 @@ import java.util.ArrayList;
 public class runner {
     // Instantiates an API Object to run the program
     public static void main(String[] args) {
-        userInterface ui = controller.runInitializeUI();
+        userInterface ui = userInterface.initializeUI();
         ArrayList list = new ArrayList<>(ui.startPlayer());
         controller.runStartPlayer((String) list.get(0), (String) list.get(1));
+        controller.sendEvents()
         Decisions d = new Decisions();
         d.displayQuestions();
     }

@@ -14,6 +14,10 @@ public class controller {
         //create the province
         Provinces province = gm.startProvince(provinceName);
 
+        // possibility of an event to the player
+        String event = gm.PromptEvents();
+        controller.sendEvents(event);
+
         // create Userplayer and assign province to it
         gm.startPlayer(name, province);
 
@@ -25,11 +29,17 @@ public class controller {
         //start battle
 
     }
-    public static userInterface runInitializeUI() {
-        // Defines a new user interface, in the userInterface class
-        //ui is being defined in the top layer to maintain clean architecture.
-        userInterface ui = userInterface.initializeUI();
-        return ui;
+    public static String sendEvents(String event, userInterface ui){
+
+        //send event to ui
+
+        //get answer back to gamemanager
+    }
+//    public static userInterface runInitializeUI() {
+//        // Defines a new user interface, in the userInterface class
+//        //ui is being defined in the top layer to maintain clean architecture.
+//        userInterface ui = userInterface.initializeUI();
+//        return ui;
     }
 
 

@@ -6,6 +6,8 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Random;
 
 public class GameManager {
     /*Constructor: Declares the Variables for the Province Objects and a
@@ -63,9 +65,20 @@ public class GameManager {
     public void StartBattle (Battle battle) {
         /* uses Battle class to begin a battle after the end of the choice selection*/
     }
-    public void PromptEvents (userInterface controller) {
+    public String PromptEvents() {
+        Random rand = new Random();
+        int upperbound = 25;
+        //generate random values from 0-24
+        int int_random = rand.nextInt(upperbound);
+        if (int_random > 20){
+            // create an event
+            // TODO: plz make events for us :c
+            Events events;
+            return events;
+        }
         /* uses Controller to ask the user to select between available game choices*/
     }
+
 
     public void updatePlayer (gameState gamestate, int updated_variables) {
         /* updates player's variables using GameState*/
@@ -84,6 +97,6 @@ public class GameManager {
     }
 
     public void startPlayer(String name, Provinces province) {
-        UserPlayer player = new UserPlayer();
+        UserPlayer player = new UserPlayer(province, name);
     }
 }
