@@ -83,7 +83,7 @@ public class gameEngine {
             int currentValue = province.getSoldiers();
             int currentValue2 = province.getCivilians();
             province.setSoldiers(currentValue + value);
-            province.setCivilians(currentValue - value);
+            province.setCivilians(currentValue2 - value);
         }
         else if (userDecision == "3"){
             int currentValue = province.getGold();
