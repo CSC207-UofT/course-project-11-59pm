@@ -1,4 +1,4 @@
-/**
+package main.java;/**
  * This file contains the implementation for the
  * Provinces Class.
  * Responsibility: The Province is responsible for representing a
@@ -6,7 +6,7 @@
  *
  **/
 
-package main.java;
+        package main.java;
 
 public class Provinces {
     /**
@@ -26,8 +26,8 @@ public class Provinces {
     private final boolean active = true;
 
     /**
-    * Constructor
-    */
+     * Constructor
+     */
     public Provinces(String provinceName, int money, int civilians, int soldier, int food){
         this.provinceName = provinceName;
         this.gold = money;
@@ -35,13 +35,13 @@ public class Provinces {
         this.soldiers = soldier;
         this.food = food;
 
-    //TODO: Delete the duplicate methods from the UserPlayer class.
+
 
     }
     /**
-    * Get the total number of people in a province. The total population is the sum
+     * Get the total number of people in a province. The total population is the sum
      * of the civilians and soldiers in a province.
-    */
+     */
     public int getTotalPopulation(){
         return this.civilians + this.soldiers;
     }
@@ -49,13 +49,7 @@ public class Provinces {
     /**
      * TODO: WRITE THE DOCUMENTATION!
      */
-    public void changeStats(int death){
-        // Reduces the number of soldiers based on how many died
-        this.soldiers -= death;
-    }
-    /**
-     *  Getters and Setters for the Instance Variables
-     */
+
     public int getCivilians() {
         return civilians;
     }
@@ -88,4 +82,3 @@ public class Provinces {
         this.gold = gold;
     }
 }
-
