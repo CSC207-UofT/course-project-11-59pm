@@ -10,11 +10,11 @@ public class gameState implements Serializable  {
     private ArrayList saveInfo;
 
     /**
-    * This is the constructor for the gameState Class
-    *
-    * @param saveInfo ArrayList repersenting an ArrayList with game data
-    * @param filePathway String repersenting the file pathway to a save file
-    */
+     * This is the constructor for the gameState Class
+     *
+     * @param saveInfo ArrayList repersenting an ArrayList with game data
+     * @param filePathway String repersenting the file pathway to a save file
+     */
     public gameState(String filePathway, ArrayList saveInfo) {
         this.saveInfo = saveInfo;
         this.filePathway = filePathway;
@@ -45,12 +45,12 @@ public class gameState implements Serializable  {
     }
 
     /**
-    * This is the saveGame function. Open and edits a file, that for each line adds one index 
-    * of the ArrayList called saveInfo.
-    *
-    * @param saveInfo ArrayList representing an ArrayList with game data
-    * @param filePath String representing the file pathway to a save file
-    */
+     * This is the saveGame function. Open and edits a file, that for each line adds one index
+     * of the ArrayList called saveInfo.
+     *
+     * @param saveInfo ArrayList representing an ArrayList with game data
+     * @param filePath String representing the file pathway to a save file
+     */
     public void saveGame(String filePath, ArrayList saveInfo) throws IOException {
         ObjectOutputStream oos = null;
         FileOutputStream fileOutput = null;
@@ -68,11 +68,11 @@ public class gameState implements Serializable  {
     }
 
     /**
-    * This is the loadGame function. Opens the save file, that for each line of the file adds one index 
-    * to the ArrayList called saveInfo.
-    *
-    * @param filePath String representing the file pathway to a save file
-    */
+     * This is the loadGame function. Opens the save file, that for each line of the file adds one index
+     * to the ArrayList called saveInfo.
+     *
+     * @param filePath String representing the file pathway to a save file
+     */
     public ArrayList loadGame(String filePath) throws IOException {
         ArrayList<Object> saveList = new ArrayList<Object>();
         ObjectInputStream objectinputstream = null;
@@ -82,16 +82,15 @@ public class gameState implements Serializable  {
             ArrayList saveInfo = (ArrayList) objectinputstream.readObject();
             saveList.add(saveInfo);
             //Testing out list to see if it throws error
-            }catch (Exception e) {
+        }catch (Exception e) {
             e.printStackTrace();
         } finally {
             if(objectinputstream != null){
                 objectinputstream.close();
+            }
         }
-    }
         return saveList;
     }
 
 
 }
-

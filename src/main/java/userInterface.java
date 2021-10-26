@@ -52,7 +52,6 @@ public class userInterface {
             choice = input.nextLine();
             valid = validChoices.contains(choice);
         }
-
         return choice;
     }
 

@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.*;
 
 class Events {
-    /*This class is called on my gameManager to present random events to players.
+    /*This class is called on by gameManager to present random events to players.
      * It alters province resources and player entities
      * It will take input from the controller
      * */
@@ -24,7 +24,7 @@ class Events {
     public static String getEvent(int eventNumber){
         return (String) map.keySet().toArray()[eventNumber];
     }
-    public static String getRandomEvent(){
+    public String getRandomEvent(){
         Random rand = new Random();
         int randomNumber = rand.nextInt(map.size());
         return (String) map.keySet().toArray()[randomNumber];
