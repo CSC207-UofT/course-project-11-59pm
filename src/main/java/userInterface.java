@@ -3,38 +3,39 @@
  * This class also displays anything from other classes
  */
 package main.java;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class userInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
     Scanner input = new Scanner(System.in);
 
-    public String getStatus(){
-        //TODO: decide what this function gets the status of
-        return "TODO";
-    }
-
-    public String getDecisionsChoice(){
-        /* Display choices and Get the choice of the player, and return the choice as a string
+    public ArrayList getDecisionsChoice(int numOfChoices){
+        /** Display choices and Get the choice of the player, and return the choice as a string
+        *
+        * @param numOfChoices the number of choices that the player can make
         *
         * This function should be called after display decisions so that the UI is clean and makes sense*/
-        this.displayText("Please choose your choice (Enter a number, 1-5):");
-        String choice = input.nextLine();
-        // The following line is how many choices we provide
-        List<String> validChoices = Arrays.asList("1","2","3");
-        boolean valid = validChoices.contains(choice);
+        ArrayList choices = new ArrayList();
 
-        // This function will loop until it gets a valid input
-        while (!valid) {
-            this.displayText("Please enter a valid choice (Enter a number, 1-3)");
-            choice = input.nextLine();
-            valid = validChoices.contains(choice);
+        while (numOfChoices > 0){
+            this.displayText("You have " +numOfChoices+ " choice(s) left. Please choose your choice (Enter a number, 1-5):");
+            String choice = input.nextLine();
+            // The following line is how many choices we provide
+            List<String> validChoices = Arrays.asList("1","2","3");
+            boolean valid = validChoices.contains(choice);
+
+            // Loop until a valid input is given
+            while (!valid) {
+                this.displayText("Please enter a valid choice (Enter a number, 1-3)");
+                choice = input.nextLine();
+                valid = validChoices.contains(choice);
+            }
+
+            choices.add(choice);
+            numOfChoices --;
         }
 
-        return choice;
+        return choices;
     }
 
     public String getEventChoice(){
