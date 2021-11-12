@@ -76,6 +76,10 @@ public class Provinces {
         this.gold = gold;
     }
 
+    public String getProvinceName(){
+        return this.provinceName;
+    }
+
     public void setProvinceName(String provinceName){
         this.provinceName = provinceName;
     }

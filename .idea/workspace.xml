@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/userInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/userInterface.java" afterDir="false" />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Merge pull request #48 from CSC207-UofT/newHoward&#10;&#10;New howard">
+      <changelist_data name="Ansh Malhotra" email="67304812+ansh757@users.noreply.github.com" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Provinces.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Provinces.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ProcessValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProcessValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Provinces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Provinces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gameState/gameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gameState/gameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gameState/gameStateElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gameState/gameStateElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gameState/saveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/gameState/saveLoad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +105,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -129,6 +139,7 @@
       <workItem from="1636612577249" duration="235000" />
       <workItem from="1636684754750" duration="1305000" />
       <workItem from="1636686082430" duration="10000" />
+      <workItem from="1636694044143" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -153,6 +164,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive." />

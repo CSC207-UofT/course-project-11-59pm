@@ -1,3 +1,4 @@
+/*
 package com.gameState;
 
 import java.io.FileInputStream;
@@ -9,13 +10,15 @@ import java.util.ArrayList;
 
 public class saveLoad {
     
- /**
+ */
+/**
      * This is the saveGame function. Open and edits a file, that for each line adds one index
      * of the ArrayList called saveInfo.
      *
      * @param saveInfo ArrayList representing an ArrayList with game data
      * @param filePath String representing the file pathway to a save file
-     */
+     *//*
+
     public void saveGame(String filePath, gameState saveInfo) throws IOException {
         ObjectOutputStream oos = null;
         FileOutputStream fileOutput = null;
@@ -32,12 +35,14 @@ public class saveLoad {
         }
     }
 
-    /**
+    */
+/**
      * This is the loadGame function. Opens the save file, that for each line of the file adds one index
      * to the ArrayList called saveInfo.
      *
      * @param filePath String representing the file pathway to a save file
-     */
+     *//*
+
     public gameState loadGame(String filePath) throws IOException {
         gameState saveList = new gameState();
         ObjectInputStream objectinputstream = null;
@@ -61,3 +66,4 @@ public class saveLoad {
 }
 
 
+*/
