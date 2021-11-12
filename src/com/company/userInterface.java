@@ -62,16 +62,13 @@ public class userInterface {
         System.out.println(Text);
     }
 
-    public List<String> startPlayer() {
-        /** This returns an array that includes name and province name */
-        this.displayText("What is your name: "); // ask user for their name
-        String name = input.nextLine();
-
+    public String startPlayer() {
+        /** This returns a string that is the players province name */
         // choosing a name for the province that the player will play as
-        this.displayText(name + ", choose a name for your province:");
+        this.displayText("What is the name of your province?");
         String provinceName = input.nextLine();
 
-        this.displayText(name + ", your province name is " + provinceName);
-        return Arrays.asList(name, provinceName);
+        this.displayText("Your province name is " + provinceName);
+        return provinceName;
     }
 }
