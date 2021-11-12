@@ -1,4 +1,4 @@
-package com.gameState;
+package com.company.gameState;
 
 import java.io.Serializable;
 

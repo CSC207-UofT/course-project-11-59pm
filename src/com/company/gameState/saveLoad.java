@@ -1,4 +1,4 @@
-package com.gameState;
+package com.company.gameState;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -45,7 +45,7 @@ public class saveLoad {
             FileInputStream streamIn = new FileInputStream(filePath);
             objectinputstream = new ObjectInputStream(streamIn);
             gameState saveInfo = (gameState) objectinputstream.readObject();
-            saveList.add(saveInfo);
+            //saveList.add(saveInfo);
             //Testing out list to see if it throws error
         }catch (Exception e) {
             e.printStackTrace();

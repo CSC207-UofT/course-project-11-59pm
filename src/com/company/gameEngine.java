@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class gameEngine {
     private userInterface ui;
@@ -34,7 +31,7 @@ public class gameEngine {
         P4 = new Provinces("D", 200, 1000, 200, 800);
 
         ui = userInterface.initializeUI();
-        ArrayList list = new ArrayList<>(ui.startPlayer());
+        String name = ui.startPlayer();
         decisionList = new Decisions();
         processor = new ProcessValues();
     }
@@ -71,6 +68,8 @@ public class gameEngine {
         System.out.println(PlayerProvince.getGold());
         System.out.println(PlayerProvince.getSoldiers());
         System.out.println(PlayerProvince.getFood());
+
+        // AI takes turns here
 
     }
 }
