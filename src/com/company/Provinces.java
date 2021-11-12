@@ -75,4 +75,8 @@ public class Provinces {
     public void setGold(int gold) {
         this.gold = gold;
     }
+
+    public void setProvinceName(String provinceName){
+        this.provinceName = provinceName;
+    }
 }

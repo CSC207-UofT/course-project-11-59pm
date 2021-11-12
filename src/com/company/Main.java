@@ -1,10 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("sdlfsdh");
-        gameEngine engine = new gameEngine("allah");
+        gameEngine engine = new gameEngine();
         engine.turn();
 
     }

@@ -21,7 +21,7 @@ public class userInterface {
         /* Display choices and Get the choice of the player, and return the choice as a string
          *
          * This function should be called after display decisions so that the UI is clean and makes sense*/
-        this.displayText("Please choose your choice (Enter a number, 1-5):");
+        this.displayText("Please choose your choice (Enter a number, 1-3):");
         String choice = input.nextLine();
         // The following line is how many choices we provide
         List<String> validChoices = Arrays.asList("1","2","3");
@@ -41,7 +41,7 @@ public class userInterface {
         /* This even is very simmilar to getDecisions, but it only gets a y/n for events.
 
         upper or lower case is accepted */
-        this.displayText("Do you want this event y/n?");
+        this.displayText("Do you want this event Y/N?");
         String choice = input.nextLine();
         List<String> validChoices = Arrays.asList("Y","N");
         boolean valid = validChoices.contains(choice);
