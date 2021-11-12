@@ -15,7 +15,7 @@ public class gameEngine {
     private Provinces P4;
     private Provinces PlayerProvince;
 
-    public gameEngine(String provinceName) {
+    public gameEngine() {
         /* Loads the Preset Provinces. Will be changed in the future such that
          * the user has a choice between the provinces to choose with provinces being good
          * in some attributes and lack in others, that describe the province.
@@ -23,7 +23,9 @@ public class gameEngine {
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
+        //TODO take provinceName
 
+        String provinceName = "india";
         PlayerProvince = new Provinces(provinceName, 200, 1000, 200, 800);
         P1 = new Provinces("A", 200, 1000, 200, 800);
 
@@ -34,89 +36,65 @@ public class gameEngine {
         P4 = new Provinces("D", 200, 1000, 200, 800);
 
         ui = userInterface.initializeUI();
+
+        //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
+        //TODO its a design error rn because provinceName is already declared so we have to change the name
+        //TODO below i tried doing it but provinceName is private so we need a setter function
         ArrayList list = new ArrayList<>(ui.startPlayer());
+        this.PlayerProvince.setProvinceName((String) list.get(0));
         decisionList = new Decisions();
         processor = new ProcessValues();
     }
-
+    public void loopGame(){
+        while (!isDeath()){
+            turn();
+        }
+        death();
+    }
 
     public void turn() {
-        System.out.println(PlayerProvince.getCivilians());
-        System.out.println(PlayerProvince.getGold());
-        System.out.println(PlayerProvince.getSoldiers());
-        System.out.println(PlayerProvince.getFood());
+        displayValues();
         //TODO make the three lines into another method
-        decisionList.displayQuestions();
-        String choice = ui.getDecisionsChoice();
-        processor.getUserDecision(choice, PlayerProvince, 50);
+        processDecision();
         /*TODO instead of 50 take the second value that the player inputs*/
-        decisionList.displayQuestions();
-        choice = ui.getDecisionsChoice();
-        processor.getUserDecision(choice, PlayerProvince, 50);
+        processDecision();
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
         if (randomNumber < 2) {
-            decisionList.displayQuestions();
-            choice = ui.getDecisionsChoice();
-            processor.getUserDecision(choice, PlayerProvince, 50);
+            processDecision();
         } else {
             Events event = new Events();
             String eventName = event.getRandomEvent();
             List<Integer> eventValues = event.getValues(eventName);
             ui.displayText(eventName);
-            choice = ui.getEventChoice();
+            String choice = ui.getEventChoice();
             processor.getUserEventDecision(choice, PlayerProvince, eventValues);
         }
-        System.out.println(PlayerProvince.getCivilians());
-        System.out.println(PlayerProvince.getGold());
-        System.out.println(PlayerProvince.getSoldiers());
-        System.out.println(PlayerProvince.getFood());
+    }
 
+    public void processDecision(){
+        decisionList.displayQuestions();
+        String choice = ui.getDecisionsChoice();
+        processor.getUserDecision(choice, PlayerProvince, 50);
+    }
+
+    public void displayValues(){
+        ui.displayText("Civilian value: " + PlayerProvince.getCivilians());
+        ui.displayText("Gold value: " + PlayerProvince.getGold());
+        ui.displayText("Soldier value: " + PlayerProvince.getSoldiers());
+        ui.displayText("Food value: " + PlayerProvince.getFood());
+    }
+    public boolean isDeath(){
+        //TODO make the code less redundant
+        if (PlayerProvince.getCivilians() <= 0 || PlayerProvince.getGold() < 0 || PlayerProvince.getSoldiers() < 0 || PlayerProvince.getFood() < 0){
+            return true;
+        }
+        return false;
+    }
+    public void death(){
+        ui.displayText("You have lost the game!");
+        displayValues();
+        ui.displayText("One of the values have reached zero :( :skull:");
+        //TODO would you like to restart? and have them restart
     }
 }
-
-
-//    public String PromptEvents() {
-//        Random rand = new Random();
-//        int upperbound = 25;
-//        //generate random values from 0-24
-//        int int_random = rand.nextInt(upperbound);
-//        if (int_random > 20){
-//            // create an event
-//            // TODO: plz make events for us :c
-//            Events events;
-//            return events;
-//        }
-//        /* uses Controller to ask the user to select between available game choices*/
-//    }
-
-
-//    public void updatePlayer (gameState gamestate, int updated_variables) {
-//        /* updates player's variables using GameState*/
-//    }
-//
-//    public void updateProvince (gameState gamestate, Provinces province, int updated_variables) {
-//        /* updates a province's variables using GameState*/
-//    }
-//
-//    public void GameStateSaver (gameState gamestate) {
-//        /* uses GameState to save game*/
-//    }
-//
-//    public void loadGameState() {
-//        // update the player and province and all the other stuff
-//        // saved from the previous game state
-//    }
-//
-//    //    public void StartBattle (Battle battle) {
-////        /* uses Battle class to begin a battle after the end of the choice selection*/
-////    }
-//
-//    public static GameManager initializeGM() {
-//        return new GameManager();
-//    }
-//
-//    public void startPlayer(String name, Provinces province) {
-//        UserPlayer player = new UserPlayer(province, name);
-//    }
-//}
