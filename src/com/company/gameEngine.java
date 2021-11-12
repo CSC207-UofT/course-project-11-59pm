@@ -24,7 +24,7 @@ public class gameEngine {
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
         //TODO take provinceName
-        ArrayList list = new ArrayList<>(ui.startPlayer());
+
         String provinceName = "india";
         PlayerProvince = new Provinces(provinceName, 200, 1000, 200, 800);
         P1 = new Provinces("A", 200, 1000, 200, 800);
@@ -40,12 +40,16 @@ public class gameEngine {
         //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
         //TODO its a design error rn because provinceName is already declared so we have to change the name
         //TODO below i tried doing it but provinceName is private so we need a setter function
-//        this.PlayerProvince.setProvinceName((String) list.get(0));
-//        decisionList = new Decisions();
+        ArrayList list = new ArrayList<>(ui.startPlayer());
+        this.PlayerProvince.setProvinceName((String) list.get(0));
+        decisionList = new Decisions();
         processor = new ProcessValues();
     }
     public void loopGame(){
-
+        while (!isDeath()){
+            turn();
+        }
+        death();
     }
 
     public void turn() {
@@ -82,8 +86,17 @@ public class gameEngine {
         ui.displayText("Soldier value: " + PlayerProvince.getSoldiers());
         ui.displayText("Food value: " + PlayerProvince.getFood());
     }
-    public void isDeath(){
+    public boolean isDeath(){
+        //TODO make the code less redundant
+        if (PlayerProvince.getCivilians() <= 0 || PlayerProvince.getGold() < 0 || PlayerProvince.getSoldiers() < 0 || PlayerProvince.getFood() < 0){
+            return true;
+        }
+        return false;
+    }
+    public void death(){
         ui.displayText("You have lost the game!");
+        displayValues();
+        ui.displayText("One of the values have reached zero :( :skull:");
         //TODO would you like to restart? and have them restart
     }
 }

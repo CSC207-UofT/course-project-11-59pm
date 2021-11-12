@@ -38,7 +38,7 @@ public class userInterface {
     }
 
     public String getEventChoice(){
-        /* This even is very simmilar to getDecisions, but it only gets a y/n for events.
+        /* This even is very similar to getDecisions, but it only gets a y/n for events.
 
         upper or lower case is accepted */
         this.displayText("Do you want this event Y/N?");
