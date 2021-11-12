@@ -79,6 +79,7 @@ public class gameEngine {
     }
 
     public void displayValues(){
+        ui.displayText("Values for province: " + PlayerProvince.getProvinceName());
         ui.displayText("Civilian value: " + PlayerProvince.getCivilians());
         ui.displayText("Gold value: " + PlayerProvince.getGold());
         ui.displayText("Soldier value: " + PlayerProvince.getSoldiers());

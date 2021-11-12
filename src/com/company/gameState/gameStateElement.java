@@ -1,3 +1,4 @@
+/*
 package com.gameState;
 
 import java.io.Serializable;
@@ -8,3 +9,4 @@ public class gameStateElement implements Serializable{
     }
 
 }
+*/
