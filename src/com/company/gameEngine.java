@@ -70,8 +70,6 @@ public class gameEngine {
             String choice = ui.getEventChoice();
             processor.getUserEventDecision(choice, PlayerProvince, eventValues);
         }
-        displayValues();
-
     }
 
     public void processDecision(){
