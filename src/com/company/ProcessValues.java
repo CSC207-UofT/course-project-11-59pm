@@ -1,8 +1,7 @@
 package com.company;
 
-import com.company.builder.Province;
+import com.company.ProvinceConstruction.Province;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessValues {
