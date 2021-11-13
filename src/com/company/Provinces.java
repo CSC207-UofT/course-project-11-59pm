@@ -42,6 +42,7 @@ public class Provinces {
 
     /**
      * TODO: WRITE THE DOCUMENTATION!
+     * TODO: Do we need the getters here?
      */
 
     public int getCivilians() {

@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.builder.Province;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,24 +11,24 @@ public class ProcessValues {
 
     }
 
-    public void getUserDecision(String userDecision, Provinces province, int value){
+    public void getUserDecision(String userDecision, Province province, int value){
         if (userDecision.equals("1")){
-            int currentValue = province.getCivilians();
-            int currentValue2 = province.getGold();
-            province.setCivilians(currentValue + value/2);
-            province.setGold(currentValue2 - value);
+            int currentValue = province.getProvinceCivilians();
+            int currentValue2 = province.getProvinceGold();
+            province.setProvinceCivilians(currentValue + value/2);
+            province.setProvinceGold(currentValue2 - value);
         }
         else if (userDecision.equals("2")){
-            int currentValue = province.getSoldiers();
-            int currentValue2 = province.getCivilians();
-            province.setSoldiers(currentValue + value);
-            province.setCivilians(currentValue2 - value);
+            int currentValue = province.getProvinceSoldiers();
+            int currentValue2 = province.getProvinceCivilians();
+            province.setProvinceSoldiers(currentValue + value);
+            province.setProvinceCivilians(currentValue2 - value);
         }
         else if (userDecision.equals("3")){
-            int currentValue = province.getGold();
-            int currentValue2 = province.getCivilians();
-            province.setGold(currentValue + value);
-            province.setCivilians(currentValue2 - value);
+            int currentValue = province.getProvinceGold();
+            int currentValue2 = province.getProvinceCivilians();
+            province.setProvinceGold(currentValue + value);
+            province.setProvinceCivilians(currentValue2 - value);
 
         }
         else {
@@ -35,28 +37,28 @@ public class ProcessValues {
         }
     }
 
-    public void getUserEventDecision(String userDecision, Provinces province, List<Integer> value){
+    public void getUserEventDecision(String userDecision, Province province, List<Integer> value){
         if (userDecision.equals("Y")){
-            int currentValue1 = province.getGold();
-            int currentValue2 = province.getCivilians();
-            int currentValue3 = province.getSoldiers();
-            int currentValue4 = province.getFood();
-            province.setGold(currentValue1 + value.get(0));
-            province.setCivilians(currentValue2 + value.get(1));
-            province.setSoldiers(currentValue3 + value.get(2));
-            province.setFood(currentValue4 + value.get(3));
+            int currentValue1 = province.getProvinceGold();
+            int currentValue2 = province.getProvinceCivilians();
+            int currentValue3 = province.getProvinceSoldiers();
+            int currentValue4 = province.getProvinceFood();
+            province.setProvinceGold(currentValue1 + value.get(0));
+            province.setProvinceCivilians(currentValue2 + value.get(1));
+            province.setProvinceSoldiers(currentValue3 + value.get(2));
+            province.setProvinceFood(currentValue4 + value.get(3));
 
         }
         else if (userDecision.equals("N")){
             System.out.println("why");
-            int currentValue1 = province.getGold();
-            int currentValue2 = province.getCivilians();
-            int currentValue3 = province.getSoldiers();
-            int currentValue4 = province.getFood();
-            province.setGold(currentValue1 - value.get(4));
-            province.setCivilians(currentValue2 - value.get(5));
-            province.setSoldiers(currentValue3 - value.get(6));
-            province.setFood(currentValue4 - value.get(7));
+            int currentValue1 = province.getProvinceGold();
+            int currentValue2 = province.getProvinceCivilians();
+            int currentValue3 = province.getProvinceSoldiers();
+            int currentValue4 = province.getProvinceFood();
+            province.setProvinceGold(currentValue1 - value.get(4));
+            province.setProvinceCivilians(currentValue2 - value.get(5));
+            province.setProvinceSoldiers(currentValue3 - value.get(6));
+            province.setProvinceFood(currentValue4 - value.get(7));
         }
         else{
             System.out.println("This isd foaskjf owajr29034u9234802384");
