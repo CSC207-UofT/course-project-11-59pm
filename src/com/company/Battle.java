@@ -20,8 +20,7 @@ class Battle {
 
     /**
      * Initiates a battle between two provinces object and then starts the battle
-     * between the two provinces through ratios and returns the winner of the game
-     *
+     * between the two provinces through ratios and returns the winner of the battle.
      * @param p1 represents the Object for the Province.
      * @param p2 represents the second Object for the Province.
      */
