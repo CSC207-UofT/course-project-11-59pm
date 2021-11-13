@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Battle.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +28,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="userInterfaceUpdates" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,6 +129,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Main" />
       </list>
@@ -147,6 +152,8 @@
       <workItem from="1636684754750" duration="1305000" />
       <workItem from="1636686082430" duration="10000" />
       <workItem from="1636694044143" duration="268000" />
+      <workItem from="1636836759115" duration="488000" />
+      <workItem from="1636837284313" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -183,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636836575609</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute.">
+      <created>1636837070641</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636837070641</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +225,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Battle.java</url>
-          <line>32</line>
+          <line>4</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
