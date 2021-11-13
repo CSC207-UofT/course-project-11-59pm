@@ -1,4 +1,4 @@
-package com.company.momento;
+package com.company.Snapshots;
 
 import java.util.ArrayList;
 
