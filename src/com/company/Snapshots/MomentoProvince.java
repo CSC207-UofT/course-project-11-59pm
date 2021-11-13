@@ -1,6 +1,6 @@
-package com.company.momento;
+package com.company.Snapshots;
 
-import com.company.builder.ProvinceAssembler;
+import com.company.ProvinceConstruction.ProvinceAssembler;
 
 public class MomentoProvince {
     private ProvinceAssembler pA;
