@@ -84,8 +84,4 @@ public class Provinces {
     public void setProvinceName(String provinceName){
         this.provinceName = provinceName;
     }
-
-    public boolean getStatus(){return this.active;}
-
-    public void setStatus(){this.active = !this.active;}
 }
