@@ -3,6 +3,8 @@ package com.company.builder;
 //TODO: Add Documentation
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class ProvinceBuilder implements ProvinceBuilderLayout {
@@ -27,18 +29,53 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
     @Override
     public void buildProvinceName() {
         ArrayList<String> listOfProvinces = new ArrayList<String>();
-        listOfProvinces.add("a");
-        listOfProvinces.add("b");
-        listOfProvinces.add("c");
-        listOfProvinces.add("d");
+        listOfProvinces.add("Province1");
+        listOfProvinces.add("Province2");
+        listOfProvinces.add("Province3");
+        listOfProvinces.add("Province4");
 
-        Random rand = new Random();
-        int index = rand.nextInt(listOfProvinces.size());
-        String randomName = listOfProvinces.get(index); // 2
+        ArrayList<Integer> listIndexVisited = indexVisited();
 
-        listOfProvinces.remove(index);
-        p.setAiProvinceName(randomName);
+        if (listIndexVisited.contains(getIndex())){
+            int value = getIndex();
+            p.setAiProvinceName(listOfProvinces.get(value));
+        }
+        p.setAiProvinceName(listOfProvinces.get(getIndex()));
+
+
+
+//        ArrayList<Integer> listIndexVisited = indexVisited();
+//        int value1 = getIndex();
+//
+//        if (listIndexVisited.contains(value1)){
+//            value1 = getIndex();
+//            p.setAiProvinceName(listOfProvinces.get(value1));
+//        }
+//        p.setAiProvinceName(listOfProvinces.get(getIndex()));
+//
+//
+
     }
+
+//    private void removeIndex(ArrayList<String> listOfProvinces, ArrayList<Integer> listIndexVisited) {
+//        for(int i: listIndexVisited){
+//            listOfProvinces.remove(i);
+//        }
+//    }
+
+    public ArrayList<Integer> indexVisited(){
+        ArrayList<Integer> listOfIndexVisited = new ArrayList<Integer>();
+        int index = getIndex();
+        listOfIndexVisited.add(index);
+        return listOfIndexVisited;
+    }
+
+    private int getIndex() {
+        Random rand = new Random();
+        int index = rand.nextInt(3);
+        return index;
+    }
+
 
     @Override
     public void buildUserProvinceName(String name) {

@@ -32,44 +32,23 @@ public class gameEngine {
 
         ui = userInterface.initializeUI();
         ArrayList list = new ArrayList<>(ui.startPlayer());
-//        playerProvince.setUserProvinceName((String) list.get(0));
         decisionList = new Decisions();
         processor = new ProcessValues();
+        ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
+        ProvinceAssembler provinceAiAssembler  =  new ProvinceAssembler();
+        ProvinceAssembler provinceUserAssembler  =  new ProvinceAssembler(provinceBuilder1);
 
-        ProvinceBuilder provinceBuilder = new ProvinceBuilder();
-        ProvinceBuilder provinceBuilder2 = new ProvinceBuilder();
-        ProvinceBuilder provinceBuilder3 = new ProvinceBuilder();
-        ProvinceBuilder provinceBuilder4 = new ProvinceBuilder();
+        p1 = provinceAiAssembler.create().get(0);
+        p2 = provinceAiAssembler.create().get(1);
+        p3 = provinceAiAssembler.create().get(2);
+        p4 = provinceAiAssembler.create().get(3);
 
-
-
-
-        ProvinceAssembler provinceAssembler  =  new ProvinceAssembler(provinceBuilder);
-        ProvinceAssembler provinceAssembler2  =  new ProvinceAssembler(provinceBuilder2);
-        ProvinceAssembler provinceAssembler3  =  new ProvinceAssembler(provinceBuilder3);
-        ProvinceAssembler provinceAssembler4  =  new ProvinceAssembler(provinceBuilder4);
-
-
-        provinceAssembler.makeProvince();
-        provinceAssembler2.makeProvince();
-        provinceAssembler3.makeProvince();
-        provinceAssembler4.makeProvince();
-
-
-
-         provinceAssembler.makeUserProvince((String) list.get(0));
-         p1 = provinceAssembler.getAiProvince();
-         p2 = provinceAssembler2.getAiProvince();
-         p3 = provinceAssembler3.getAiProvince();
-         p4 = provinceAssembler4.getAiProvince();
-         playerProvince = provinceAssembler.getUserProvince();
-
+        provinceUserAssembler.makeUserProvince((String) list.get(0));
+        playerProvince = provinceUserAssembler.getUserProvince();
 
         //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
         //TODO its a design error rn because provinceName is already declared so we have to change the name
         //TODO below i tried doing it but provinceName is private so we need a setter function
-
-
     }
     public void loopGame(){
         while (!isDeath()){
