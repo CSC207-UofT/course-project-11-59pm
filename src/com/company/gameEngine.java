@@ -1,19 +1,24 @@
 package com.company;
 
+import com.company.builder.Province;
+import com.company.builder.ProvinceAssembler;
+import com.company.builder.ProvinceBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class gameEngine {
     private userInterface ui;
     private Decisions decisionList;
     private ProcessValues processor;
-    private Provinces P1;
-    private Provinces P2;
-    private Provinces P3;
-    private Provinces P4;
-    private Provinces PlayerProvince;
+    private Province playerProvince;
+    private ProvinceBuilder provinceBuilder;
+    private ProvinceAssembler provinceAssembler;
+    private Province p1;
+    private Province p2;
+    private Province p3;
+    private Province p4;
 
     public gameEngine() {
         /* Loads the Preset Provinces. Will be changed in the future such that
@@ -25,25 +30,25 @@ public class gameEngine {
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
         //TODO take provinceName
 
-        String provinceName = "india";
-        PlayerProvince = new Provinces(provinceName, 200, 1000, 200, 800);
-        P1 = new Provinces("A", 200, 1000, 200, 800);
-
-        P2 = new Provinces("B", 200, 1000, 200, 800);
-
-        P3 = new Provinces("C", 200, 1000, 200, 800);
-
-        P4 = new Provinces("D", 200, 1000, 200, 800);
-
         ui = userInterface.initializeUI();
+        ArrayList list = new ArrayList<>(ui.startPlayer());
+        decisionList = new Decisions();
+        processor = new ProcessValues();
+        ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
+        ProvinceAssembler provinceAiAssembler  =  new ProvinceAssembler();
+        ProvinceAssembler provinceUserAssembler  =  new ProvinceAssembler(provinceBuilder1);
+
+        p1 = provinceAiAssembler.create().get(0);
+        p2 = provinceAiAssembler.create().get(1);
+        p3 = provinceAiAssembler.create().get(2);
+        p4 = provinceAiAssembler.create().get(3);
+
+        provinceUserAssembler.makeUserProvince((String) list.get(0));
+        playerProvince = provinceUserAssembler.getUserProvince();
 
         //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
         //TODO its a design error rn because provinceName is already declared so we have to change the name
         //TODO below i tried doing it but provinceName is private so we need a setter function
-        ArrayList list = new ArrayList<>(ui.startPlayer());
-        this.PlayerProvince.setProvinceName((String) list.get(0));
-        decisionList = new Decisions();
-        processor = new ProcessValues();
     }
     public void loopGame(){
         while (!isDeath()){
@@ -68,26 +73,27 @@ public class gameEngine {
             List<Integer> eventValues = event.getValues(eventName);
             ui.displayText(eventName);
             String choice = ui.getEventChoice();
-            processor.getUserEventDecision(choice, PlayerProvince, eventValues);
+            processor.getUserEventDecision(choice, playerProvince, eventValues);
         }
     }
 
     public void processDecision(){
         decisionList.displayQuestions();
         String choice = ui.getDecisionsChoice();
-        processor.getUserDecision(choice, PlayerProvince, 50);
+        processor.getUserDecision(choice, playerProvince, 50);
     }
 
     public void displayValues(){
-        ui.displayText("Values for province: " + PlayerProvince.getProvinceName());
-        ui.displayText("Civilian value: " + PlayerProvince.getCivilians());
-        ui.displayText("Gold value: " + PlayerProvince.getGold());
-        ui.displayText("Soldier value: " + PlayerProvince.getSoldiers());
-        ui.displayText("Food value: " + PlayerProvince.getFood());
+        ui.displayText("Values for province: " + playerProvince.getUserProvinceName());
+        ui.displayText("Civilian value: " + playerProvince.getProvinceCivilians());
+        ui.displayText("Gold value: " + playerProvince.getProvinceGold());
+        ui.displayText("Soldier value: " + playerProvince.getProvinceSoldiers());
+        ui.displayText("Food value: " + playerProvince.getProvinceFood());
     }
     public boolean isDeath(){
         //TODO make the code less redundant
-        if (PlayerProvince.getCivilians() <= 0 || PlayerProvince.getGold() < 0 || PlayerProvince.getSoldiers() < 0 || PlayerProvince.getFood() < 0){
+        if (playerProvince.getProvinceCivilians() <= 0 || playerProvince.getProvinceGold() < 0
+                || playerProvince.getProvinceSoldiers() < 0 || playerProvince.getProvinceFood() < 0){
             return true;
         }
         return false;
