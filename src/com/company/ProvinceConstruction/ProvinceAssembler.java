@@ -1,44 +1,57 @@
-package com.company.builder;
-
-
+package com.company.ProvinceConstruction;
 import java.util.ArrayList;
+/**
+ * This file contains the implementation for the
+ * ProvincesAssembler Class.
+ * Responsibility: This class is responsible for the creation of the province and assembles
+ * all the other class into a Province with the necessary attributes.
+ **/
 
 public class ProvinceAssembler {
     private ProvinceBuilder provinceBuilder;
 
+    /**
+     * Constructor
+     * @param provinceBuilder: Represents all of built components for a province.
+     * */
     public ProvinceAssembler(ProvinceBuilder provinceBuilder) {
         this.provinceBuilder = provinceBuilder;
-//        reset();
     }
 
+    /**
+     * Constructor
+     * */
     public ProvinceAssembler() {
     }
 
-//    public void reset() {
-//        provinceBuilder.getAiProvince().setAiProvinceName(null);
-//        provinceBuilder.getAiProvince().setProvinceSoldiers(0);
-//        provinceBuilder.getAiProvince().setProvinceCivilians(0);
-//        provinceBuilder.getAiProvince().setProvinceSoldiers(0);
-//        provinceBuilder.getAiProvince().setProvinceFood(0);
-//
-//    }
-
+    /**
+     * Gets the Ai Province
+     * @return: Returns the Ai Province Object
+     */
     public Province getAiProvince(){
         return this.provinceBuilder.getAiProvince();
     }
 
+    /**
+     * Gets the User Province
+     * @return: Returns the User Province Object
+     */
     public Province getUserProvince(){
         return this.provinceBuilder.getUserProvince();
     }
-
+    /**
+     * Assembles all of the components of a province and creates an Ai Province
+     */
     public void makeAiProvince(){
-        this.provinceBuilder.buildProvinceName();
+        this.provinceBuilder.buildAiProvinceName();
         this.provinceBuilder.buildProvinceGold();
         this.provinceBuilder.buildProvinceCivilians();
         this.provinceBuilder.buildProvinceSoldiers();
         this.provinceBuilder.buildProvinceFood();
     }
-
+    /**
+     * Assembles all of the components of a province and creates a User Province
+     */
     public void makeUserProvince(String name){
         this.provinceBuilder.buildUserProvinceName(name);
         this.provinceBuilder.buildProvinceGold();
@@ -47,6 +60,10 @@ public class ProvinceAssembler {
         this.provinceBuilder.buildProvinceFood();
     }
 
+    /**
+     * Creates four Ai Provinces and returns them through an arraylist
+     * @return: Array List of the 4 Ai Provinces
+     */
     public ArrayList<Province> create(){
         ProvinceBuilder provinceBuilder = new ProvinceBuilder();
         ProvinceBuilder provinceBuilder2 = new ProvinceBuilder();
@@ -68,7 +85,7 @@ public class ProvinceAssembler {
         Province p3 = provinceAssembler3.getAiProvince();
         Province p4 = provinceAssembler4.getAiProvince();
 
-        ArrayList<Province> listAiProvinces = new ArrayList<Province>();
+        ArrayList<Province> listAiProvinces = new ArrayList<>();
         listAiProvinces.add(p1);
         listAiProvinces.add(p2);
         listAiProvinces.add(p3);

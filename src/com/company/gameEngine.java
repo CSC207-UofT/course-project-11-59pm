@@ -1,8 +1,8 @@
 package com.company;
 
-import com.company.builder.Province;
-import com.company.builder.ProvinceAssembler;
-import com.company.builder.ProvinceBuilder;
+import com.company.ProvinceConstruction.Province;
+import com.company.ProvinceConstruction.ProvinceAssembler;
+import com.company.ProvinceConstruction.ProvinceBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
