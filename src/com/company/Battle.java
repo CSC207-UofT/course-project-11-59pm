@@ -18,6 +18,7 @@ class Battle {
 
     }
 
+
     /**
      * Initiates a battle between two provinces object and then starts the battle
      * between the two provinces through ratios and returns the winner of the battle.
