@@ -39,6 +39,7 @@ public class Battle {
         System.out.println("The battle round is finished.");
     }
 
+
     /**
      * This function takes in two players and makes them go to battle. The two provinces continue to be in battle
      * unless on of the provinces surrenders when their army count falls below 30% of its original value
