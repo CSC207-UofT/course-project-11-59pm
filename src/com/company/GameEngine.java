@@ -58,7 +58,7 @@ public class GameEngine {
     }
 
     public void turn() {
-        displayValues();
+
         processDecision();
         processDecision();
         Random rand = new Random();
@@ -73,15 +73,11 @@ public class GameEngine {
             String choice = ui.getEventChoice();
             processor.getUserEventDecision(choice, playerProvince, eventValues);
         }
-
+        displayValues(playerProvince);
         for (int i = 0; i < aiProvinces.size(); i++){
             Province currProvince = aiProvinces.get(i);
             aiChoices.makeDecisions(currProvince);
-            ui.displayText("Values for Province " + (i + 1));
-            ui.displayText("Civilian value: " + currProvince.getProvinceCivilians());
-            ui.displayText("Gold value: " + currProvince.getProvinceGold());
-            ui.displayText("Soldier value: " + currProvince.getProvinceSoldiers());
-            ui.displayText("Food value: " + currProvince.getProvinceFood());
+            displayValues(currProvince);
         }
 
     }
@@ -102,12 +98,17 @@ public class GameEngine {
         }
     }
 
-    public void displayValues(){
-        ui.displayText("Values for province: " + playerProvince.getUserProvinceName());
-        ui.displayText("Civilian value: " + playerProvince.getProvinceCivilians());
-        ui.displayText("Gold value: " + playerProvince.getProvinceGold());
-        ui.displayText("Soldier value: " + playerProvince.getProvinceSoldiers());
-        ui.displayText("Food value: " + playerProvince.getProvinceFood());
+    public void displayValues(Province province){
+        if((province.getUserProvinceName() != null)){
+            ui.displayText("Values for province: " + province.getUserProvinceName());
+        }
+        else{
+            ui.displayText("Values for province: " + province.getAiProvinceName());
+        }
+        ui.displayText("Civilian value: " + province.getProvinceCivilians());
+        ui.displayText("Gold value: " + province.getProvinceGold());
+        ui.displayText("Soldier value: " + province.getProvinceSoldiers());
+        ui.displayText("Food value: " + province.getProvinceFood());
     }
     public boolean isDeath(){
         //TODO make the code less redundant
@@ -116,7 +117,7 @@ public class GameEngine {
     }
     public void death(){
         ui.displayText("You have lost the game!");
-        displayValues();
+        displayValues(playerProvince);
         ui.displayText("One of the values have reached zero :( :skull:");
         //TODO would you like to restart? and have them restart
     }

@@ -30,10 +30,6 @@ public class ProcessValues {
             province.setProvinceCivilians(currentValue2 - value);
 
         }
-        else {
-            System.out.println("sdfsdfsdf");
-            //TODO exception in case we need
-        }
     }
 
     public void getUserEventDecision(String userDecision, Province province, List<Integer> value){
@@ -49,7 +45,6 @@ public class ProcessValues {
 
         }
         else if (userDecision.equals("N")){
-            System.out.println("why");
             int currentValue1 = province.getProvinceGold();
             int currentValue2 = province.getProvinceCivilians();
             int currentValue3 = province.getProvinceSoldiers();
@@ -58,10 +53,6 @@ public class ProcessValues {
             province.setProvinceCivilians(currentValue2 - value.get(5));
             province.setProvinceSoldiers(currentValue3 - value.get(6));
             province.setProvinceFood(currentValue4 - value.get(7));
-        }
-        else{
-            System.out.println("This isd foaskjf owajr29034u9234802384");
-            //TODO exception
         }
     }
 }
