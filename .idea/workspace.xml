@@ -4,6 +4,7 @@
     <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,8 +225,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Battle.java</url>
-          <line>4</line>
+          <url>file://$PROJECT_DIR$/src/com/company/battle.java</url>
+          <line>1</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
