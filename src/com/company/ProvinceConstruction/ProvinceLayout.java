@@ -33,4 +33,9 @@ public interface ProvinceLayout {
      * Sets the Food amount for the Province
      */
      void setProvinceFood(int provinceFood);
+
+    /**
+     * Sets the Territory for the Province
+     */
+     void setProvinceTerritory(Province p);
 }
