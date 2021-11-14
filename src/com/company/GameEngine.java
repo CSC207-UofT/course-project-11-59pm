@@ -13,12 +13,8 @@ public class GameEngine {
     private Decisions decisionList;
     private ProcessValues processor;
     private Province playerProvince;
-    private ProvinceBuilder provinceBuilder;
-    private ProvinceAssembler provinceAssembler;
-    private Province p1;
-    private Province p2;
-    private Province p3;
-    private Province p4;
+    private ArrayList<Province> aiProvinces;
+    private AIDecisionMaker aiChoices;
 
     public GameEngine() {
         /* Loads the Preset Provinces. Will be changed in the future such that
@@ -38,10 +34,14 @@ public class GameEngine {
         ProvinceAssembler provinceAiAssembler  =  new ProvinceAssembler();
         ProvinceAssembler provinceUserAssembler  =  new ProvinceAssembler(provinceBuilder1);
 
-        p1 = provinceAiAssembler.create().get(0);
-        p2 = provinceAiAssembler.create().get(1);
-        p3 = provinceAiAssembler.create().get(2);
-        p4 = provinceAiAssembler.create().get(3);
+        aiProvinces = provinceAiAssembler.create();
+
+        aiChoices = new AIDecisionMaker();
+
+//        p1 = ai_provinces.get(0);
+//        p2 = ai_provinces.get(1);
+//        p3 = ai_provinces.get(2);
+//        p4 = ai_provinces.get(3);
 
         provinceUserAssembler.makeUserProvince(name);
         playerProvince = provinceUserAssembler.getUserProvince();
@@ -59,9 +59,7 @@ public class GameEngine {
 
     public void turn() {
         displayValues();
-        //TODO make the three lines into another method
         processDecision();
-        /*TODO instead of 50 take the second value that the player inputs*/
         processDecision();
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
@@ -75,6 +73,17 @@ public class GameEngine {
             String choice = ui.getEventChoice();
             processor.getUserEventDecision(choice, playerProvince, eventValues);
         }
+
+        for (int i = 0; i < aiProvinces.size(); i++){
+            Province currProvince = aiProvinces.get(i);
+            aiChoices.makeDecisions(currProvince);
+            ui.displayText("Values for Province " + (i + 1));
+            ui.displayText("Civilian value: " + currProvince.getProvinceCivilians());
+            ui.displayText("Gold value: " + currProvince.getProvinceGold());
+            ui.displayText("Soldier value: " + currProvince.getProvinceSoldiers());
+            ui.displayText("Food value: " + currProvince.getProvinceFood());
+        }
+
     }
 
     public void processDecision(){
@@ -102,11 +111,8 @@ public class GameEngine {
     }
     public boolean isDeath(){
         //TODO make the code less redundant
-        if (playerProvince.getProvinceCivilians() <= 0 || playerProvince.getProvinceGold() < 0
-                || playerProvince.getProvinceSoldiers() < 0 || playerProvince.getProvinceFood() < 0){
-            return true;
-        }
-        return false;
+        return playerProvince.getProvinceCivilians() <= 0 || playerProvince.getProvinceGold() < 0
+                || playerProvince.getProvinceSoldiers() < 0 || playerProvince.getProvinceFood() < 0;
     }
     public void death(){
         ui.displayText("You have lost the game!");
