@@ -17,6 +17,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     private final Province aiProvince;
     private final Province userProvince;
+    private static ArrayList<Integer> listIndexVisited = new ArrayList<Integer>();
 
     /*
     Constructor
@@ -39,25 +40,22 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
         listOfProvinces.add("Province2");
         listOfProvinces.add("Province3");
         listOfProvinces.add("Province4");
+        int randomInt = indexVisited();
+        aiProvince.setAiProvinceName(listOfProvinces.get(randomInt));
 
-        ArrayList<Integer> listIndexVisited = indexVisited();
-
-        if (listIndexVisited.contains(getIndex())){
-            int value = getIndex();
-            aiProvince.setAiProvinceName(listOfProvinces.get(value));
-        }
-        aiProvince.setAiProvinceName(listOfProvinces.get(getIndex()));
     }
 
     /*
      * Keeps Track of the index visited within buildAiProvinceName to avoid
      * assigning the same name to two provinces
      */
-    public ArrayList<Integer> indexVisited(){
-        ArrayList<Integer> listOfIndexVisited = new ArrayList<>();
-        int index = getIndex();
-        listOfIndexVisited.add(index);
-        return listOfIndexVisited;
+    public int indexVisited(){
+        int randomIndex = getIndex();
+        while(listIndexVisited.contains(randomIndex)) {
+            randomIndex = getIndex();
+        }
+        listIndexVisited.add(randomIndex);
+        return randomIndex;
     }
 
     /*
@@ -65,7 +63,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     private int getIndex() {
         Random rand = new Random();
-        return rand.nextInt(3);
+        return rand.nextInt(4);
     }
 
     /**
