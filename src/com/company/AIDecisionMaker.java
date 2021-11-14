@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.ProvinceConstruction.Province;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class AIDecisionMaker {
         return choices;
     }
 
-    public void makeDecisions(Provinces province){
+    public void makeDecisions(Province province){
         /** This is the basis of the AI. The ai uses the random numbers from getDecisions
          * to change the values of each province.
          *
