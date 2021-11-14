@@ -17,54 +17,64 @@ public class AIDecisionMaker {
     }
 
     public List<String> getDecisions(){
-        /** Generate 3 random numbers which represents the choice the given user made.
+        /** Generate 1 random number which represents the choice the given user made.
          * Currently randomized.
+         *
+         * MAY UP TO TWO LATER, HENCE LIST
          */
         Random rand = new Random();
-        int choice;
+        int choice = rand.nextInt(4);
         List<String> choices = new ArrayList<String>();
 
-        for (int i = 0; i < 3; i++){
-             choice = rand.nextInt(4);
-
-             if (choice == 0){
-                 choices.add("1");
-             }
-
-             else if (choice == 1){
-                 choices.add("2");
-             }
-
-             else {
-                 choices.add("3");
-             }
+        for (int i = 0; i < 3; i++) {
+            choice = rand.nextInt(4);
+            if (choice == 0) {
+                choices.add("1");
+            } else if (choice == 1) {
+                choices.add("2");
+            } else {
+                choices.add("3");
+            }
         }
+//        for (int i = 0; i < 3; i++){
+//             choice = rand.nextInt(4);
+//
+//             if (choice == 0){
+//                 choices.add("1");
+//             }
+//
+//             else if (choice == 1){
+//                 choices.add("2");
+//             }
+//
+//             else {
+//                 choices.add("3");
+//             }
+//        }
 
         return choices;
     }
 
     public List<String> getDecisions(List<Integer> skews){
-        /** Generate 3 numbers which represents the choice the given user made.
+        /** Generate 1 number which represents the choice the given user made.
          * This method allows for the decisions to be skewed, meaning that one decision is favored over another
          */
         Random rand = new Random();
         int choice;
         List<String> choices = new ArrayList<String>();
 
-        for (int i = 0; i < 3; i++){
-            choice = rand.nextInt(100);
+        choice = rand.nextInt(100);
 
-            if (choice <= skews.get(0)){
-                choices.add("1");
-            }
+        if (choice <= skews.get(0)){
+            choices.add("1");
+        }
 
-            else if (choice <= skews.get(1)){
-                choices.add("2");
-            }
+        else if (choice <= skews.get(1)){
+            choices.add("2");
+        }
 
-            else {
-                choices.add("3");
-            }
+        else {
+            choices.add("3");
         }
 
         return choices;
