@@ -6,19 +6,19 @@ public class OriginatorProvince {
     private ProvinceAssembler pA;
 
     /**
-     * Creates MomentoProvince Object given a ProvinceAssembler Object
-     * @return new Momento Province Object
+     * Creates MementoProvince Object given a ProvinceAssembler Object
+     * @return new Memento Province Object
      */
-    public MomentoProvince createMomentoProvinces(){
-        return new MomentoProvince(pA);
+    public MementoProvince createMementoProvinces(){
+        return new MementoProvince(pA);
     }
 
     /**
-     * Given a MomentoProvince sets an Object given a ProvinceAssembler Object
-     * @return new MomentoProvince Object
+     * Given a MementoProvince sets an Object given a ProvinceAssembler Object.
+     * @return new MementoProvince Object.
      */
 
-    public void setMomentoProvinces(MomentoProvince mp){
+    public void setMementoProvinces(MementoProvince mp){
         pA = mp.getProvince();
     }
 

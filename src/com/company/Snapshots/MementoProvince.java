@@ -2,14 +2,14 @@ package com.company.Snapshots;
 
 import com.company.ProvinceConstruction.ProvinceAssembler;
 
-public class MomentoProvince {
+public class MementoProvince {
     private ProvinceAssembler pA;
 
     /**
      * Constructor that sets the ProvinceAssembler.
-     * @param pA represents a ProvinceAssembler Object
+     * @param pA represents a ProvinceAssembler Object.
      */
-    public MomentoProvince(ProvinceAssembler pA) {
+    public MementoProvince(ProvinceAssembler pA) {
         super();
         this.pA = pA;
     }
