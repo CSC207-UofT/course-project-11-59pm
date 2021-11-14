@@ -1,9 +1,12 @@
 package com.company.ProvinceConstruction;
+
+import java.util.ArrayList;
+
 /**
  * This file contains the implementation for the
- * Provinces Class.
+ * Province Class.
  * Responsibility: The Province is responsible for representing a
- * Provinces Object that contains the attribute within a Province.
+ * Province Object that contains the attribute within a Province.
  *
  **/
 
@@ -24,6 +27,9 @@ public class Province implements ProvinceLayout {
     private int provinceCivilians;
     private int provinceSoldiers;
     private int provinceFood;
+    private ArrayList<Province> provincesCaptured;
+
+
 
     /**
      * Constructor
@@ -131,5 +137,13 @@ public class Province implements ProvinceLayout {
      */
     public int getProvinceFood() {
         return provinceFood;
+    }
+
+    public ArrayList<Province> getProvincesCaptured() {
+        return provincesCaptured;
+    }
+
+    public void setProvincesCaptured(ArrayList<Province> provincesCaptured) {
+        this.provincesCaptured = provincesCaptured;
     }
 }

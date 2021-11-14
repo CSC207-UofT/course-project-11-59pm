@@ -20,7 +20,7 @@ public class Provinces {
     private int soldiers;
     private int food;
     private String provinceName;
-    private boolean active = true;
+    private final boolean active = true;
 
     /**
      * Constructor
