@@ -5,34 +5,34 @@ import java.util.ArrayList;
 public class CaretakerProvince {
     /**
      * Instance Variables:
-     * listOfMomentoProvinces: An ArrayList of to store the MomentoProvinces Objects
+     * listOfMementoProvinces: An ArrayList of to store the MementoProvinces Objects
      */
-    private ArrayList<MomentoProvince> listOfMomentoProvinces = new ArrayList<>();
+    private ArrayList<MementoProvince> listOfMementoProvinces = new ArrayList<>();
 
     /**
-     * Adds the given MomentoProvince Object to the ArrayList.
-     * @param mp represents a given MomentoProvince Object
+     * Adds the given MementoProvince Object to the ArrayList.
+     * @param mp represents a given MementoProvince Object
      */
-    public void addMomentoProvince(MomentoProvince mp){
-        listOfMomentoProvinces.add(mp);
+    public void addMementoProvince(MementoProvince mp){
+        listOfMementoProvinces.add(mp);
     }
 
     /**
      *
-     * @param lowerBound represents the minimum bound on the MomentoProvince elements required.
-     * @param upperBound represents the maximum bound on the Momento Objects elements required.
+     * @param lowerBound represents the minimum bound of the MementoProvince elements required.
+     * @param upperBound represents the maximum bound of the Memento Objects elements required.
      */
-    public ArrayList<MomentoProvince> getMomentoProvince(int lowerBound, int upperBound){
-        int sizeOf = listOfMomentoProvinces.size();
-        ArrayList<MomentoProvince> newListOfMomentoProvinces = new ArrayList<MomentoProvince>();
+    public ArrayList<MementoProvince> getMementoProvince(int lowerBound, int upperBound){
+        int sizeOf = listOfMementoProvinces.size();
+        ArrayList<MementoProvince> newListOfMementoProvinces = new ArrayList<MementoProvince>();
         if (lowerBound < sizeOf){
             while (lowerBound != upperBound){
-                MomentoProvince target = this.listOfMomentoProvinces.get(lowerBound);
-                newListOfMomentoProvinces.add(target);
+                MementoProvince target = this.listOfMementoProvinces.get(lowerBound);
+                newListOfMementoProvinces.add(target);
                 lowerBound += 1;
             }
-        return newListOfMomentoProvinces;
+            return newListOfMementoProvinces;
         } else {
             return null;} //TODO: Need to add an exception
-        }
+    }
 }
