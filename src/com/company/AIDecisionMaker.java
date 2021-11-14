@@ -1,3 +1,8 @@
+/**
+ *
+ * This file is the basis and computation of the AI used in the game
+ *
+ * */
 package com.company;
 
 import com.company.ProvinceConstruction.Province;
@@ -79,7 +84,7 @@ public class AIDecisionMaker {
         }
     }
 
-    public void makeDecisions(Province province, int modifier){
+    public void makeDecisions(Province province, int modifier, List<Integer> skews){
         /**This is the basis of the AI. The ai uses the random numbers from getDecisions
          * to change the values of each province.
          *
@@ -87,7 +92,7 @@ public class AIDecisionMaker {
          * @param modifier The value that a province attribute will be modified by
          */
         ProcessValues processor = new ProcessValues();
-        List<String> choices = getDecisions();
+        List<String> choices = getDecisions(skews);
 
         for (String choice : choices) {
             processor.getUserDecision(choice, province, modifier);

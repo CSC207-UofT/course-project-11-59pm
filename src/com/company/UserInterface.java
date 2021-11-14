@@ -1,14 +1,16 @@
-/** This class is responsible for taking user inputs for the choice of event
+/**
+ *
+ * This class is responsible for taking user inputs for the choice of event
  * and translating them to other use Case Classes.
  * This class also displays anything from other classes
+ *
  */
 package com.company;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
-public class userInterface {
+public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
     Scanner input = new Scanner(System.in);
 
@@ -106,8 +108,8 @@ public class userInterface {
         return provinceName;
     }
 
-    public static userInterface initializeUI() {
-        userInterface ui = new userInterface();
+    public static UserInterface initializeUI() {
+        UserInterface ui = new UserInterface();
         return ui;
     }
 }

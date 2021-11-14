@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute.">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated AIDecisionMakerTest to test getDecisions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Snapshots/OriginatorProvince.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Snapshots/OriginatorProvince.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/battle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/gameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/userInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +110,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="Application.Battle">
+  <component name="RunManager" selected="JUnit.AIDecisionMakerTest">
     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Battle" />
       <module name="1159 pm" />
@@ -128,8 +134,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AIDecisionMakerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="1159 pm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AIDecisionMakerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AIDecisionMakerTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Battle" />
         <item itemvalue="Application.Battle" />
@@ -198,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636837070641</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updated AIDecisionMakerTest to test getDecisions">
+      <created>1636861183955</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636861183955</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,13 +242,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive." />
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
-    <option name="LAST_COMMIT_MESSAGE" value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
+    <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated AIDecisionMakerTest to test getDecisions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/battle.java</url>
+          <url>file://$PROJECT_DIR$/src/com/company/Battle.java</url>
           <line>1</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>

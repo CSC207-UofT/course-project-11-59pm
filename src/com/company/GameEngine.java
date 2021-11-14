@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class gameEngine {
-    private userInterface ui;
+public class GameEngine {
+    private UserInterface ui;
     private Decisions decisionList;
     private ProcessValues processor;
     private Province playerProvince;
@@ -20,7 +20,7 @@ public class gameEngine {
     private Province p3;
     private Province p4;
 
-    public gameEngine() {
+    public GameEngine() {
         /* Loads the Preset Provinces. Will be changed in the future such that
          * the user has a choice between the provinces to choose with provinces being good
          * in some attributes and lack in others, that describe the province.
@@ -30,8 +30,8 @@ public class gameEngine {
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
         //TODO take provinceName
 
-        ui = userInterface.initializeUI();
-        ArrayList list = new ArrayList<>(ui.startPlayer());
+        ui = UserInterface.initializeUI();
+        String name= ui.startPlayer();
         decisionList = new Decisions();
         processor = new ProcessValues();
         ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
@@ -43,7 +43,7 @@ public class gameEngine {
         p3 = provinceAiAssembler.create().get(2);
         p4 = provinceAiAssembler.create().get(3);
 
-        provinceUserAssembler.makeUserProvince((String) list.get(0));
+        provinceUserAssembler.makeUserProvince(name);
         playerProvince = provinceUserAssembler.getUserProvince();
 
         //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
