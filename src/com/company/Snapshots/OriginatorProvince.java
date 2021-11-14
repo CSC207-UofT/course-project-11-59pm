@@ -1,6 +1,5 @@
 package com.company.Snapshots;
 
-import com.company.builder.Province;
 import com.company.ProvinceConstruction.ProvinceAssembler;
 
 public class OriginatorProvince {
