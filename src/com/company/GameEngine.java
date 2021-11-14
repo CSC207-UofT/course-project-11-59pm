@@ -80,7 +80,17 @@ public class GameEngine {
     public void processDecision(){
         decisionList.displayQuestions();
         String choice = ui.getDecisionsChoice();
-        processor.getUserDecision(choice, playerProvince, 50);
+        int max = ui.getDecisionValues(choice, returnMaximumValue(choice));
+        processor.getUserDecision(choice, playerProvince, max);
+    }
+
+    public int returnMaximumValue(String choice){
+        if (choice.equals("1")){
+            return playerProvince.getProvinceGold();
+        }
+        else{
+            return playerProvince.getProvinceCivilians();
+        }
     }
 
     public void displayValues(){
