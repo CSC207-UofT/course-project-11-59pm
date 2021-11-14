@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated AIDecisionMakerTest to test getDecisions">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="fixed bugs and implemented the option to enter values for each decision">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ProcessValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProcessValues.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +164,8 @@
       <workItem from="1636694044143" duration="268000" />
       <workItem from="1636836759115" duration="488000" />
       <workItem from="1636837284313" duration="45000" />
-      <workItem from="1636868004389" duration="1612000" />
+      <workItem from="1636868004389" duration="1979000" />
+      <workItem from="1636925041259" duration="1029000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -215,7 +216,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636861183955</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed bugs and implemented the option to enter values for each decision">
+      <created>1636870571952</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636870571952</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fixed bugs and implemented the option to enter values for each decision">
+      <created>1636870687384</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636870687384</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +252,8 @@
     <MESSAGE value="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive." />
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated AIDecisionMakerTest to test getDecisions" />
+    <MESSAGE value="fixed bugs and implemented the option to enter values for each decision" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and implemented the option to enter values for each decision" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
