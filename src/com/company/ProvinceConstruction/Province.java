@@ -89,7 +89,7 @@ public class Province implements ProvinceLayout {
      */
     @Override
     public void setProvinceFood(int provinceFood) {
-        this.provinceFood = provinceGold;
+        this.provinceFood = provinceFood;
     }
 
     /**

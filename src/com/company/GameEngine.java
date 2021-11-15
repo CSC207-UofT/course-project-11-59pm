@@ -25,6 +25,7 @@ public class GameEngine {
     private AIDecisionMaker aiChoices;
     private OriginatorProvince origProvince;
     private CaretakerProvince ctProvince;
+    private Battle battleGenerator;
 
     public GameEngine() throws IOException {
         /* Loads the Preset Provinces. Will be changed in the future such that
@@ -50,6 +51,7 @@ public class GameEngine {
         String name = (String) list.get(1);
         decisionList = new Decisions();
         processor = new ProcessValues();
+        battleGenerator = new Battle();
         ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
         ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
         ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
@@ -89,7 +91,9 @@ public class GameEngine {
             processEvent();
         }
         aiTurn();
-        prevProvinceState();
+        battle_option();
+
+        //prevProvinceState();
     }
 
     public List<Integer> processEvent() {
@@ -176,11 +180,33 @@ public class GameEngine {
         //TODO would you like to restart? and have them restart
     }
 
+    public void battle_option() {
+        boolean battle = ui.beginBattle();
+
+        List<String> provinces = new ArrayList<>();
+
+        if (battle) {
+            for (Province province: aiProvinces){
+                if (province.getStatus()){
+                    provinces.add(province.getAiProvinceName());
+                }
+            }
+        }
+        String enemy = ui.selectOpponent(provinces);
+        System.out.println(enemy);
+        for (Province province: aiProvinces){
+            if (province.getAiProvinceName().equals(enemy)){
+                String winner = battleGenerator.startsBattle(playerProvince, province);
+                ui.displayText("The winner of the battle is " + winner);
+            }
+        }
+    }
+
     private ArrayList<Province> listOfPrevProvincesStates() {
         // send the province state to the Originator
         origProvince.setProvince(playerProvince);
 
-        // Create a mememto Object from the given state.
+        // Create a memento Object from the given state.
         MementoProvince mp = origProvince.createMementoProvinces();
 
         // send to the CareTackerProvince
@@ -193,7 +219,7 @@ public class GameEngine {
         // send the province state to the Originator
         origProvince.setProvince(playerProvince);
 
-        // Create a mememto Object from the given state.
+        // Create a memento Object from the given state.
         MementoProvince mp = origProvince.createMementoProvinces();
 
         // send to the CareTackerProvince
