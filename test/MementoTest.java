@@ -46,7 +46,8 @@ public class MementoTest {
         ctProvince.addMementoProvince(mp);
 
         // return the prev state Province Object
-        //return origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
+        assert(ctProvince.getPrevMementoProvince().getProvince().getProvinceCivilians()
+                == playerProvince.getProvinceCivilians());
         }
 }
 
