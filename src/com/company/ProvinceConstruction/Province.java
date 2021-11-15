@@ -28,6 +28,7 @@ public class Province implements ProvinceLayout {
     private int provinceSoldiers;
     private int provinceFood;
     private ArrayList<Province> provincesCaptured;
+    private boolean active = true;
 
 
 
@@ -139,8 +140,31 @@ public class Province implements ProvinceLayout {
         return provinceFood;
     }
 
+    public boolean getStatus(){
+        return active;
+    }
+
     public ArrayList<Province> getProvincesCaptured() {
         return provincesCaptured;
+    }
+
+    public int returnMaximumValue(String choice){
+        if (choice.equals("1")){
+            return getProvinceGold();
+        }
+        else{
+            return getProvinceCivilians();
+        }
+    }
+
+    public boolean isDeath(){
+        //TODO make the code less redundant
+        return getProvinceCivilians() <= 0 || getProvinceGold() < 0
+                || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
+    }
+
+    public void die(){
+        this.active = false;
     }
 
     public void setProvincesCaptured(ArrayList<Province> provincesCaptured) {

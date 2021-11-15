@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated AIDecisionMakerTest to test getDecisions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProcessValues.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProcessValues.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/AIDecisionMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/AIDecisionMaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProcessValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProcessValues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

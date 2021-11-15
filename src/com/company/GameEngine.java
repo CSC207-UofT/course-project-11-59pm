@@ -51,7 +51,7 @@ public class GameEngine {
         //TODO below i tried doing it but provinceName is private so we need a setter function
     }
     public void loopGame(){
-        while (!isDeath()){
+        while (!playerProvince.isDeath()){
             turn();
         }
         death();
@@ -76,8 +76,14 @@ public class GameEngine {
         displayValues(playerProvince);
         for (int i = 0; i < aiProvinces.size(); i++){
             Province currProvince = aiProvinces.get(i);
-            aiChoices.makeDecisions(currProvince);
-            displayValues(currProvince);
+            if (currProvince.getStatus()){
+                aiChoices.makeDecisions(currProvince);
+                displayValues(currProvince);
+                if (currProvince.isDeath()){
+                    provinceDeath(currProvince);
+                }
+            }
+
         }
 
     }
@@ -85,18 +91,10 @@ public class GameEngine {
     public void processDecision(){
         decisionList.displayQuestions();
         String choice = ui.getDecisionsChoice();
-        int max = ui.getDecisionValues(choice, returnMaximumValue(choice));
+        int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
         processor.getUserDecision(choice, playerProvince, max);
     }
 
-    public int returnMaximumValue(String choice){
-        if (choice.equals("1")){
-            return playerProvince.getProvinceGold();
-        }
-        else{
-            return playerProvince.getProvinceCivilians();
-        }
-    }
 
     public void displayValues(Province province){
         if((province.getUserProvinceName() != null)){
@@ -110,10 +108,11 @@ public class GameEngine {
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
         ui.displayText("Food value: " + province.getProvinceFood());
     }
-    public boolean isDeath(){
-        //TODO make the code less redundant
-        return playerProvince.getProvinceCivilians() <= 0 || playerProvince.getProvinceGold() < 0
-                || playerProvince.getProvinceSoldiers() < 0 || playerProvince.getProvinceFood() < 0;
+
+
+    public void provinceDeath(Province province){
+        ui.displayText(province.getAiProvinceName() + " is dead");
+        province.die();
     }
     public void death(){
         ui.displayText("You have lost the game!");

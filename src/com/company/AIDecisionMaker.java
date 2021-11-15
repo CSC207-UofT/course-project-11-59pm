@@ -7,6 +7,7 @@ package com.company;
 
 import com.company.ProvinceConstruction.Province;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class AIDecisionMaker {
          * MAY UP TO TWO LATER, HENCE LIST
          */
         Random rand = new Random();
-        int choice = rand.nextInt(4);
+        int choice;
         List<String> choices = new ArrayList<String>();
 
         for (int i = 0; i < 3; i++) {
@@ -89,9 +90,12 @@ public class AIDecisionMaker {
         ProcessValues processor = new ProcessValues();
         List<String> choices = getDecisions();
 
+
         for (String choice : choices) {
-            processor.getUserDecision(choice, province, 50);
+            processor.getUserDecision(choice, province, province.returnMaximumValue(choice) / 2);
         }
+        List<Integer> value = randomizeAiEvent();
+        processor.getUserEventDecision("Y", province, value);
     }
 
     public void makeDecisions(Province province, int modifier, List<Integer> skews){
@@ -107,5 +111,20 @@ public class AIDecisionMaker {
         for (String choice : choices) {
             processor.getUserDecision(choice, province, modifier);
         }
+        List<Integer> value = randomizeAiEvent();
+        processor.getUserEventDecision("Y", province, value);
+    }
+
+    public List randomizeAiEvent(){
+        List<Integer> randList = new ArrayList<>();
+        int counter = 0;
+        Random rand = new Random();
+        int randInt;
+        while(counter < 4){
+            randInt = (-3 + rand.nextInt(6)) * 10;
+            randList.add(randInt);
+            counter++;
+        }
+        return randList;
     }
 }
