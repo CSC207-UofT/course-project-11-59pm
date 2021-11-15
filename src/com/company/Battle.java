@@ -8,6 +8,7 @@ import java.util.*;
 
 public class Battle {
     private ProvinceAssembler provinceAssembler;
+    private ProvinceBuilder provinceBuilder;
 
     public Battle(ProvinceAssembler provinceAssembler) {
         this.provinceAssembler = provinceAssembler;
@@ -66,6 +67,10 @@ public class Battle {
         return provinceAssembler.create();
     }
 
+    /**
+     * This function will return either null or one province that is willing to go into battle with the UserProvince
+     * @return
+     */
     public Province optForBattle(){
         ArrayList<Province> provinceArrayList = getProvinces();
         ArrayList<Integer> intBattle = new ArrayList<>();
