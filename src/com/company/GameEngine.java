@@ -22,7 +22,7 @@ public class GameEngine {
     private OriginatorProvince origProvince;
     private CaretakerProvince ctProvince;
 
-    public GameEngine() {
+    public GameEngine() throws IOException{
         /* Loads the Preset Provinces. Will be changed in the future such that
          * the user has a choice between the provinces to choose with provinces being good
          * in some attributes and lack in others, that describe the province.
@@ -33,7 +33,17 @@ public class GameEngine {
         //TODO take provinceName
 
         ui = UserInterface.initializeUI();
-        String name = ui.startPlayer();
+        Boolean saveBool = ui.askLoad();
+        ArrayList<Object> list;
+        if (saveBool) {
+            list = new ArrayList<Object>(loadPoint(ui.getFilePathLoad()));
+            ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+        } else{
+            list = new ArrayList<Object>(ui.startPlayer());
+            savePoint(list, ui.getFilePathSave());
+        }
+
+        String name = (String) list.get(1);
         decisionList = new Decisions();
         processor = new ProcessValues();
         ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
@@ -135,6 +145,18 @@ public class GameEngine {
         ui.displayText("Gold value: " + province.getProvinceGold());
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
         ui.displayText("Food value: " + province.getProvinceFood());
+    }
+  
+    private void savePoint(ArrayList list, String filePathSave) throws IOException {
+        ui.displayText("Saving Game...");
+        gameState gs = new gameState(list);
+        saveLoad.saveGame(filePathSave, gs);
+        ui.displayText("Game State Saved");
+    }
+
+    private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
+        ui.displayText("Loading Game State...");
+        return saveLoad.loadGame(filePathLoad).getSaveState();
     }
 
 
