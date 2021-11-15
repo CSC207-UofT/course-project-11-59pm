@@ -133,4 +133,41 @@ public class UserInterface {
         UserInterface ui = new UserInterface();
         return ui;
     }
+    
+    public Boolean askLoad(){
+        this.displayText("Would you like to load a previous save?(Y/N): ");
+        String ans = input.nextLine();
+        if (ans.equals("Y")){
+            return true;
+        }
+        return false;
+    }
+
+    public String getFilePathLoad(){
+        this.displayText("Please paste the file path of where the folder containing save.ser save file is");
+        String ans = input.nextLine();
+        if (ans.endsWith("/") || ans.endsWith("\\") )
+        {
+            ans = ans + "save.ser";
+        }
+        else {
+            ans = ans + "/save.ser";
+        }
+
+        return ans;
+    }
+
+    public String getFilePathSave(){
+        this.displayText("Please paste the file path of folder of where you would like to save file to be");
+        String ans = input.nextLine();
+        if (ans.endsWith("/") || ans.endsWith("\\") )
+        {
+            ans = ans + "save.ser";
+        }
+        else{
+            ans = ans + "/save.ser";
+        }
+
+        return ans;
+    }
 }
