@@ -3,7 +3,11 @@ package com.company;
 import com.company.ProvinceConstruction.Province;
 import com.company.ProvinceConstruction.ProvinceAssembler;
 import com.company.ProvinceConstruction.ProvinceBuilder;
+import com.company.Snapshots.CaretakerProvince;
+import com.company.Snapshots.MementoProvince;
+import com.company.Snapshots.OriginatorProvince;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,8 +19,10 @@ public class GameEngine {
     private Province playerProvince;
     private ArrayList<Province> aiProvinces;
     private AIDecisionMaker aiChoices;
+    private OriginatorProvince origProvince;
+    private CaretakerProvince ctProvince;
 
-    public GameEngine() {
+    public GameEngine() throws IOException{
         /* Loads the Preset Provinces. Will be changed in the future such that
          * the user has a choice between the provinces to choose with provinces being good
          * in some attributes and lack in others, that describe the province.
@@ -25,24 +31,24 @@ public class GameEngine {
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
         //TODO take provinceName
-        
-        ui = userInterface.initializeUI();
+
+        ui = UserInterface.initializeUI();
         Boolean saveBool = ui.askLoad();
-        ArrayList list;
+        ArrayList<Object> list;
         if (saveBool) {
-             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
-             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+            list = new ArrayList<Object>(loadPoint(ui.getFilePathLoad()));
+            ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
-            list = new ArrayList<>(ui.startPlayer());
+            list = new ArrayList<Object>(ui.startPlayer());
             savePoint(list, ui.getFilePathSave());
         }
 
-        String name= list.get(1);
+        String name = (String) list.get(1);
         decisionList = new Decisions();
         processor = new ProcessValues();
         ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
-        ProvinceAssembler provinceAiAssembler  =  new ProvinceAssembler();
-        ProvinceAssembler provinceUserAssembler  =  new ProvinceAssembler(provinceBuilder1);
+        ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
+        ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
 
         aiProvinces = provinceAiAssembler.create();
 
@@ -60,8 +66,9 @@ public class GameEngine {
         //TODO its a design error rn because provinceName is already declared so we have to change the name
         //TODO below i tried doing it but provinceName is private so we need a setter function
     }
-    public void loopGame(){
-        while (!playerProvince.isDeath()){
+
+    public void loopGame() {
+        while (!playerProvince.isDeath()) {
             turn();
         }
         death();
@@ -78,9 +85,10 @@ public class GameEngine {
             processEvent();
         }
         aiTurn();
+        prevProvinceState();
     }
 
-    public List<Integer> processEvent(){
+    public List<Integer> processEvent() {
         Events event = new Events();
         String eventName = event.getRandomEvent();
         List<Integer> eventValues = event.getValues(eventName);
@@ -91,21 +99,21 @@ public class GameEngine {
     }
 
 
-    public void processDecision(){
+    public void processDecision() {
         decisionList.displayQuestions();
         String choice = ui.getDecisionsChoice();
         int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
         processor.getUserDecision(choice, playerProvince, max);
     }
 
-    public void aiTurn(){
+    public void aiTurn() {
         displayValues(playerProvince);
-        for (int i = 0; i < aiProvinces.size(); i++){
+        for (int i = 0; i < aiProvinces.size(); i++) {
             Province currProvince = aiProvinces.get(i);
-            if (currProvince.getStatus()){
+            if (currProvince.getStatus()) {
                 aiChoices.makeDecisions(currProvince);
                 displayValues(currProvince);
-                if (currProvince.isDeath()){
+                if (currProvince.isDeath()) {
                     provinceDeath(currProvince);
                 }
             }
@@ -113,11 +121,10 @@ public class GameEngine {
     }
 
 
-    public void displayValues(Province province){
-        if((province.getUserProvinceName() != null)){
+    public void displayValues(Province province) {
+        if ((province.getUserProvinceName() != null)) {
             ui.displayText("Values for province: " + province.getUserProvinceName());
-        }
-        else{
+        } else {
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
@@ -126,13 +133,12 @@ public class GameEngine {
         ui.displayText("Food value: " + province.getProvinceFood());
     }
 
-    public void displayEventValues(Province province, List eventValues){
+    public void displayEventValues(Province province, List eventValues) {
         //TODO so basically i want to say civilian value = old value + eventValue = new value
         //TODO must use memento to keep track of what the value was before the value changes
-        if((province.getUserProvinceName() != null)){
+        if ((province.getUserProvinceName() != null)) {
             ui.displayText("Values for province: " + province.getUserProvinceName());
-        }
-        else{
+        } else {
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
@@ -140,19 +146,7 @@ public class GameEngine {
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
         ui.displayText("Food value: " + province.getProvinceFood());
     }
-
-
-    public void provinceDeath(Province province){
-        ui.displayText(province.getAiProvinceName() + " is dead");
-        province.die();
-    }
-    public void death(){
-        ui.displayText("You have lost the game!");
-        displayValues(playerProvince);
-        ui.displayText("One of the values have reached zero :( :skull:");
-        //TODO would you like to restart? and have them restart
-    }
-    
+  
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
         ui.displayText("Saving Game...");
         gameState gs = new gameState(list);
@@ -163,5 +157,45 @@ public class GameEngine {
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
         ui.displayText("Loading Game State...");
         return saveLoad.loadGame(filePathLoad).getSaveState();
+    }
+
+
+    public void provinceDeath(Province province) {
+        ui.displayText(province.getAiProvinceName() + " is dead");
+        province.die();
+    }
+
+    public void death() {
+        ui.displayText("You have lost the game!");
+        displayValues(playerProvince);
+        ui.displayText("One of the values have reached zero :( :skull:");
+        //TODO would you like to restart? and have them restart
+    }
+
+    private ArrayList<Province> listOfPrevProvincesStates() {
+        // send the province state to the Originator
+        origProvince.setProvince(playerProvince);
+
+        // Create a mememto Object from the given state.
+        MementoProvince mp = origProvince.createMementoProvinces();
+
+        // send to the CareTackerProvince
+        ctProvince.addMementoProvince(mp);
+        ArrayList<MementoProvince> ctP = ctProvince.getListMementoProvince(2, 3);
+        return origProvince.setMementoProvinces(ctP);
+    }
+
+    private Province prevProvinceState() {
+        // send the province state to the Originator
+        origProvince.setProvince(playerProvince);
+
+        // Create a mememto Object from the given state.
+        MementoProvince mp = origProvince.createMementoProvinces();
+
+        // send to the CareTackerProvince
+        ctProvince.addMementoProvince(mp);
+
+        // return the prev state Province Object
+        return origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
     }
 }
