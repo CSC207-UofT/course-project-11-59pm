@@ -140,7 +140,7 @@ public class UserInterface {
     public Boolean askLoad(){
         this.displayText("Would you like to load a previous save?(Y/N): ");
         String ans = input.nextLine();
-        if (ans.equals("Y")){
+        if (ans.equals("Y") || ans.equals("y")){
             return true;
         }
         return false;
