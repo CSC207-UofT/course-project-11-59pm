@@ -152,4 +152,16 @@ public class GameEngine {
         ui.displayText("One of the values have reached zero :( :skull:");
         //TODO would you like to restart? and have them restart
     }
+    
+    private void savePoint(ArrayList list, String filePathSave) throws IOException {
+        ui.displayText("Saving Game...");
+        gameState gs = new gameState(list);
+        saveLoad.saveGame(filePathSave, gs);
+        ui.displayText("Game State Saved");
+    }
+
+    private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
+        ui.displayText("Loading Game State...");
+        return saveLoad.loadGame(filePathLoad).getSaveState();
+    }
 }
