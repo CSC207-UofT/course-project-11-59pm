@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="pushing battle test.">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated user inteface with a new method that asks if the user would like to battle.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,21 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636936487868</updated>
     </task>
-    <task id="LOCAL-00010" summary="pushing battle test.">
-      <created>1636947103167</created>
+    <task id="LOCAL-00010" summary="Updated user inteface with a new method that asks if the user would like to battle.">
+      <created>1636945289297</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1636947103167</updated>
+      <updated>1636945289297</updated>
     </task>
-    <task id="LOCAL-00011" summary="pushing battle test.">
-      <created>1636947111528</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1636947111528</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +251,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="newUserInterfaces" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -267,8 +275,8 @@
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
-    <MESSAGE value="pushing battle test." />
-    <option name="LAST_COMMIT_MESSAGE" value="pushing battle test." />
+    <MESSAGE value="Updated user inteface with a new method that asks if the user would like to battle." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated user inteface with a new method that asks if the user would like to battle." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
