@@ -41,7 +41,9 @@ public class UserInterface {
          *                 money gain for civilians.
          */
         String choice = null;
+        boolean intAsStr = true;
         boolean isValid = false;
+        List<String> validChoices = Arrays.asList("1","2","3","4","5","6","7","8","9","0");
 
         while (!isValid){
             if (decision.equals("1")){
@@ -61,8 +63,21 @@ public class UserInterface {
                 choice = input.nextLine();
             }
 
+            String[] checks = choice.split("");
+
+            for (String curr: checks){
+                if (!validChoices.contains(curr)){
+                    intAsStr = false;
+                    break;
+                }
+                intAsStr = true;
+            }
+
             // check if given input is valid
-            if (Integer.parseInt(choice) > maximum){
+            if (!intAsStr){
+                displayText("Your input is not valid! Enter a number:");
+            }
+            else if (Integer.parseInt(choice) > maximum){
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
 
