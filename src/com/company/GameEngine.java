@@ -7,10 +7,14 @@ import com.company.Snapshots.CaretakerProvince;
 import com.company.Snapshots.MementoProvince;
 import com.company.Snapshots.OriginatorProvince;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.company.gameState.gameState;
+import com.company.gameState.saveLoad;
 
 public class GameEngine {
     private UserInterface ui;
@@ -22,7 +26,7 @@ public class GameEngine {
     private OriginatorProvince origProvince;
     private CaretakerProvince ctProvince;
 
-    public GameEngine() throws IOException{
+    public GameEngine() throws IOException {
         /* Loads the Preset Provinces. Will be changed in the future such that
          * the user has a choice between the provinces to choose with provinces being good
          * in some attributes and lack in others, that describe the province.
@@ -79,7 +83,7 @@ public class GameEngine {
         displayEventValues(playerProvince, processEvent());
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
-        if (randomNumber < 2) {
+        if (randomNumber < 6) {
             processDecision();
         } else {
             processEvent();
