@@ -25,9 +25,19 @@ public class GameEngine {
         // of their Province.
         // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
         //TODO take provinceName
+        
+        ui = userInterface.initializeUI();
+        Boolean saveBool = ui.askLoad();
+        ArrayList list;
+        if (saveBool) {
+             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
+             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+        } else{
+            list = new ArrayList<>(ui.startPlayer());
+            savePoint(list, ui.getFilePathSave());
+        }
 
-        ui = UserInterface.initializeUI();
-        String name= ui.startPlayer();
+        String name= list.get(1);
         decisionList = new Decisions();
         processor = new ProcessValues();
         ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
