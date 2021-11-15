@@ -39,6 +39,8 @@ public class GameEngine {
         ui = UserInterface.initializeUI();
         Boolean saveBool = ui.askLoad();
         ArrayList<Object> list;
+        // Sample input for windows filePath: C:\Users\YOURUSERNAME\Desktop
+        // Sample input for macOs filePath: /Users/username/Desktop
         if (saveBool) {
             list = new ArrayList<Object>(loadPoint(ui.getFilePathLoad()));
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
@@ -161,6 +163,7 @@ public class GameEngine {
     }
   
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
+        // Creates a save file for the current gameState 
         ui.displayText("Saving Game...");
         gameState gs = new gameState(list);
         saveLoad.saveGame(filePathSave, gs);
@@ -168,6 +171,7 @@ public class GameEngine {
     }
 
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
+        // Loads the save.ser file for the current gameState 
         ui.displayText("Loading Game State...");
         return saveLoad.loadGame(filePathLoad).getSaveState();
     }
