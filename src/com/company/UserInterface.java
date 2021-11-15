@@ -99,7 +99,7 @@ public class UserInterface {
         System.out.println(Text);
     }
 
-    public String startPlayer() {
+    public List startPlayer() {
         this.displayText("What is your name: "); // ask user for their name
         String name = input.nextLine();
 
