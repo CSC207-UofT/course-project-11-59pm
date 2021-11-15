@@ -1,27 +1,28 @@
 package com.company.Snapshots;
 
-import com.company.ProvinceConstruction.ProvinceAssembler;
+import com.company.ProvinceConstruction.Province;
 
 public class MementoProvince {
-    private ProvinceAssembler pA;
+    private Province pA;
 
     /**
      * Constructor that sets the ProvinceAssembler.
      * @param pA represents a ProvinceAssembler Object.
      */
-    public MementoProvince(ProvinceAssembler pA) {
+    public MementoProvince(Province pA) {
         super();
         this.pA = pA;
     }
 
     /**
      * Getters and Setters
+     *
      */
-    public ProvinceAssembler getProvince() {
+    public Province getProvince() {
         return this.pA;
     }
 
-    public void setProvince(ProvinceAssembler p) {
+    public void setProvince(Province p) {
         this.pA = p;
     }
 
