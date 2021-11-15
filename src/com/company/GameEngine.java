@@ -66,6 +66,10 @@ public class GameEngine {
         provinceUserAssembler.makeUserProvince(name);
         playerProvince = provinceUserAssembler.getUserProvince();
 
+        // this will take care of memento
+        origProvince = new OriginatorProvince();
+        ctProvince = new CaretakerProvince();
+
         //TODO startPlayer returns a tuple with [name, provinceName] however these are not saved
         //TODO its a design error rn because provinceName is already declared so we have to change the name
         //TODO below i tried doing it but provinceName is private so we need a setter function
@@ -79,6 +83,7 @@ public class GameEngine {
     }
 
     public void turn() {
+        prevProvinceState();
         displayEventValues(playerProvince, processEvent());
         displayEventValues(playerProvince, processEvent());
         Random rand = new Random();
@@ -89,7 +94,7 @@ public class GameEngine {
             processEvent();
         }
         aiTurn();
-        prevProvinceState();
+        //prevProvinceState();
     }
 
     public List<Integer> processEvent() {
@@ -145,6 +150,10 @@ public class GameEngine {
         } else {
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
+        // this text takes into account the previous memento, but i am unsure of how to use it
+       // ui.displayText("Civilian value: " + ctProvince.getPrevMementoProvince().getProvince().getProvinceCivilians()
+        //        + "- 1 = " + province.getProvinceCivilians());
+
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
         ui.displayText("Gold value: " + province.getProvinceGold());
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
@@ -191,6 +200,7 @@ public class GameEngine {
 
     private Province prevProvinceState() {
         // send the province state to the Originator
+
         origProvince.setProvince(playerProvince);
 
         // Create a mememto Object from the given state.

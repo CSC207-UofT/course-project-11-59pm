@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated user inteface with a new method that asks if the user would like to battle.">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting before pull.">
+      <change afterPath="$PROJECT_DIR$/test/MementoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/gameStateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/gameStateTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,13 +147,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MementoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="1159 pm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MementoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MementoTest" />
         <item itemvalue="Application.Battle" />
         <item itemvalue="JUnit.AIDecisionMakerTest" />
         <item itemvalue="Application.Battle" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +304,20 @@
           <line>1</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/MementoTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
