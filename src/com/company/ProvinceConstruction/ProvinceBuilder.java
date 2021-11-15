@@ -17,7 +17,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     private final Province aiProvince;
     private final Province userProvince;
-    private static ArrayList<Integer> listIndexVisited = new ArrayList<Integer>();
+    private static final ArrayList<Integer> listIndexVisited = new ArrayList<>();
 
     /*
     Constructor
