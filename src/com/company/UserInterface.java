@@ -81,7 +81,7 @@ public class UserInterface {
         upper or lower case is accepted */
         this.displayText("Do you want this event Y/N?");
         String choice = input.nextLine();
-        List<String> validChoices = Arrays.asList("Y","N");
+        List<String> validChoices = Arrays.asList("Y","N","y","n");
         boolean valid = validChoices.contains(choice);
 
         //this function will loop until a valid input is given
@@ -106,6 +106,27 @@ public class UserInterface {
 
         this.displayText("Your province name is " + provinceName);
         return provinceName;
+    }
+
+    public boolean beginBattle() {
+        // A method that asks the user if the want to battle, and returns a boolean based on answer
+        this.displayText("Would you like to battle? Y/N:");
+        String choice = input.nextLine();
+        List<String> validChoices = Arrays.asList("Y","N","y","n");
+        boolean valid = validChoices.contains(choice);
+
+        //this function will loop until a valid input is given
+        while (!valid) {
+            this.displayText("Please enter a valid choice (Enter Y/N)");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+
+        if (choice.equals("n") || choice.equals("N")){
+            return false;
+        }
+
+        return true;
     }
 
     public static UserInterface initializeUI() {
