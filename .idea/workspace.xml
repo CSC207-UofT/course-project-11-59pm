@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated AIDecisionMakerTest to test getDecisions">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="i literally did everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/AIDecisionMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/AIDecisionMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/AIDecisionMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Events.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +168,7 @@
       <workItem from="1636837284313" duration="45000" />
       <workItem from="1636868004389" duration="1612000" />
       <workItem from="1636926794947" duration="4293000" />
+      <workItem from="1636936050868" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -220,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636861183955</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="i literally did everything">
+      <created>1636935376012</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636935376012</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +248,8 @@
     <MESSAGE value="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive." />
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated AIDecisionMakerTest to test getDecisions" />
+    <MESSAGE value="i literally did everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="i literally did everything" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

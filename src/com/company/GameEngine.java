@@ -58,21 +58,37 @@ public class GameEngine {
     }
 
     public void turn() {
-
-        processDecision();
-        processDecision();
+        displayEventValues(playerProvince, processEvent());
+        displayEventValues(playerProvince, processEvent());
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
         if (randomNumber < 2) {
             processDecision();
         } else {
-            Events event = new Events();
-            String eventName = event.getRandomEvent();
-            List<Integer> eventValues = event.getValues(eventName);
-            ui.displayText(eventName);
-            String choice = ui.getEventChoice();
-            processor.getUserEventDecision(choice, playerProvince, eventValues);
+            processEvent();
         }
+        aiTurn();
+    }
+
+    public List<Integer> processEvent(){
+        Events event = new Events();
+        String eventName = event.getRandomEvent();
+        List<Integer> eventValues = event.getValues(eventName);
+        ui.displayText(eventName);
+        String choice = ui.getEventChoice();
+        processor.getUserEventDecision(choice, playerProvince, eventValues);
+        return eventValues;
+    }
+
+
+    public void processDecision(){
+        decisionList.displayQuestions();
+        String choice = ui.getDecisionsChoice();
+        int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
+        processor.getUserDecision(choice, playerProvince, max);
+    }
+
+    public void aiTurn(){
         displayValues(playerProvince);
         for (int i = 0; i < aiProvinces.size(); i++){
             Province currProvince = aiProvinces.get(i);
@@ -83,20 +99,26 @@ public class GameEngine {
                     provinceDeath(currProvince);
                 }
             }
-
         }
-
-    }
-
-    public void processDecision(){
-        decisionList.displayQuestions();
-        String choice = ui.getDecisionsChoice();
-        int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
-        processor.getUserDecision(choice, playerProvince, max);
     }
 
 
     public void displayValues(Province province){
+        if((province.getUserProvinceName() != null)){
+            ui.displayText("Values for province: " + province.getUserProvinceName());
+        }
+        else{
+            ui.displayText("Values for province: " + province.getAiProvinceName());
+        }
+        ui.displayText("Civilian value: " + province.getProvinceCivilians());
+        ui.displayText("Gold value: " + province.getProvinceGold());
+        ui.displayText("Soldier value: " + province.getProvinceSoldiers());
+        ui.displayText("Food value: " + province.getProvinceFood());
+    }
+
+    public void displayEventValues(Province province, List eventValues){
+        //TODO so basically i want to say civilian value = old value + eventValue = new value
+        //TODO must use memento to keep track of what the value was before the value changes
         if((province.getUserProvinceName() != null)){
             ui.displayText("Values for province: " + province.getUserProvinceName());
         }
