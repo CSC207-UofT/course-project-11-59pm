@@ -188,7 +188,7 @@ public class Province implements ProvinceLayout {
     }
 
     /**
-     * Sets the provinces captured by another province
+     * Sets the provinces captured by another province.
      * @param provincesCaptured: ArrayList with Provinces that were captured.
      */
     public void setProvincesCaptured(ArrayList<Province> provincesCaptured) {
