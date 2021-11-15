@@ -140,14 +140,28 @@ public class Province implements ProvinceLayout {
         return provinceFood;
     }
 
+    /**
+     * Checks to see whether the Province is alive or not
+     * @return True or False whether the province is alive or dead
+     */
     public boolean getStatus(){
         return active;
     }
 
+    /**
+     * Returns all the provinces that were captured
+     * @return: ArrayList of provinces that were captured by a Province.
+     */
     public ArrayList<Province> getProvincesCaptured() {
         return provincesCaptured;
     }
 
+    /**
+     * Returns the Gold or Civilians corresponding to the Province based on the
+     * user choice
+     * @param choice : Choice made by the user
+     * @return Gold amount or Civilian count for the Province.
+     */
     public int returnMaximumValue(String choice){
         if (choice.equals("1")){
             return getProvinceGold();
@@ -157,16 +171,26 @@ public class Province implements ProvinceLayout {
         }
     }
 
+    /**
+     * If the value of any attribute dips to 0 or below, the province is announced dead
+     * @return True if Gold, Civilians, Soldiers or Food dips to 0 or below.
+     */
     public boolean isDeath(){
-        //TODO make the code less redundant
         return getProvinceCivilians() <= 0 || getProvinceGold() < 0
                 || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
     }
 
+    /**
+     * Announces the province dead.
+     */
     public void die(){
         this.active = false;
     }
 
+    /**
+     * Sets the provinces captured by another province
+     * @param provincesCaptured: ArrayList with Provinces that were captured.
+     */
     public void setProvincesCaptured(ArrayList<Province> provincesCaptured) {
         this.provincesCaptured = provincesCaptured;
     }
