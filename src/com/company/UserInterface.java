@@ -100,12 +100,15 @@ public class UserInterface {
     }
 
     public String startPlayer() {
+        this.displayText("What is your name: "); // ask user for their name
+        String name = input.nextLine();
+
         // choosing a name for the province that the player will play as
-        this.displayText("Please choose a name for your province:");
+        this.displayText(name + ", choose a name for your province:");
         String provinceName = input.nextLine();
 
-        this.displayText("Your province name is " + provinceName);
-        return provinceName;
+        this.displayText(name + ", your province name is " + provinceName);
+        return Arrays.asList(name, provinceName);
     }
 
     public boolean beginBattle() {
