@@ -36,8 +36,6 @@ public class GameEngine {
          * (ie: Military: 95, however, Religion: 20) */
         // Gets the Name of the raja and then assigns that player to be the King
         // of their Province.
-        // NOTE: We are presetting the province for the user *ONLY FOR PHASE 0*
-        //TODO take provinceName
 
         ui = UserInterface.initializeUI();
         Boolean saveBool = ui.askLoad();

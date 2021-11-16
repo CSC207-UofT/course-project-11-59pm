@@ -1,5 +1,7 @@
-
 package com.company.UI;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 /**
@@ -180,24 +182,24 @@ public class UserInterface {
         return ans.equalsIgnoreCase("Y");
     }
 
-
-        public String getFilePathLoad(){
-        this.displayText("Please paste the file path of where the folder containing save.ser save file is");
-        String ans = input.nextLine();
-        if (ans.endsWith("/") || ans.endsWith("\\") )
-        {
-            ans = ans + "save.ser";
-        }
-        else {
-            ans = ans + "/save.ser";
-        }
-
-        return ans;
+    public String getFilePathLoad(){
+        this.displayText("Please paste the file path of where the folder containing save.ser save file is (Type 'default' for default filePath)");
+        return getFile();
     }
 
     public String getFilePathSave(){
-        this.displayText("Please paste the file path of folder of where you would like to save file to be");
+        this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
+        return getFile();
+    }
+
+    private String getFile() {
         String ans = input.nextLine();
+        if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
+            Path resourceDirectory = Paths.get("src");
+            String filePath = resourceDirectory.toFile().getAbsolutePath();
+            ans = filePath;
+        }
+
         if (ans.endsWith("/") || ans.endsWith("\\") )
         {
             ans = ans + "save.ser";

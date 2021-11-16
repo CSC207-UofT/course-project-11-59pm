@@ -14,7 +14,6 @@ public class SaveLoad {
 /**
      * This is the saveGame function. Open and edits a file, that for each line adds one index
      * of the ArrayList called saveInfo.
-     *
      * @param saveInfo ArrayList representing an ArrayList with game data
      * @param filePath String representing the file pathway to a save file
      */
