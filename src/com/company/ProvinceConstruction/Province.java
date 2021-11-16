@@ -27,10 +27,7 @@ public class Province implements ProvinceLayout {
     private int provinceCivilians;
     private int provinceSoldiers;
     private int provinceFood;
-    private ArrayList<Province> provincesCaptured;
     private boolean active = true;
-
-
 
     /**
      * Constructor
@@ -89,7 +86,7 @@ public class Province implements ProvinceLayout {
      */
     @Override
     public void setProvinceFood(int provinceFood) {
-        this.provinceFood = provinceGold;
+        this.provinceFood = provinceFood;
     }
 
     /**
@@ -149,14 +146,6 @@ public class Province implements ProvinceLayout {
     }
 
     /**
-     * Returns all the provinces that were captured
-     * @return: ArrayList of provinces that were captured by a Province.
-     */
-    public ArrayList<Province> getProvincesCaptured() {
-        return provincesCaptured;
-    }
-
-    /**
      * Returns the Gold or Civilians corresponding to the Province based on the
      * user choice
      * @param choice : Choice made by the user
@@ -185,13 +174,5 @@ public class Province implements ProvinceLayout {
      */
     public void die(){
         this.active = false;
-    }
-
-    /**
-     * Sets the provinces captured by another province.
-     * @param provincesCaptured: ArrayList with Provinces that were captured.
-     */
-    public void setProvincesCaptured(ArrayList<Province> provincesCaptured) {
-        this.provincesCaptured = provincesCaptured;
     }
 }

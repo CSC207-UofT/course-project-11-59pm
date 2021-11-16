@@ -23,10 +23,10 @@ public class CaretakerProvince {
      */
     public ArrayList<MementoProvince> getListMementoProvince(int lowerBound, int upperBound){
         int sizeOf = listOfMementoProvinces.size();
-        ArrayList<MementoProvince> newListOfMementoProvinces = new ArrayList<MementoProvince>();
+        ArrayList<MementoProvince> newListOfMementoProvinces = new ArrayList<>();
         if (lowerBound < sizeOf){
-            while (lowerBound != upperBound){
-                MementoProvince target = this.listOfMementoProvinces.get(lowerBound);
+            while (lowerBound < upperBound){
+                MementoProvince target = listOfMementoProvinces.get(lowerBound);
                 newListOfMementoProvinces.add(target);
                 lowerBound += 1;
             }
@@ -39,5 +39,10 @@ public class CaretakerProvince {
      */
     public MementoProvince getPrevMementoProvince(){
         return listOfMementoProvinces.get(0);
+    }
+
+
+    public ArrayList<MementoProvince> getListOfMementoProvinces() {
+        return listOfMementoProvinces;
     }
 }
