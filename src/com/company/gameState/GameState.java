@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class GameState implements Iterable, Serializable{
     private final ArrayList<Object> saveState;
 
-    public gameState(ArrayList<Object> saveState) {
+    public GameState(ArrayList<Object> saveState) {
         this.saveState = saveState;
     }
 /**
