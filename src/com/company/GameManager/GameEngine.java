@@ -15,8 +15,8 @@ import java.util.Random;
 import com.company.UI.UserInterface;
 import com.company.UseCases.Battle;
 import com.company.UseCases.ProcessValues;
-import com.company.gameState.gameState;
-import com.company.gameState.saveLoad;
+import com.company.GameState.GameState;
+import com.company.GameState.SaveLoad;
 
 public class GameEngine {
     private final UserInterface ui;
@@ -158,17 +158,17 @@ public class GameEngine {
     }
 
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
-        // Creates a save file for the current gameState 
+        // Creates a save file for the current GameState 
         ui.displayText("Saving Game...");
-        gameState gs = new gameState(list);
-        saveLoad.saveGame(filePathSave, gs);
+        GameState gs = new GameState(list);
+        SaveLoad.saveGame(filePathSave, gs);
         ui.displayText("Game State Saved");
     }
 
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
-        // Loads the save.ser file for the current gameState 
+        // Loads the save.ser file for the current GameState 
         ui.displayText("Loading Game State...");
-        return saveLoad.loadGame(filePathLoad).getSaveState();
+        return SaveLoad.loadGame(filePathLoad).getSaveState();
     }
 
 
