@@ -1,6 +1,6 @@
 
-import  com.company.gameState.saveLoad;
-import  com.company.gameState.gameState;
+import  com.company.gameState.SaveLoad;
+import  com.company.gameState.GameState;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -14,7 +14,7 @@ import org.junit.*;
  *
  */
 
-public class gameStateTest {
+public class GameStateTest {
     @Before
     public void setUp() {
 
@@ -39,7 +39,7 @@ public class gameStateTest {
         list.add("test2");
         list.add("test3");
 
-        gameState gs = new gameState(list);
+        GameState gs = new GameState(list);
 
 
         Path resourceDirectory = Paths.get("src");
@@ -53,9 +53,9 @@ public class gameStateTest {
             filePath = filePath + "/test.ser";
         }
 
-        saveLoad.saveGame(filePath, gs);
+        SaveLoad.saveGame(filePath, gs);
 
-        gameState gs2 = saveLoad.loadGame(filePath);
+        GameState gs2 = SaveLoad.loadGame(filePath);
 
         ArrayList<Object> newList = gs2.getSaveState();
 
@@ -71,7 +71,7 @@ public class gameStateTest {
     @Test
     public void gameStateSizeTest() {
         ArrayList<Object> list = new ArrayList<>();
-        gameState gs = new gameState(list);
+        GameState gs = new GameState(list);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");
@@ -84,7 +84,7 @@ public class gameStateTest {
     @Test
     public void gameStateSaveListTest() {
         ArrayList<Object> list1 = new ArrayList<>();
-        gameState gs = new gameState(list1);
+        GameState gs = new GameState(list1);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");
@@ -101,7 +101,7 @@ public class gameStateTest {
     @Test
     public void gameStateIterator() {
         ArrayList<Object> list1 = new ArrayList<>();
-        gameState gs = new gameState(list1);
+        GameState gs = new GameState(list1);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");
