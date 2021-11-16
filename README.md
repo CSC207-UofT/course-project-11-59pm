@@ -13,6 +13,8 @@ There will be a limited amount of years before the game ends. If the player gets
 
 ## Intructions To Run the program: 
 - You will first be prompted if you would like to load a previous save (Input: Y/N) <br />
+**FOR TA:**
+**If you already have a copy of the game, create a copy of the game because we did some refactoring of package names, and pulling does not actually change it**
 <br />
 - In a new game state: <br />
     &nbsp; Then you will be prompted to type your name <br />
