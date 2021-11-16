@@ -44,4 +44,5 @@ To win the game you want to capture all proviences <br />
 Every round you can either encouter a random story event where the input is Y/N <br />
 Or a decision event, where you choose from 3 options listed where the input is 1,2, or 3 <br />
 
+***NOTE: The Summary function is a little buggy for some reason and it just overwrites the previous states.****
   
