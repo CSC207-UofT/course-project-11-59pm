@@ -207,7 +207,7 @@ public class UserInterface {
         ArrayList<Integer> bounds = new ArrayList<>();
         this.displayText("Enter the lowest state values you require: ");
         int lowBound = input.nextInt();
-        this.displayText("Enter the lowest state values you require: ");
+        this.displayText("Enter the highest state values you require: ");
         int upBound = input.nextInt();
         bounds.add(lowBound);
         bounds.add(upBound);
