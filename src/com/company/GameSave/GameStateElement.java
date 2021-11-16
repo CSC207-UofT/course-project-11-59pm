@@ -1,5 +1,5 @@
 
-package com.company.GameState;
+package com.company.GameSave;
 
 import java.io.Serializable;
 
