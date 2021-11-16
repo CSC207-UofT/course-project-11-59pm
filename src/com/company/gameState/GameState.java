@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * A gameState is a list of gameStateElements.
  */
-public class gameState implements Iterable, Serializable{
+public class GameState implements Iterable, Serializable{
     private final ArrayList<Object> saveState;
 
     public gameState(ArrayList<Object> saveState) {
