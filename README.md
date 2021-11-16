@@ -6,9 +6,12 @@ Our game is an text based adventure game. The user will get a chance to play as 
 There will be a limited amount of years before the game ends. If the player gets the chance to win all five provinces before the game ends, they win. Otherwise, the province with the most amount of land concurred will win the game.
 
 ## Phase 2: Extendability Ideas:
+- Saving the entire Game (Essentially, the entire GameEngine) instead of just a province.
+- Fixing the small bug and just playing with the game to check the logic
+- The UI needs to be more appealing  
+- Might think about extending the game with more attributes.
 
-
-Intructions to run: 
+## Intructions To Run the program: 
 You will first be prompted if you would like to load a previous save (Input: Y/N)
 In a new game state: 
     Then you will be prompted to type your name 
