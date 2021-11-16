@@ -1,5 +1,5 @@
 
-package com.company.gameState;
+package com.company.GameSave;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.Serializable;
