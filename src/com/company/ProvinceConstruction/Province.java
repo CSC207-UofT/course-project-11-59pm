@@ -1,7 +1,5 @@
 package com.company.ProvinceConstruction;
 
-import java.util.ArrayList;
-
 /**
  * This file contains the implementation for the
  * Province Class.

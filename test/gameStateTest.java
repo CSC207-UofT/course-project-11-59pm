@@ -1,9 +1,4 @@
-/**
- *
- * This file tests the gameState package and makes sure that all methods are working.
- *
- * */
-import com.company.ProvinceConstruction.Province;
+
 import  com.company.gameState.saveLoad;
 import  com.company.gameState.gameState;
 
@@ -13,10 +8,13 @@ import java.nio.file.Paths;
 import java.util.*;
 import org.junit.*;
 
-import javax.print.attribute.standard.JobKOctets;
+/**
+ *
+ * This file tests the gameState package and makes sure that all methods are working.
+ *
+ */
 
 public class gameStateTest {
-    public String filePath;
     @Before
     public void setUp() {
 
@@ -36,7 +34,7 @@ public class gameStateTest {
 
 
 
-        ArrayList<Object> list = new ArrayList<Object>();
+        ArrayList<Object> list = new ArrayList<>();
         list.add("test");
         list.add("test2");
         list.add("test3");

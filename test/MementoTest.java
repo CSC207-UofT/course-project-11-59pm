@@ -1,4 +1,3 @@
-import com.company.Battle;
 import com.company.ProvinceConstruction.Province;
 import com.company.ProvinceConstruction.ProvinceAssembler;
 import com.company.ProvinceConstruction.ProvinceBuilder;
@@ -8,8 +7,6 @@ import com.company.Snapshots.CaretakerProvince;
 import com.company.Snapshots.MementoProvince;
 import org.junit.*;
 
-import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**

@@ -1,3 +1,7 @@
+
+package com.company.UI;
+import java.util.*;
+import java.util.List;
 /**
  *
  * This class is responsible for taking user inputs for the choice of event
@@ -5,10 +9,6 @@
  * This class also displays anything from other classes
  *
  */
-package com.company;
-import java.awt.*;
-import java.util.*;
-import java.util.List;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
@@ -34,12 +34,13 @@ public class UserInterface {
         return choice;
     }
 
+    /** Gets the value that the player wants to spend to gain a specific resource
+     *
+     * @param decision 1 is how much money player spends for food, 2 is how many civilians for soldiers, and 3 is
+     *                 money gain for civilians.
+     */
     public int getDecisionValues(String decision, int maximum){
-        /** Gets the value that the player wants to spend to gain a specific resource
-         *
-         * @param decision 1 is how much money player spends for food, 2 is how many civilians for soldiers, and 3 is
-         *                 money gain for civilians.
-         */
+
         String choice = null;
         boolean intAsStr = true;
         boolean isValid = false;
@@ -96,6 +97,10 @@ public class UserInterface {
         upper or lower case is accepted */
         this.displayText("Do you want this event Y/N?");
         String choice = input.nextLine();
+        return getString(choice);
+    }
+
+    private String getString(String choice) {
         List<String> validChoices = Arrays.asList("Y","N","y","n");
         boolean valid = validChoices.contains(choice);
 
@@ -130,21 +135,7 @@ public class UserInterface {
         // A method that asks the user if the want to battle, and returns a boolean based on answer
         this.displayText("Would you like to battle? Y/N:");
         String choice = input.nextLine();
-        List<String> validChoices = Arrays.asList("Y","N","y","n");
-        boolean valid = validChoices.contains(choice);
-
-        //this function will loop until a valid input is given
-        while (!valid) {
-            this.displayText("Please enter a valid choice (Enter Y/N)");
-            choice = input.nextLine();
-            valid = validChoices.contains(choice);
-        }
-
-        if (choice.equals("n") || choice.equals("N")){
-            return false;
-        }
-
-        return true;
+        return !getString(choice).equals("n") && !getString(choice).equals("N");
     }
 
     public String selectOpponent(List<String> opponentList) {
@@ -175,17 +166,13 @@ public class UserInterface {
     }
 
     public static UserInterface initializeUI() {
-        UserInterface ui = new UserInterface();
-        return ui;
+        return new UserInterface();
     }
 
     public Boolean askLoad(){
         this.displayText("Would you like to load a previous save?(Y/N): ");
         String ans = input.nextLine();
-        if (ans.equals("Y") || ans.equals("y")){
-            return true;
-        }
-        return false;
+        return ans.equals("Y") || ans.equals("y");
     }
 
     public String getFilePathLoad(){
@@ -234,5 +221,6 @@ public class UserInterface {
         System.out.println("Civilians " + provinceAttributes.get(2));
         System.out.println("Soldiers " + provinceAttributes.get(3));
         System.out.println("Food " + provinceAttributes.get(4));
+        System.out.println("====================================");
     }
 }

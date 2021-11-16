@@ -1,4 +1,4 @@
-package com.company;
+package com.company.GameManager;
 
 import com.company.ProvinceConstruction.Province;
 import com.company.ProvinceConstruction.ProvinceAssembler;
@@ -8,11 +8,13 @@ import com.company.Snapshots.MementoProvince;
 import com.company.Snapshots.OriginatorProvince;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.company.UI.UserInterface;
+import com.company.UseCases.Battle;
+import com.company.UseCases.ProcessValues;
 import com.company.gameState.gameState;
 import com.company.gameState.saveLoad;
 
@@ -41,7 +43,7 @@ public class GameEngine {
         Boolean saveBool = ui.askLoad();
         ArrayList<Object> list;
         // Sample input for windows filePath: C:\Users\YOURUSERNAME\Desktop
-        // Sample input for macOs filePath: /Users/username/Desktop
+        // Sample input for macOS filePath: /Users/username/Desktop
         if (saveBool) {
             list = new ArrayList<Object>(loadPoint(ui.getFilePathLoad()));
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
@@ -129,20 +131,16 @@ public class GameEngine {
 
 
     public void displayValues(Province province) {
-        if ((province.getUserProvinceName() != null)) {
-            ui.displayText("Values for province: " + province.getUserProvinceName());
-        } else {
-            ui.displayText("Values for province: " + province.getAiProvinceName());
-        }
-        ui.displayText("Civilian value: " + province.getProvinceCivilians());
-        ui.displayText("Gold value: " + province.getProvinceGold());
-        ui.displayText("Soldier value: " + province.getProvinceSoldiers());
-        ui.displayText("Food value: " + province.getProvinceFood());
+        printAttributes(province);
     }
 
     public void displayEventValues(Province province, List eventValues) {
         //TODO so basically i want to say civilian value = old value + eventValue = new value
         //TODO must use memento to keep track of what the value was before the value changes
+        printAttributes(province);
+    }
+
+    private void printAttributes(Province province) {
         if ((province.getUserProvinceName() != null)) {
             ui.displayText("Values for province: " + province.getUserProvinceName());
         } else {
@@ -203,24 +201,24 @@ public class GameEngine {
         }
     }
 
-    public Province prevProvinceState() {
+    public void prevProvinceState() {
         // send the province state to the Originator
         origProvince.setProvince(playerProvince);
         // System.out.println("Food" + origProvince.getProvince().getProvinceFood());
-        // Create a mememto Object from the given state.
+        // Create a memento Object from the given state.
         MementoProvince mp = origProvince.createMementoProvinces();
 
         // send to the CareTackerProvince
         ctProvince.addMementoProvince(mp);
 
         // return the prev state Province Object
-        return origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
+        origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
     }
 
     public void summaryOfStates(){
         int counter = 0;
         ArrayList<Integer> bounds = ui.askForBounds();
-        ArrayList attributes = new ArrayList<>();
+        ArrayList<Object> attributes = new ArrayList<>();
         ArrayList<Province> provinces = listOfPrevProvincesStates(bounds.get(0), bounds.get(1));
         for (Province p: provinces){
             ui.displayText("State: " + counter);
@@ -239,14 +237,12 @@ public class GameEngine {
         // send the province state to the Originator
         origProvince.setProvince(playerProvince);
 
-        // Create a mememto Object from the given state.
+        // Create a memento Object from the given state.
         MementoProvince mp = origProvince.createMementoProvinces();
 
         // send to the CareTackerProvince
         ctProvince.addMementoProvince(mp);
         ArrayList<MementoProvince> ctP = ctProvince.getListMementoProvince(min, max);
-        System.out.println(ctProvince.getListOfMementoProvinces().get(0).getProvince().getProvinceFood());
-        System.out.println(ctProvince.getListOfMementoProvinces().get(1).getProvince().getProvinceFood());
         return origProvince.setMementoProvinces(ctP);
     }
 }

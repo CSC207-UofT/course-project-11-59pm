@@ -1,4 +1,4 @@
-package com.company;
+package com.company.UseCases;
 
 import com.company.ProvinceConstruction.Province;
 
@@ -11,24 +11,29 @@ public class ProcessValues {
     }
 
     public void getUserDecision(String userDecision, Province province, int value){
-        if (userDecision.equals("1")){
-            int currentValue = province.getProvinceCivilians();
-            int currentValue2 = province.getProvinceGold();
-            province.setProvinceCivilians(currentValue + value/2);
-            province.setProvinceGold(currentValue2 - value);
-        }
-        else if (userDecision.equals("2")){
-            int currentValue = province.getProvinceSoldiers();
-            int currentValue2 = province.getProvinceCivilians();
-            province.setProvinceSoldiers(currentValue + value);
-            province.setProvinceCivilians(currentValue2 - value);
-        }
-        else if (userDecision.equals("3")){
-            int currentValue = province.getProvinceGold();
-            int currentValue2 = province.getProvinceCivilians();
-            province.setProvinceGold(currentValue + value);
-            province.setProvinceCivilians(currentValue2 - value);
+        switch (userDecision) {
+            case "1": {
+                int currentValue = province.getProvinceCivilians();
+                int currentValue2 = province.getProvinceGold();
+                province.setProvinceCivilians(currentValue + value / 2);
+                province.setProvinceGold(currentValue2 - value);
+                break;
+            }
+            case "2": {
+                int currentValue = province.getProvinceSoldiers();
+                int currentValue2 = province.getProvinceCivilians();
+                province.setProvinceSoldiers(currentValue + value);
+                province.setProvinceCivilians(currentValue2 - value);
+                break;
+            }
+            case "3": {
+                int currentValue = province.getProvinceGold();
+                int currentValue2 = province.getProvinceCivilians();
+                province.setProvinceGold(currentValue + value);
+                province.setProvinceCivilians(currentValue2 - value);
 
+                break;
+            }
         }
     }
 

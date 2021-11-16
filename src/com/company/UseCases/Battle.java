@@ -1,10 +1,6 @@
-package com.company;
+package com.company.UseCases;
 
 import com.company.ProvinceConstruction.Province;
-import com.company.ProvinceConstruction.ProvinceAssembler;
-import com.company.ProvinceConstruction.ProvinceBuilder;
-
-import java.util.*;
 
 public class Battle {
 
@@ -60,26 +56,5 @@ public class Battle {
         }
         return aiProvince.getAiProvinceName();
     }
-    public static void main(String[] args) {
-        ProvinceBuilder p1 = new ProvinceBuilder();
-        ProvinceAssembler p = new ProvinceAssembler(p1);
-        Province a1 = p.create().get(0);
-
-
-        p.makeUserProvince("Teri Ma");
-        Province q = p.getUserProvince();
-
-        Battle b1 = new Battle();
-
-        System.out.println("User sold:" + q.getProvinceSoldiers());
-        System.out.println("AI sold: " + a1.getProvinceSoldiers());
-        b1.startsBattle(q, a1);
-        System.out.println();
-        System.out.println("User sold:" + q.getProvinceSoldiers());
-        System.out.println("AI sold: " + a1.getProvinceSoldiers());
-
-
-    }
-
 }
 

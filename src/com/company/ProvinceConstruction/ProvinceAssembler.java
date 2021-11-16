@@ -41,7 +41,7 @@ public class ProvinceAssembler {
         return this.provinceBuilder.getUserProvince();
     }
     /**
-     * Assembles all of the components of a province and creates an Ai Province
+     * Assembles all the components of a province and creates an Ai Province
      */
     public void makeAiProvince(){
         this.provinceBuilder.buildAiProvinceName();
@@ -51,7 +51,7 @@ public class ProvinceAssembler {
         this.provinceBuilder.buildProvinceFood();
     }
     /**
-     * Assembles all of the components of a province and creates a User Province
+     * Assembles all the components of a province and creates a User Province
      */
     public void makeUserProvince(String name){
         this.provinceBuilder.buildUserProvinceName(name);
