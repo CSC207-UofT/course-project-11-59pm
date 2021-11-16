@@ -50,8 +50,6 @@ public class MementoTest {
         assert (playerProvince.getProvinceCivilians() == restoredProvince.getProvinceCivilians());
         assert (playerProvince.getProvinceFood() == restoredProvince.getProvinceFood());
 
-
-
-    }
+}
 }
 

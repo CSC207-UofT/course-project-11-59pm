@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Battle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/BattleTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Snapshots/CaretakerProvince.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Snapshots/CaretakerProvince.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/BattleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/MementoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MementoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +103,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MementoTest">
     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Battle" />
       <module name="1159 pm" />
@@ -176,7 +160,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MementoTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Battle" />
+        <item itemvalue="JUnit.AIDecisionMakerTest" />
         <item itemvalue="Application.Battle" />
         <item itemvalue="Application.GameEngine" />
         <item itemvalue="JUnit.MementoTest" />
@@ -277,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636945289297</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commiting and pushing the bug in GameEngine related to memento, also added tests for memento.">
+      <created>1636990649151</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636990649151</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +307,8 @@
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
     <MESSAGE value="Updated user inteface with a new method that asks if the user would like to battle." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated user inteface with a new method that asks if the user would like to battle." />
+    <MESSAGE value="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
+    <option name="LAST_COMMIT_MESSAGE" value="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
