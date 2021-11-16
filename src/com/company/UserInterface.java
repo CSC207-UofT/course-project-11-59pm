@@ -6,9 +6,9 @@
  *
  */
 package com.company;
-import java.util.Arrays;
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
@@ -147,11 +147,38 @@ public class UserInterface {
         return true;
     }
 
+    public String selectOpponent(List<String> opponentList) {
+        // Allows user to pick an opponent
+
+        for (int i = 1; i <= opponentList.size(); i++){
+            this.displayText(i + ". " + opponentList.get(i - 1));
+        }
+        this.displayText("Select a number to indicate which opponent you would like to battle:");
+
+        String choice = input.nextLine();
+
+        List<String> validChoices = new ArrayList<>();
+        for (int i = 1; i <= opponentList.size(); i++){
+            validChoices.add(String.valueOf(i));
+        }
+
+        boolean valid = validChoices.contains(choice);
+
+        //this function will loop until a valid input is given
+        while (!valid) {
+            this.displayText("Please enter a valid choice:");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+
+        return opponentList.get(Integer.parseInt(choice) - 1);
+    }
+
     public static UserInterface initializeUI() {
         UserInterface ui = new UserInterface();
         return ui;
     }
-    
+
     public Boolean askLoad(){
         this.displayText("Would you like to load a previous save?(Y/N): ");
         String ans = input.nextLine();
@@ -187,5 +214,25 @@ public class UserInterface {
         }
 
         return ans;
+    }
+
+    public ArrayList<Integer> askForBounds(){
+        ArrayList<Integer> bounds = new ArrayList<>();
+        this.displayText("Enter the lowest state values you require: ");
+        int lowBound = input.nextInt();
+        this.displayText("Enter the lowest state values you require: ");
+        int upBound = input.nextInt();
+        bounds.add(lowBound);
+        bounds.add(upBound);
+        return bounds;
+    }
+
+    public void displaySummary(ArrayList provinceAttributes){
+        System.out.println("====================================");
+        System.out.println("Name: " + provinceAttributes.get(0));
+        System.out.println("Gold: " + provinceAttributes.get(1));
+        System.out.println("Civilians " + provinceAttributes.get(2));
+        System.out.println("Soldiers " + provinceAttributes.get(3));
+        System.out.println("Food " + provinceAttributes.get(4));
     }
 }

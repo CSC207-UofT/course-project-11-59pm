@@ -8,7 +8,9 @@ import com.company.Snapshots.CaretakerProvince;
 import com.company.Snapshots.MementoProvince;
 import org.junit.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -17,12 +19,8 @@ import java.util.ArrayList;
  * */
 
 public class MementoTest {
-    private ProvinceAssembler provinceUserAssembler;
-    private ProvinceBuilder provinceBuilder;
-    private Province playerProvince;
-    private OriginatorProvince origProvince;
-    private CaretakerProvince ctProvince;
-    private ProvinceAssembler pa;
+
+
     /**
      * Added a tester to see if the memento design pattern holds the previous state
      * of the province properly
@@ -31,12 +29,12 @@ public class MementoTest {
     public void testCreation(){
         // send the province state to the Originator
         String name = "Ontario";
-        provinceBuilder = new ProvinceBuilder();
-        provinceUserAssembler = new ProvinceAssembler(provinceBuilder);
-        provinceUserAssembler.makeUserProvince(name);
-        playerProvince = provinceUserAssembler.getUserProvince();
-        origProvince = new OriginatorProvince();
-        ctProvince = new CaretakerProvince();
+        ProvinceBuilder pb = new ProvinceBuilder();
+        ProvinceAssembler pA = new ProvinceAssembler(pb);
+        pA.makeUserProvince(name);
+        Province playerProvince = pA.getUserProvince();
+        OriginatorProvince origProvince = new OriginatorProvince();
+        CaretakerProvince ctProvince = new CaretakerProvince();
         origProvince.setProvince(playerProvince);
 
         // Create a mememto Object from the given state.
@@ -44,10 +42,14 @@ public class MementoTest {
 
         // send to the CareTackerProvince
         ctProvince.addMementoProvince(mp);
+        Province restoredProvince = origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
 
-        // return the prev state Province Object
-        assert(ctProvince.getPrevMementoProvince().getProvince().getProvinceCivilians()
-                == playerProvince.getProvinceCivilians());
-        }
+        assert (Objects.equals(playerProvince, restoredProvince));
+        assert (playerProvince.getUserProvinceName().equals(restoredProvince.getUserProvinceName()));
+        assert (playerProvince.getProvinceSoldiers() == restoredProvince.getProvinceSoldiers());
+        assert (playerProvince.getProvinceCivilians() == restoredProvince.getProvinceCivilians());
+        assert (playerProvince.getProvinceFood() == restoredProvince.getProvinceFood());
+
+}
 }
 
