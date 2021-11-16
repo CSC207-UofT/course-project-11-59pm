@@ -48,5 +48,6 @@ basically displays the attirbutes for their province (which still a little buggy
 but lowerBound = 0, UpperBound = 1 on the first iteration or <br />
 lowerBound = 1 or UpperBound = 2 -- when further into the game works fine). 
 
-***NOTE: The Summary function is a little buggy for some reason and it just overwrites the previous states.****
+****NOTE: The Summary function is a little buggy for some reason and it just overwrites the previous states.<br />
+and ProvinceTest for some reason just makes an infinite loop when run collectively as "Run all tests" however, when Province Test run by itself, it does finish running the tests. <br/>****
   
