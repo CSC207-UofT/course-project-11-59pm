@@ -15,8 +15,8 @@ import java.util.Random;
 import com.company.UI.UserInterface;
 import com.company.UseCases.Battle;
 import com.company.UseCases.ProcessValues;
-import com.company.GameState.GameState;
-import com.company.GameState.SaveLoad;
+import com.company.GameSave.GameState;
+import com.company.GameSave.SaveLoad;
 
 public class GameEngine {
     private final UserInterface ui;
