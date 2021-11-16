@@ -22,6 +22,7 @@ There will be a limited amount of years before the game ends. If the player gets
     &nbsp; Sample input for windows filePath: C:\Users\YOURUSERNAME\Desktop\ <br />
     &nbsp; Sample input for macOS filePath: /Users/username/Desktop/ <br />
     &nbsp; Not including a final slash is also valid (C:\Users\YOURUSERNAME\Desktop) <br />
+    &nbsp; If you input "default" it will automatically save in the projects src file <br />
     &nbsp; With these examples, a save file called save.ser would be saved to the desktop <br />
     <br />
 - If you load a game state: <br />
@@ -31,6 +32,7 @@ There will be a limited amount of years before the game ends. If the player gets
     &nbsp; Sample input for macOS filePath: /Users/username/Desktop/ <br />
     &nbsp;  Not including a final slash is also valid (C:\Users\YOURUSERNAME\Desktop) <br />
     &nbsp; With these examples, there should exist a save file called save.ser in the desktop <br />
+    &nbsp; If you input "default" it will automatically load a save.ser in the projects src file <br />
     &nbsp; After loading the file, the console should welcome you back to the game <br />
     <br />
 Once the game state is saved/loaded you will now be able to play the game <br />
