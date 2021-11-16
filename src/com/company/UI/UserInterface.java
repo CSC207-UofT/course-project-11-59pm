@@ -174,8 +174,14 @@ public class UserInterface {
         String ans = input.nextLine();
         return ans.equals("Y") || ans.equals("y");
     }
+    public Boolean askSummary() {
+        this.displayText("Would you like to get a summary");
+        String ans = input.nextLine();
+        return ans.equalsIgnoreCase("Y");
+    }
 
-    public String getFilePathLoad(){
+
+        public String getFilePathLoad(){
         this.displayText("Please paste the file path of where the folder containing save.ser save file is");
         String ans = input.nextLine();
         if (ans.endsWith("/") || ans.endsWith("\\") )

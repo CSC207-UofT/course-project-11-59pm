@@ -93,8 +93,9 @@ public class GameEngine {
         }
         aiTurn();
         battle_option();
-        prevProvinceState();
-        summaryOfStates();
+        if (ui.askSummary()){
+            summaryOfStates();
+        }
     }
 
     public List<Integer> processEvent() {
@@ -134,10 +135,14 @@ public class GameEngine {
         printAttributes(province);
     }
 
+    // Can safely ignore this method for now
     public void displayEventValues(Province province, List eventValues) {
         //TODO so basically i want to say civilian value = old value + eventValue = new value
         //TODO must use memento to keep track of what the value was before the value changes
         printAttributes(province);
+        // Can use this here
+        Province attToDisplay = prevProvinceState();
+
     }
 
     private void printAttributes(Province province) {
@@ -201,7 +206,7 @@ public class GameEngine {
         }
     }
 
-    public void prevProvinceState() {
+    public Province prevProvinceState() {
         // send the province state to the Originator
         origProvince.setProvince(playerProvince);
         // System.out.println("Food" + origProvince.getProvince().getProvinceFood());
@@ -212,7 +217,7 @@ public class GameEngine {
         ctProvince.addMementoProvince(mp);
 
         // return the prev state Province Object
-        origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
+        return origProvince.setprevMementoProvince(ctProvince.getPrevMementoProvince());
     }
 
     public void summaryOfStates(){
