@@ -39,10 +39,13 @@ There will be a limited amount of years before the game ends. If the player gets
     <br />
 Once the game state is saved/loaded you will now be able to play the game <br />
 Your objective of the game is for your provience to not die ie keep all values above zero <br />
-Aswell as battling other proviences, and claiming their territory <br />
+As well as battling other proviences <br />
 To win the game you want to capture all proviences <br />
 Every round you can either encouter a random story event where the input is Y/N <br />
-Or a decision event, where you choose from 3 options listed where the input is 1,2, or 3 <br />
+Or a decision event, where you choose from 3 options listed where the input is 1,2, or 3 <br />. 
+During the turns, user can generate summary of the States that happened which basically displays the attirbutes for 
+their province (which still a little buggy, but lowerBound = 0, UpperBound = 1 on the first iteration or 
+lowerBound = 1 or UpperBound = 2 -- when further into the game works fine). 
 
 ***NOTE: The Summary function is a little buggy for some reason and it just overwrites the previous states.****
   
