@@ -75,7 +75,11 @@ public class UserInterface {
 
         return Integer.parseInt(choice);
     }
-
+    /** Gets the value that the player wants to spend to gain a specific resource
+     *
+     * @param checks a list of characters to check if they are valid
+     * @param intAsStr if the string is valid
+     */
     public boolean checkValid(String[] checks, Boolean intAsStr){
         List<String> validChoices = Arrays.asList("1","2","3","4","5","6","7","8","9","0");
 
@@ -90,6 +94,10 @@ public class UserInterface {
         return intAsStr;
     }
 
+    /** Gets the value that the player wants to spend to gain a specific resource
+     *
+     * @param decision returns the player choice
+     */
     public String getDecisionHelper(String decision){
         String choice;
         if (decision.equals("1")){
