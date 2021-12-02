@@ -153,6 +153,7 @@ public class GameEngine {
         ui.displayText("Gold value: " + province.getProvinceGold());
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
         ui.displayText("Food value: " + province.getProvinceFood());
+        ui.displayText("\n");
     }
 
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
@@ -161,17 +162,20 @@ public class GameEngine {
         GameState gs = new GameState(list);
         SaveLoad.saveGame(filePathSave, gs);
         ui.displayText("Game State Saved");
+        ui.displayText("\n");
     }
 
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
         // Loads the save.ser file for the current GameState 
         ui.displayText("Loading Game State...");
+        ui.displayText("\n");
         return SaveLoad.loadGame(filePathLoad).getSaveState();
     }
 
 
     public void provinceDeath(Province province) {
         ui.displayText(province.getAiProvinceName() + " is dead");
+        ui.displayText("\n");
         province.die();
     }
 
@@ -179,6 +183,7 @@ public class GameEngine {
         ui.displayText("You have lost the game!");
         displayValues(playerProvince);
         ui.displayText("One of the values have reached zero :( :skull:");
+        ui.displayText("\n");
         //TODO would you like to restart? and have them restart
     }
 
@@ -199,6 +204,7 @@ public class GameEngine {
                 if (province.getAiProvinceName().equals(enemy)){
                     String winner = battleGenerator.startsBattle(playerProvince, province);
                     ui.displayText("The winner of the battle is " + winner);
+                    ui.displayText("\n");
                 }
             }
         }
@@ -225,6 +231,7 @@ public class GameEngine {
         ArrayList<Province> provinces = listOfPrevProvincesStates(bounds.get(0), bounds.get(1));
         for (Province p: provinces){
             ui.displayText("State: " + counter);
+            ui.displayText("\n");
             attributes.add(p.getUserProvinceName());
             attributes.add(p.getProvinceGold());
             attributes.add(p.getProvinceCivilians());
