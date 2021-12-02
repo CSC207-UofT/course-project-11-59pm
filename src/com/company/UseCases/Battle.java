@@ -1,11 +1,14 @@
 package com.company.UseCases;
 
+import com.company.UseCases.ProcessValues;
 import com.company.ProvinceConstruction.Province;
 
 public class Battle {
+    ProcessValues processValues;
 
     public Battle() {
-
+        ProcessValues processValues = new ProcessValues();
+        this.processValues = processValues;
     }
 
     /**
@@ -16,8 +19,8 @@ public class Battle {
      */
     public String startsBattle(Province userProvince, Province aiProvince) {
         // Get the number of soldier present for both the Provinces
-        int player1_SoldierCount = userProvince.getProvinceSoldiers();
-        int player2_SoldierCount = aiProvince.getProvinceSoldiers();
+        int player1_SoldierCount = processValues.getBattleSoldiers(userProvince);
+        int player2_SoldierCount = processValues.getBattleSoldiers(aiProvince);
 
         int battleRounds = 2;
 
@@ -36,25 +39,27 @@ public class Battle {
                 player1_SoldierCount -= deaths;
                 player2_SoldierCount -= deaths;
 
-                userProvince.setProvinceSoldiers(player1_SoldierCount);
-                aiProvince.setProvinceSoldiers(player2_SoldierCount);
+                processValues.battleRoundProcess(userProvince, player1_SoldierCount);
+                processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
 
             } else if (player1_Ratio > player2_Ratio) {
                 float deaths = (float) Math.random() * player2_Ratio;
                 player2_SoldierCount -= deaths;
-                userProvince.setProvinceSoldiers(player1_SoldierCount);
-                aiProvince.setProvinceSoldiers(player2_SoldierCount);
+                processValues.battleRoundProcess(userProvince, player1_SoldierCount);
+                processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
             } else {
                 float deaths = (float) Math.random() * player1_Ratio;
-                player2_SoldierCount -= deaths;
+                player1_SoldierCount -= deaths;
+                processValues.battleRoundProcess(userProvince, player1_SoldierCount);
+                processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
             }
             battleRounds -= 1;
 
         }
         if (player1_SoldierCount > player2_SoldierCount){
-            return userProvince.getUserProvinceName();
+            return processValues.battleWinner(userProvince);
         }
-        return aiProvince.getAiProvinceName();
+        return processValues.battleWinner(aiProvince);
     }
 }
 
