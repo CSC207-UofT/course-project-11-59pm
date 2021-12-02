@@ -10,7 +10,6 @@ public class MementoProvince {
      * @param pA represents a ProvinceAssembler Object.
      */
     public MementoProvince(Province pA) {
-        super();
         this.pA = pA;
     }
 
