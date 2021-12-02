@@ -151,10 +151,14 @@ public class Province implements ProvinceLayout {
      */
     public int returnMaximumValue(String choice){
         if (choice.equals("1")){
-            return getProvinceGold();
+            return getProvinceFood();
+        }
+
+        else if (choice.equals("2")){
+            return getProvinceCivilians();
         }
         else{
-            return getProvinceCivilians();
+            return getProvinceGold();
         }
     }
 
