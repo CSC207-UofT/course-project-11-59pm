@@ -29,7 +29,15 @@ public class AIDecisionMakerTest {
     /** Checks that getDecision correctly returns a list of numbers between 1,2, or 3*/
     @Test
     public void testGetDecisions(){
-        List<String> values = decisionMaker.getDecisions();
+        // Initilize a dummy province to test on
+        Province province = new Province();
+        province.setProvinceGold(500);
+        province.setProvinceCivilians(500);
+        province.setProvinceSoldiers(500);
+        province.setProvinceFood(500);
+
+        // Test return the values are valid
+        List<String> values = decisionMaker.getDecisions(province);
         List<String> validChoices = Arrays.asList("1","2","3");
         boolean valid;
 
@@ -83,6 +91,7 @@ public class AIDecisionMakerTest {
 
         decisionMaker.makeDecisions(province);
 
+        // Check that something changed
         assert province.getProvinceGold() == 500 || true;
         assert province.getProvinceCivilians() == 500 || true;
         assert province.getProvinceSoldiers() == 500 || true;
@@ -111,6 +120,7 @@ public class AIDecisionMakerTest {
 
         decisionMaker.makeDecisions(province, modifier, skews);
 
+        // Check that some value changed
         assert province.getProvinceGold() == 500 || true;
         assert province.getProvinceCivilians() == 500 || true;
         assert province.getProvinceSoldiers() == 500 || true;

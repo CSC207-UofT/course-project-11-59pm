@@ -46,41 +46,24 @@ public class UserInterface {
         String choice = null;
         boolean intAsStr = true;
         boolean isValid = false;
-        List<String> validChoices = Arrays.asList("1","2","3","4","5","6","7","8","9","0");
 
         while (!isValid){
-            if (decision.equals("1")){
-                displayText("How much money will you pay to gain food? Conversion rate for food is 1 gold = 2 food");
-                choice = input.nextLine();
-            }
+            // Get value that player wants
+            choice = getDecisionHelper(decision);
 
-            else if (decision.equals("2")){
-                displayText("How many civilians will you give to gain soldiers? " +
-                        "Conversion rate for soldiers is 1 civilian = 1 soldier");
-                choice = input.nextLine();
-            }
-
-            else{
-                displayText("How many civilians will you tax more to gain money? " +
-                        "Conversion rate for money is 1 civilian = 2 gold");
-                choice = input.nextLine();
-            }
-
+            // Split given number into string compenents
             String[] checks = choice.split("");
 
-            for (String curr: checks){
-                if (!validChoices.contains(curr)){
-                    intAsStr = false;
-                    break;
-                }
-                intAsStr = true;
-            }
+            // Check that given string is in the numbers
+            intAsStr = checkValid(checks,intAsStr);
 
             // check if given input is valid
             if (!intAsStr){
                 displayText("Your input is not valid! Enter a number:");
             }
             else if (Integer.parseInt(choice) > maximum){
+                /** NOTE: if the value is too large, the program will crash! This is due to a parseInt problem that we
+                cannot fix! */
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
 
@@ -91,6 +74,41 @@ public class UserInterface {
         }
 
         return Integer.parseInt(choice);
+    }
+
+    public boolean checkValid(String[] checks, Boolean intAsStr){
+        List<String> validChoices = Arrays.asList("1","2","3","4","5","6","7","8","9","0");
+
+        for (String curr: checks){
+            if (!validChoices.contains(curr)){
+                intAsStr = false;
+                break;
+            }
+            intAsStr = true;
+        }
+
+        return intAsStr;
+    }
+
+    public String getDecisionHelper(String decision){
+        String choice;
+        if (decision.equals("1")){
+            displayText("How much money will you pay to gain food? Conversion rate for food is 1 gold = 2 food");
+            choice = input.nextLine();
+        }
+
+        else if (decision.equals("2")){
+            displayText("How many civilians will you give to gain soldiers? " +
+                    "Conversion rate for soldiers is 1 civilian = 1 soldier");
+            choice = input.nextLine();
+        }
+
+        else{
+            displayText("How many civilians will you tax more to gain money? " +
+                    "Conversion rate for money is 1 civilian = 2 gold");
+            choice = input.nextLine();
+        }
+        return choice;
     }
 
     public String getEventChoice(){
