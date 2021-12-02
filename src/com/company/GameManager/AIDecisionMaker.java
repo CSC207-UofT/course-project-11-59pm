@@ -19,13 +19,39 @@ public class AIDecisionMaker {
         //Nothing to initialize
     }
 
-    /** Generate 1 random number which represents the choice the given user made.
-     * Currently, randomized.
+    /** Totals all stats of given province up and creates a list of percentages that represent the odds of choising
+     * a certain choice. This is the third iteration of the AI.
      *
-     * MAY UP TO TWO LATER, HENCE LIST
+     * @param province The province that is acting
+     *
+     * returns a list of values of strings 1,2,3
+     * May decide to return more than 1 value in the list.
      */
-    public List<String> getDecisions(){
+    public List<String> getDecisions(Province province){
+        float total = province.getProvinceFood() + province.getProvinceGold() +province.getProvinceFood();
+        List<Float> percents = new ArrayList<Float>();
+        // Add percents for choice weights
+        percents.add(province.getProvinceFood()/total);
+        percents.add(province.getProvinceFood() + province.getProvinceGold()/total);
+
+        List<String> choices = new ArrayList<>();
         Random rand = new Random();
+        int choice;
+        for (int i = 0; i < 3; i++) {
+            choice = rand.nextInt(100);
+            if (choice <= percents.get(0)) {
+                // Boost food
+                choices.add("1");
+            } else if (choice <= percents.get(1)) {
+                // Boost soldiers
+                choices.add("2");
+            } else {
+                // Boost gold
+                choices.add("3");
+            }
+        }
+        return choices;
+        /*Random rand = new Random();
         int choice;
         List<String> choices = new ArrayList<>();
 
@@ -39,7 +65,7 @@ public class AIDecisionMaker {
                 choices.add("3");
             }
         }
-        return choices;
+        return choices;*/
     }
 
     /** Generate 1 number which represents the choice the given user made.
@@ -53,14 +79,17 @@ public class AIDecisionMaker {
         choice = rand.nextInt(100);
 
         if (choice <= skews.get(0)){
+            // Boost food
             choices.add("1");
         }
 
         else if (choice <= skews.get(1)){
+            // Boost soldiers
             choices.add("2");
         }
 
         else {
+            // Boost revenue
             choices.add("3");
         }
 
@@ -74,7 +103,7 @@ public class AIDecisionMaker {
      */
     public void makeDecisions(Province province){
         ProcessValues processor = new ProcessValues();
-        List<String> choices = getDecisions();
+        List<String> choices = getDecisions(province);
 
 
         for (String choice : choices) {
@@ -102,6 +131,7 @@ public class AIDecisionMaker {
     }
 
     public List randomizeAiEvent(){
+
         List<Integer> randList = new ArrayList<>();
         int counter = 0;
         Random rand = new Random();
