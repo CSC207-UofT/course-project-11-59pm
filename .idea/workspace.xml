@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Added Documentation for the Province and Created a test function for the Province Assembler">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
-    </list>
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,5 +283,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/course_project$GameManagerTest_testProcessEvent.ic" NAME="GameManagerTest.testProcessEvent Coverage Results" MODIFIED="1638413855525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
