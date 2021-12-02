@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated user inteface with a new method that asks if the user would like to battle.">
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Updated user interface so that getDecisionValues now properly denies bad input.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Battle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +37,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="newUserInterfaces" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -240,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636945289297</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Updated user interface so that getDecisionValues now properly denies bad input.">
+      <created>1636953562151</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636953562151</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +290,8 @@
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
     <MESSAGE value="Updated user inteface with a new method that asks if the user would like to battle." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated user inteface with a new method that asks if the user would like to battle." />
+    <MESSAGE value="Updated user interface so that getDecisionValues now properly denies bad input." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated user interface so that getDecisionValues now properly denies bad input." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
