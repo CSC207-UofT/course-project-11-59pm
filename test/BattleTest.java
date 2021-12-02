@@ -34,8 +34,9 @@ public class BattleTest {
         p.makeUserProvince("Ontario");
         Province user = p.getUserProvince();
         String result = b1.startsBattle(user, opp);
-
-
-        assert (Objects.equals(result, user.getUserProvinceName()) | Objects.equals(result, opp.getAiProvinceName()));
+        // making sure it matches one of the names
+        String uiName = opp.getAiProvinceName();
+        String userName = user.getUserProvinceName();
+        assert (Objects.equals(result, uiName) | Objects.equals(result, userName));
     }
 }

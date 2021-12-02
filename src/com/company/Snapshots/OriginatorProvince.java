@@ -21,14 +21,19 @@ public class OriginatorProvince {
      * Given a MementoProvince sets an Object given a Province Object.
      * @return new MementoProvince Object.
      */
-    public Province setMementoProvinces(MementoProvince mementoProvince) {
-        p = mementoProvince.getProvince();
-        return p;
-    }
-
-//    public Province setprevMementoProvince(MementoProvince singleMp){
-//        return p = singleMp.getProvince();
+//    public Province setMementoProvinces(MementoProvince mementoProvince) {
+//        p = mementoProvince.getProvince();
+//        return p;
 //    }
+
+    public List<Province> setListOfMementoProvinces(List<MementoProvince> mementoProvinceList) {
+        List<Province> ListOfP = new ArrayList<>();
+        for (MementoProvince mp: mementoProvinceList){
+            p = mp.getProvince();
+            ListOfP.add(p);
+        }
+        return ListOfP;
+    }
 
     /**
      * Getters and Setters

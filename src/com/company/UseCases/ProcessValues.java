@@ -60,4 +60,18 @@ public class ProcessValues {
             province.setProvinceFood(currentValue4 - value.get(7));
         }
     }
+
+    //battle mathods that need processing values
+    public int getBattleSoldiers(Province province) {
+        return province.getProvinceSoldiers();
+    }
+    public void battleRoundProcess(Province p, int count) {
+        p.setProvinceSoldiers(count);
+    }
+
+    public String battleWinner(Province p) {
+        if(p.getUserProvinceName() == null){
+            return p.getAiProvinceName();}
+        return p.getUserProvinceName();
+    }
 }
