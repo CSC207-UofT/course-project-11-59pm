@@ -1,5 +1,5 @@
 
-package com.company.gameState;
+package com.company.GameSave;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.Serializable;
@@ -7,14 +7,14 @@ import java.io.Serializable;
 /**
  * A gameState is a list of gameStateElements.
  */
-public class gameState implements Iterable, Serializable{
-    private ArrayList<Object> saveState;
+public class GameState implements Iterable, Serializable{
+    private final ArrayList<Object> saveState;
 
-    public gameState(ArrayList<Object> saveState) {
+    public GameState(ArrayList<Object> saveState) {
         this.saveState = saveState;
     }
 /**
-     * Adds a new gameStateElemnt with gameStateData and parameter type.
+     * Adds a new gameStateElement with gameStateData and parameter type.
      *
      * @param gameStateData  data for the gameStateElement
      */
@@ -24,7 +24,7 @@ public class gameState implements Iterable, Serializable{
 
     }
 
-/**
+    /**
      * Returns the saveState.
      */
 
@@ -32,7 +32,7 @@ public class gameState implements Iterable, Serializable{
         return saveState;
     }
 
-/**
+     /**
      * Returns the number of elements in saveState.
      *
      * @return the number of gameStateElements in this gameState.
@@ -44,7 +44,7 @@ public class gameState implements Iterable, Serializable{
 
 
     
-/**
+     /**
      * Returns an iterator for this gameState.
      *
      * @return an iterator for this gameState.
@@ -57,43 +57,41 @@ public class gameState implements Iterable, Serializable{
 
     private class gameStateIterator implements Iterator<Object> {
         private int currentIndex = 0;
-        
-        
-/**
-         * Returns true if the iteration has more elements.
-         *
-         * @return true if the iteration has more elements.
-         */
 
-        @Override
-        public boolean hasNext() {
+
+    /**
+     * Returns true if the iteration has more elements.
+     *
+     * @return true if the iteration has more elements.
+     */
+     @Override
+     public boolean hasNext() {
             return currentIndex < saveState.size();
         }
 
-        
-/**
-         * Returns the next element in the iteration.
-         *
-         * @return the next element in the iteration.
-         */
 
-        @Override
-        public Object next() {
-            return saveState.get(currentIndex++);
-        }
+     /**
+     * Returns the next element in the iteration.
+     *
+     * @return the next element in the iteration.
+     */
 
-        
-/**
-         * Removes from the underlying collection the last element returned by the iterator.
-         */
-
-        @Override
-        public void remove() {
-            saveState.remove(currentIndex);
-        }
-        
+    @Override
+    public Object next() {
+        return saveState.get(currentIndex++);
     }
 
+
+     /**
+     * Removes from the underlying collection the last element returned by the iterator.
+     */
+
+    @Override
+    public void remove() {
+        saveState.remove(currentIndex);
+    }
+
+    }
 
 }
 

@@ -3,7 +3,7 @@
  * This file tests the Battle file and makes sure that all methods are working.
  *
  * */
-import  com.company.Battle;
+import com.company.UseCases.Battle;
 
 import com.company.ProvinceConstruction.ProvinceAssembler;
 import com.company.ProvinceConstruction.Province;
@@ -13,13 +13,14 @@ import org.junit.*;
 import java.util.*;
 
 public class BattleTest {
-    private Battle battle;
-    private ProvinceAssembler pa;
+    private Battle b1;
+    private ProvinceAssembler p;
 
     @Before
     public void setUp() {
-        pa = new ProvinceAssembler();
-        battle = new Battle(pa);
+        b1 = new Battle();
+        ProvinceBuilder p1 = new ProvinceBuilder();
+        p = new ProvinceAssembler(p1);
     }
 
     @After
@@ -29,15 +30,12 @@ public class BattleTest {
     /** Checks that startsBattle correctly returns the name of the winning province*/
     @Test
     public void testStartsBattle(){
-        ProvinceBuilder p1 = new ProvinceBuilder();
-        ProvinceAssembler p = new ProvinceAssembler(p1);
-
+        Province opp = p.create().get(0);
         p.makeUserProvince("Ontario");
-        Province ontario = p.getUserProvince();
-        Province enemy = battle.optForBattle();
+        Province user = p.getUserProvince();
+        String result = b1.startsBattle(user, opp);
 
-        String result = battle.startsBattle(ontario, enemy);
 
-        assert (Objects.equals(result, ontario.getUserProvinceName()) | Objects.equals(result, enemy.getAiProvinceName()));
+        assert (Objects.equals(result, user.getUserProvinceName()) | Objects.equals(result, opp.getAiProvinceName()));
     }
 }

@@ -19,7 +19,6 @@ public class Decisions {
     public ArrayList<String> getDecisionQuestions() {
         return decisionQuestions;
     }
-    //TODO: displayQuestions System.out needs to use UI?
 
     /* Displays All Decision Questions In the Console */
     public void displayQuestions(){

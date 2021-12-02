@@ -1,3 +1,9 @@
+package com.company.UI;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.List;
 /**
  *
  * This class is responsible for taking user inputs for the choice of event
@@ -5,10 +11,6 @@
  * This class also displays anything from other classes
  *
  */
-package com.company;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
@@ -34,12 +36,13 @@ public class UserInterface {
         return choice;
     }
 
+    /** Gets the value that the player wants to spend to gain a specific resource
+     *
+     * @param decision 1 is how much money player spends for food, 2 is how many civilians for soldiers, and 3 is
+     *                 money gain for civilians.
+     */
     public int getDecisionValues(String decision, int maximum){
-        /** Gets the value that the player wants to spend to gain a specific resource
-         *
-         * @param decision 1 is how much money player spends for food, 2 is how many civilians for soldiers, and 3 is
-         *                 money gain for civilians.
-         */
+
         String choice = null;
         boolean intAsStr = true;
         boolean isValid = false;
@@ -96,6 +99,10 @@ public class UserInterface {
         upper or lower case is accepted */
         this.displayText("Do you want this event Y/N?");
         String choice = input.nextLine();
+        return getString(choice);
+    }
+
+    private String getString(String choice) {
         List<String> validChoices = Arrays.asList("Y","N","y","n");
         boolean valid = validChoices.contains(choice);
 
@@ -130,54 +137,69 @@ public class UserInterface {
         // A method that asks the user if the want to battle, and returns a boolean based on answer
         this.displayText("Would you like to battle? Y/N:");
         String choice = input.nextLine();
-        List<String> validChoices = Arrays.asList("Y","N","y","n");
+        return !getString(choice).equals("n") && !getString(choice).equals("N");
+    }
+
+    public String selectOpponent(List<String> opponentList) {
+        // Allows user to pick an opponent
+
+        for (int i = 1; i <= opponentList.size(); i++){
+            this.displayText(i + ". " + opponentList.get(i - 1));
+        }
+        this.displayText("Select a number to indicate which opponent you would like to battle:");
+
+        String choice = input.nextLine();
+
+        List<String> validChoices = new ArrayList<>();
+        for (int i = 1; i <= opponentList.size(); i++){
+            validChoices.add(String.valueOf(i));
+        }
+
         boolean valid = validChoices.contains(choice);
 
         //this function will loop until a valid input is given
         while (!valid) {
-            this.displayText("Please enter a valid choice (Enter Y/N)");
+            this.displayText("Please enter a valid choice:");
             choice = input.nextLine();
             valid = validChoices.contains(choice);
         }
 
-        if (choice.equals("n") || choice.equals("N")){
-            return false;
-        }
-
-        return true;
+        return opponentList.get(Integer.parseInt(choice) - 1);
     }
 
     public static UserInterface initializeUI() {
-        UserInterface ui = new UserInterface();
-        return ui;
+        return new UserInterface();
     }
-    
+
     public Boolean askLoad(){
         this.displayText("Would you like to load a previous save?(Y/N): ");
         String ans = input.nextLine();
-        if (ans.equals("Y") || ans.equals("y")){
-            return true;
-        }
-        return false;
+        return ans.equals("Y") || ans.equals("y");
+    }
+    public Boolean askSummary() {
+        this.displayText("Would you like to get a summary");
+        String ans = input.nextLine();
+        return ans.equalsIgnoreCase("Y");
     }
 
     public String getFilePathLoad(){
-        this.displayText("Please paste the file path of where the folder containing save.ser save file is");
-        String ans = input.nextLine();
-        if (ans.endsWith("/") || ans.endsWith("\\") )
-        {
-            ans = ans + "save.ser";
-        }
-        else {
-            ans = ans + "/save.ser";
-        }
-
-        return ans;
+        this.displayText("Please paste the file path of where the folder containing save.ser save file is (Type 'default' for default filePath)");
+        return getFile();
     }
 
     public String getFilePathSave(){
-        this.displayText("Please paste the file path of folder of where you would like to save file to be");
+        this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
+        return getFile();
+    }
+
+    private String getFile() {
         String ans = input.nextLine();
+        if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
+            Path resourceDirectory = Paths.get("src");
+            String filePath = resourceDirectory.toFile().getAbsolutePath();
+            ans = filePath;
+        }
+
         if (ans.endsWith("/") || ans.endsWith("\\") )
         {
             ans = ans + "save.ser";
@@ -187,5 +209,26 @@ public class UserInterface {
         }
 
         return ans;
+    }
+
+    public ArrayList<Integer> askForBounds(){
+        ArrayList<Integer> bounds = new ArrayList<>();
+        this.displayText("Enter the lowest state values you require: ");
+        int lowBound = input.nextInt();
+        this.displayText("Enter the highest state values you require: ");
+        int upBound = input.nextInt();
+        bounds.add(lowBound);
+        bounds.add(upBound);
+        return bounds;
+    }
+
+    public void displaySummary(ArrayList provinceAttributes){
+        System.out.println("====================================");
+        System.out.println("Name: " + provinceAttributes.get(0));
+        System.out.println("Gold: " + provinceAttributes.get(1));
+        System.out.println("Civilians " + provinceAttributes.get(2));
+        System.out.println("Soldiers " + provinceAttributes.get(3));
+        System.out.println("Food " + provinceAttributes.get(4));
+        System.out.println("====================================");
     }
 }

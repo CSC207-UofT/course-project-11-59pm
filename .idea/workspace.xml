@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting and pushing the bug in GameEngine related to memento, also added tests for memento.">
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" afterDir="false" />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="Added Documentation for the Province and Created a test function for the Province Assembler">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,9 +103,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="JUnit.MementoTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Battle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Battle" />
       <module name="1159 pm" />
@@ -135,10 +139,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MementoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in 1159 pm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="1159 pm" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MementoTest" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProvinceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="1159 pm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ProvinceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MementoTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in 1159 pm" />
+        <item itemvalue="JUnit.ProvinceTest" />
         <item itemvalue="Application.Battle" />
         <item itemvalue="JUnit.AIDecisionMakerTest" />
-        <item itemvalue="Application.Battle" />
       </list>
     </recent_temporary>
   </component>
@@ -175,6 +187,8 @@
       <workItem from="1636868004389" duration="1612000" />
       <workItem from="1636926794947" duration="4293000" />
       <workItem from="1636936050868" duration="650000" />
+      <workItem from="1636948547672" duration="1485000" />
+      <workItem from="1636955872616" duration="943000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -239,21 +253,7 @@
       <option name="project" value="LOCAL" />
       <updated>1636936487868</updated>
     </task>
-    <task id="LOCAL-00010" summary="Updated user inteface with a new method that asks if the user would like to battle.">
-      <created>1636945289297</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1636945289297</updated>
-    </task>
-    <task id="LOCAL-00011" summary="commiting and pushing the bug in GameEngine related to memento, also added tests for memento.">
-      <created>1636990649151</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1636990649151</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,19 +264,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="newUserInterfaces" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -288,9 +276,7 @@
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
-    <MESSAGE value="Updated user inteface with a new method that asks if the user would like to battle." />
-    <MESSAGE value="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
-    <option name="LAST_COMMIT_MESSAGE" value="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
+    <option name="LAST_COMMIT_MESSAGE" value="i literally did everything" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -300,20 +286,7 @@
           <line>1</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/MementoTest.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

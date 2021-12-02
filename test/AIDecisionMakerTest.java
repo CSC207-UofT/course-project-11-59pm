@@ -3,7 +3,7 @@
  * This file tests the AIDecisionMaker file and makes sure that all methods are working.
  *
  * */
-import  com.company.AIDecisionMaker;
+import com.company.GameManager.AIDecisionMaker;
 
 import com.company.ProvinceConstruction.Province;
 import org.junit.*;
@@ -36,9 +36,7 @@ public class AIDecisionMakerTest {
         for (String value: values){
             valid = validChoices.contains(value);
 
-            if (!valid){
-                assert (false);
-            }
+            assert valid;
         }
 
         assert (true);
@@ -65,9 +63,7 @@ public class AIDecisionMakerTest {
         for (String value: values){
             valid = validChoices.contains(value);
 
-            if (!valid){
-                assert (false);
-            }
+            assert valid;
         }
 
         assert (true);
@@ -87,10 +83,10 @@ public class AIDecisionMakerTest {
 
         decisionMaker.makeDecisions(province);
 
-        if (province.getProvinceGold() != 500 ) {assert true;}
-        if (province.getProvinceCivilians() != 500 ) {assert true;}
-        if (province.getProvinceSoldiers() != 500 ) {assert true;}
-        if (province.getProvinceFood() != 500 ) {assert true;}
+        assert province.getProvinceGold() == 500 || true;
+        assert province.getProvinceCivilians() == 500 || true;
+        assert province.getProvinceSoldiers() == 500 || true;
+        assert province.getProvinceFood() == 500 || true;
     }
     /** Checks if makeDecisions with the modifier executes and modifies the given province. Does not check if the values
      * are modified correct, only that something was modified.*/
@@ -115,9 +111,9 @@ public class AIDecisionMakerTest {
 
         decisionMaker.makeDecisions(province, modifier, skews);
 
-        if (province.getProvinceGold() != 500 ) {assert true;}
-        if (province.getProvinceCivilians() != 500 ) {assert true;}
-        if (province.getProvinceSoldiers() != 500 ) {assert true;}
-        if (province.getProvinceFood() != 500 ) {assert true;}
+        assert province.getProvinceGold() == 500 || true;
+        assert province.getProvinceCivilians() == 500 || true;
+        assert province.getProvinceSoldiers() == 500 || true;
+        assert province.getProvinceFood() == 500 || true;
     }
 }
