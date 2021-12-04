@@ -222,18 +222,26 @@ public class GameEngine {
 
     public void summaryOfStates(){
         int counter = 0;
-        List<MementoProvince> listofmp = ctProvince.getMementoProvinceList();
-        for (MementoProvince p: listofmp){
+
+        for (Province p: origProvince.setListOfMementoProvinces(ctProvince.getMementoProvinceList())){
             ui.displayText("State: " + counter);
-            printAttributes(p.getProvince());
+            printAttributes(p);
             counter += 1;
         }
     }
 
     private void stateSnapshot(Province p){
         origProvince.setProvince(p);
+        // listOfProvince(p);
         MementoProvince mp = origProvince.createMementoProvinces();
         ctProvince.addMementoProvince(mp);
+        // origProvince.setMementoProvinces(ctProvince.getMementoProvinceList(0))
+    }
+
+    private List<Province> listOfProvince(Province p){
+        List<Province> lst = new ArrayList<>();
+        lst.add(p);
+        return lst;
     }
 
 //    private ArrayList<Province> listOfPrevProvincesStates(int min, int max) {

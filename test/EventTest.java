@@ -1,4 +1,4 @@
-import  com.company.Events;
+import  com.company.GameManager.Events;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
