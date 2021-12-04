@@ -13,10 +13,15 @@ import java.util.List;
 
 public class ProcessValues {
 
-    public ProcessValues() {
-
-    }
-
+    /** The updating of attributes for provinces given a string that represents the choice the user wanted to make
+     *
+     * @param userDecision the string number that the user wants to update. Corresponds with given choices.
+     *                     1 corresponds to boosting food for gold,
+     *                     2 corresponds to boosting soldiers for civilians,
+     *                     3 corresponds to boosting gold for civilians
+     * @param province the province that will be modified. Can be a user province or an AI province
+     * @param value the amount that the user wants to change their attributes by. Each attribute is changed by a
+     *              different modifier.*/
     public void getUserDecision(String userDecision, Province province, int value){
         switch (userDecision) {
             case "3": {
@@ -47,6 +52,15 @@ public class ProcessValues {
         }
     }
 
+    /** Acts similarly to getUserDecision, but rather than modifying by a value given by the player, this modifies
+     * multiple values that are preset in the event. When called this passes a list that represents the values to be
+     * modified in order of gold, civ, soldiers, food
+     *
+     * @param userDecision in Y,N which represents if the user wanted to act on this decision
+     * @param province the province that  will be affected
+     * @param value a list of values that corrosponds with the mutiple values that will be affected. This means that
+     *              a list passed as [10,20,30,40] will modify gold by 10, civilians by 20, soldiers by 30, and food by
+     *              40. Added or subtraced is dependant on the value of userDecision. */
     public void getUserEventDecision(String userDecision, Province province, List<Integer> value){
         if (userDecision.equals("Y")){
             int currentValue1 = province.getProvinceGold();
