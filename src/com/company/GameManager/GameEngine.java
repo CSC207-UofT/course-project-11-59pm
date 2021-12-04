@@ -20,7 +20,7 @@ import com.company.UseCases.ProcessValues;
 import com.company.GameSave.GameState;
 import com.company.GameSave.SaveLoad;
 
-public class GameEngine {
+public class GameEngine implements Cloneable {
     private final UserInterface ui;
     private final Decisions decisionList;
     private final ProcessValues processor;
@@ -74,14 +74,14 @@ public class GameEngine {
         //TODO below i tried doing it but provinceName is private so we need a setter function
     }
 
-    public void loopGame() {
+    public void loopGame() throws CloneNotSupportedException {
         while (!playerProvince.isDeath()) {
             turn();
         }
         death();
     }
 
-    public void turn() {
+    public void turn() throws CloneNotSupportedException {
         displayEventValues(playerProvince, processEvent());
         displayEventValues(playerProvince, processEvent());
         Random rand = new Random();
@@ -212,20 +212,6 @@ public class GameEngine {
         }
     }
 
-//    public Province prevProvinceState() {
-//        // send the province state to the Originator
-//        origProvince.setProvince(playerProvince);
-//        // System.out.println("Food" + origProvince.getProvince().getProvinceFood());
-//        // Create a memento Object from the given state.
-//        MementoProvince mp = origProvince.createMementoProvinces();
-//
-//        // send to the CareTackerProvince
-//        ctProvince.addMementoProvince(mp);
-//
-//        // return the prev state Province Object
-//        return origProvince.setMementoProvinces(ctProvince.getMementoProvince(0));
-//    }
-
     public void summaryOfStates(){
         int counter = 0;
 
@@ -237,12 +223,11 @@ public class GameEngine {
         }
     }
 
-    private void stateSnapshot(Province p){
-        origProvince.setProvince(p);
-        // listOfProvince(p);
+    private void stateSnapshot(Province p) throws CloneNotSupportedException {
+        Province copyProvince = (Province)p.clone();
+        origProvince.setProvince(copyProvince);
         MementoProvince mp = origProvince.createMementoProvinces();
         ctProvince.addMementoProvince(mp);
-        // origProvince.setMementoProvinces(ctProvince.getMementoProvinceList(0))
     }
 
     private List<Province> listOfProvince(Province p){
@@ -251,15 +236,4 @@ public class GameEngine {
         return lst;
     }
 
-//    private ArrayList<Province> listOfPrevProvincesStates(int min, int max) {
-//        // send the province state to the Originator
-//        origProvince.setProvince(playerProvince);
-//
-//        // Create a memento Object from the given state.
-//        MementoProvince mp = origProvince.createMementoProvinces();
-//
-//        // send to the CareTackerProvince
-//        ctProvince.addMementoProvince(mp);
-//        ArrayList<MementoProvince> ctP = ctProvince.getListMementoProvince(min, max);
-//        return origProvince.setMementoProvinces(ctP);
 }
