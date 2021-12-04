@@ -8,7 +8,7 @@ package com.company.ProvinceConstruction;
  *
  **/
 
-public class Province implements ProvinceLayout {
+public class Province implements ProvinceLayout, Cloneable {
     /**
      * Instances Variables:
      * userProvinceName: represents the name of the User Province
@@ -162,6 +162,10 @@ public class Province implements ProvinceLayout {
         }
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     /**
      * If the value of any attribute dips to 0 or below, the province is announced dead
      * @return True if Gold, Civilians, Soldiers or Food dips to 0 or below.
