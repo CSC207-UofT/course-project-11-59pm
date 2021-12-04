@@ -118,12 +118,15 @@ public class GameEngine {
      */
     public void turn() throws CloneNotSupportedException {
         // Displaying the two Event
-        displayEventValues(playerProvince, processEvent());
-        displayEventValues(playerProvince, processEvent());
+        printAttributes(playerProvince);
+        processEvent();
+        //second display
+        printAttributes(playerProvince);
+        processEvent();
 
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
-        if (randomNumber < 6) {processDecision();} //TODO: Java Complains here
+        if (randomNumber < 6) {processDecision();}
         else {processEvent();}
         aiTurn();
         stateSnapshot(playerProvince);
@@ -137,11 +140,11 @@ public class GameEngine {
      * Makes the Decisions for all 4 AI Provinces in the back which is hidden from the User.
      */
     private void aiTurn() {
-        displayValues(playerProvince);
+        printAttributes(playerProvince);
         for (Province currProvince : aiProvinces) {
             if (currProvince.getStatus()) {
                 aiChoices.makeDecisions(currProvince);
-                displayValues(currProvince);
+                printAttributes(currProvince);
                 if (currProvince.isDeath()) {
                     provinceDeath(currProvince);
                 }
@@ -149,22 +152,6 @@ public class GameEngine {
         }
     }
 
-
-    /**
-     * Displays values after the User's choice given a Decision.
-     */
-    private void displayValues(Province province) {
-        printAttributes(province);
-    }
-
-    /**
-     * Displays values after the User's choice given a Random Event.
-     */
-    public void displayEventValues(Province province, List eventValues) {
-        //TODO so basically i want to say civilian value = old value + eventValue = new value
-        //TODO must use memento to keep track of what the value was before the value changes
-        printAttributes(province);
-    }
 
     /**
      * // TODO: Carson/Howard, can you write the documentation for this
@@ -210,7 +197,8 @@ public class GameEngine {
 
     public void death() {
         ui.displayText("You have lost the game!");
-        displayValues(playerProvince);
+        printAttributes(playerProvince);
+        processEvent();
         ui.displayText("One of the values have reached zero :( :skull:");
         //TODO would you like to restart? and have them restart
     }
@@ -235,7 +223,7 @@ public class GameEngine {
                 }
             }
             String enemy = ui.selectOpponent(provinces);
-            System.out.println(enemy);
+            ui.displayText(enemy);
             for (Province province: aiProvinces){
                 if (province.getAiProvinceName().equals(enemy)){
                     String winner = battleGenerator.startsBattle(playerProvince, province);
@@ -306,8 +294,10 @@ public class GameEngine {
         //  INDEXOUTOFBOUNDS at the first iteration, but we just need 0, 0 i think?
         // civilian value = old value + eventValue = new value
         if ((province.getUserProvinceName() != null)) {
+            ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getUserProvinceName());
         } else {
+            ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
@@ -322,6 +312,7 @@ public class GameEngine {
         ui.displayText("Food value: " + province.getProvinceFood());
 //        ui.displayText("Food value: " + province.getProvinceFood()+ "<EVENT_VALUE> = "
 //                + getPrevSnapshot().getProvinceFood());
+        ui.displayText("===========================================================");
         ui.displayText("\n");
     }
 }
