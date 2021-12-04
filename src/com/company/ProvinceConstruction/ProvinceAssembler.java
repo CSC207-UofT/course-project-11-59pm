@@ -1,10 +1,9 @@
 package com.company.ProvinceConstruction;
 import java.util.ArrayList;
 /**
- * This file contains the implementation for the
- * ProvincesAssembler Class.
- * Responsibility: This class is responsible for the creation of the province and assembles
- * all the other class into a Province with the necessary attributes.
+ * This file contains the implementation for the ProvincesAssembler Class.
+ * Responsibility: This class is responsible for the creation of the province and
+ * assembles all the other class into a Province with the necessary attributes.
  **/
 
 public class ProvinceAssembler {

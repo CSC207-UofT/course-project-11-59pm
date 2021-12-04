@@ -1,14 +1,20 @@
 package com.company.UseCases;
 
-import com.company.UseCases.ProcessValues;
 import com.company.ProvinceConstruction.Province;
 
-public class Battle {
-    ProcessValues processValues;
+/**
+ *  This file contains the implementation for the Battle Class.
+ *  Responsibility: This file is to start the Battle between
+ *  the two gieven
+ */
 
+public class Battle {
+    // Instance Variable
+    private final ProcessValues processValues;
+
+    // Constructor to create a new instance of the Process Values
     public Battle() {
-        ProcessValues processValues = new ProcessValues();
-        this.processValues = processValues;
+        this.processValues = new ProcessValues();
     }
 
     /**
@@ -62,4 +68,3 @@ public class Battle {
         return processValues.battleWinner(aiProvince);
     }
 }
-

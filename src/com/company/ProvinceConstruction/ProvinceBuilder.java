@@ -3,10 +3,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This file contains the implementation for the
- * Province Builder Class.
- * Responsibility: This Class is responsible for building all the
- * individual components of a Province by overriding the components from ProvinceBuilderLayout .
+ * This file contains the implementation for the ProvinceBuilder Class.
+ * Responsibility: This Class is responsible for building all the individual
+ * components of a Province by overriding the components from ProvinceBuilderLayout .
  */
 
 public class ProvinceBuilder implements ProvinceBuilderLayout {

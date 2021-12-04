@@ -1,11 +1,10 @@
-import  com.company.Decisions;
+import  com.company.GameManager.Decisions;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 public class DecisionTest {
     /**

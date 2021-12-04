@@ -1,7 +1,7 @@
 package com.company.ProvinceConstruction;
 /**
  * This file contains the implementation for the
- * ProvinceBuilderLayout which is them implemented by ProvinceBuilder.
+ * ProvinceBuilderLayout which is then implemented by ProvinceBuilder.
  * Responsibility: Contains methods which help to build the different aspects of a Province
  **/
 
