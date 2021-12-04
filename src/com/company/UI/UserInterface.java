@@ -265,14 +265,4 @@ public class UserInterface {
         bounds.add(upBound);
         return bounds;
     }
-
-    public void displaySummary(ArrayList provinceAttributes){
-        System.out.println("====================================");
-        System.out.println("Name: " + provinceAttributes.get(0));
-        System.out.println("Gold: " + provinceAttributes.get(1));
-        System.out.println("Civilians " + provinceAttributes.get(2));
-        System.out.println("Soldiers " + provinceAttributes.get(3));
-        System.out.println("Food " + provinceAttributes.get(4));
-        System.out.println("====================================");
-    }
 }

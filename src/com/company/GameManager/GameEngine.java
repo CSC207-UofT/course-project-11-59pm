@@ -81,6 +81,7 @@ public class GameEngine implements Cloneable {
         //TODO below i tried doing it but provinceName is private so we need a setter function
     }
 
+    /** This method loops the game. This function continues to loop until the player dies.*/
     public void loopGame() throws CloneNotSupportedException {
         while (!playerProvince.isDeath()) {
             turn();
@@ -88,9 +89,13 @@ public class GameEngine implements Cloneable {
         death();
     }
 
+    /** This method is what happens in one turn. Two events will be displayed first, and then one decision
+     * can be chosen. The last decision has a small change to be replaced with an event. After the player acts, the AI
+     * will take their turns. After AI takes their turns, data is saved, and a summary of each state is displayed.*/
     public void turn() throws CloneNotSupportedException {
-        displayEventValues(playerProvince, processEvent());
-        displayEventValues(playerProvince, processEvent());
+        processEvent();
+        processEvent();
+        displayValues(playerProvince);
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
         if (randomNumber < 6) {
@@ -106,6 +111,8 @@ public class GameEngine implements Cloneable {
         }
     }
 
+    /** This method process events by giving a random event to the player and getting their input. Then it calls
+     * processor to act on the events and modify the player province. */
     public List<Integer> processEvent() {
         Events event = new Events();
         String eventName = Events.getRandomEvent();
@@ -116,7 +123,8 @@ public class GameEngine implements Cloneable {
         return eventValues;
     }
 
-
+    /** This method act similar to processEvent, but processes decisions rather than events. Also calls on processor
+     * to process and updated values*/
     public void processDecision() {
         decisionList.displayQuestions();
         String choice = ui.getDecisionsChoice();
@@ -124,6 +132,8 @@ public class GameEngine implements Cloneable {
         processor.getUserDecision(choice, playerProvince, max);
     }
 
+    /** This method is the basis of the aiTurns. It loops over aiProvinces and makes each of them act like a player.
+     * They will make decisions and also check if they died.*/
     public void aiTurn() {
         displayValues(playerProvince);
         for (int i = 0; i < aiProvinces.size(); i++) {
@@ -138,33 +148,26 @@ public class GameEngine implements Cloneable {
         }
     }
 
-
+    /** This method simpily displayes the given provinces attributes, such as gold and food
+     *
+     * @param  province the attributes of given provinced will be displayed in UI*/
     public void displayValues(Province province) {
-        printAttributes(province);
-    }
-
-    // Can safely ignore this method for now
-    public void displayEventValues(Province province, List eventValues) {
-        //TODO so basically i want to say civilian value = old value + eventValue = new value
-        //TODO must use memento to keep track of what the value was before the value changes
-        printAttributes(province);
-        // Can use this here
-
-    }
-
-    private void printAttributes(Province province) {
         if ((province.getUserProvinceName() != null)) {
+            System.out.println("====================================");
             ui.displayText("Values for province: " + province.getUserProvinceName());
         } else {
+            System.out.println("====================================");
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
         ui.displayText("Gold value: " + province.getProvinceGold());
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
         ui.displayText("Food value: " + province.getProvinceFood());
+        System.out.println("====================================");
         ui.displayText("\n");
     }
 
+    /** Creaates a save file for the current state of the game*/
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
         ui.displayText("Saving Game...");
@@ -181,13 +184,14 @@ public class GameEngine implements Cloneable {
         return SaveLoad.loadGame(filePathLoad).getSaveState();
     }
 
-
+    /** This method notifies the player that the given province is dead, and then kills the province that is dead*/
     public void provinceDeath(Province province) {
         ui.displayText(province.getAiProvinceName() + " is dead");
         ui.displayText("\n");
         province.die();
     }
 
+    /** This method notifies the player has died*/
     public void death() {
         ui.displayText("You have lost the game!");
         displayValues(playerProvince);
@@ -196,6 +200,7 @@ public class GameEngine implements Cloneable {
         //TODO would you like to restart? and have them restart
     }
 
+    /** This method is for battles.*/
     public void battle_option() {
         boolean battle = ui.beginBattle();
 
@@ -225,7 +230,7 @@ public class GameEngine implements Cloneable {
         for (Province p: origProvince.setListOfMementoProvinces(ctProvince.getMementoProvinceList())){
             ui.displayText("State: " + counter);
             ui.displayText("\n");
-            printAttributes(p);
+            displayValues(p);
             counter += 1;
         }
     }
