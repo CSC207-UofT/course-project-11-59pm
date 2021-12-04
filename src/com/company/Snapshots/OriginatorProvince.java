@@ -5,9 +5,15 @@ import com.company.ProvinceConstruction.Province;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  This file contains the implementation for the OriginatorProvince Class.
+ *  Responsibility: This file is responsible for creating new MementoProvince Object,
+ *  by a given Province Object, and converting the List of MementoProvince into
+ *  a List of Province.
+ */
+
 public class OriginatorProvince {
     private Province p;
-
 
     /**
      * Creates MementoProvince Object given a ProvinceAssembler Object

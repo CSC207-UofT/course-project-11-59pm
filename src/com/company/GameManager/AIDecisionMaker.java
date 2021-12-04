@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
- * This file is the basis and computation of the AI used in the game
- *
- * */
+ *  This file contains the implementation for the AIDecisionMaker Class.
+ *  Responsibility: This file is the basis and computation of the AI
+ *  that is used in the game to make decision's for the 4 AI Provinces.
+ */
 
 public class AIDecisionMaker {
     public AIDecisionMaker(){
-        //Nothing to initialize
+        // Empty Constructor
     }
 
     /** Totals all stats of given province up and creates a list of percentages that represent the odds of choising

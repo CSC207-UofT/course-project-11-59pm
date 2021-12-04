@@ -4,12 +4,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
+
 /**
- *
- * This class is responsible for taking user inputs for the choice of event
- * and translating them to other use Case Classes.
- * This class also displays anything from other classes
- *
+ *  This file contains the implementation for the UserInterface Class.
+ *  Responsibility: This file stores for taking user inputs for the choice of event
+ *  and translating them to other use Case Classes. This class also displays anything
+ *  from other classes
  */
 
 public class UserInterface {
@@ -51,7 +51,7 @@ public class UserInterface {
             // Get value that player wants
             choice = getDecisionHelper(decision);
 
-            // Split given number into string compenents
+            // Split given number into string components
             String[] checks = choice.split("");
 
             // Check that given string is in the numbers
@@ -62,8 +62,9 @@ public class UserInterface {
                 displayText("Your input is not valid! Enter a number:");
             }
             else if (Integer.parseInt(choice) > maximum){
-                /** NOTE: if the value is too large, the program will crash! This is due to a parseInt problem that we
-                cannot fix! */
+                // TODO: NOTE: if the value is too large, the program will crash
+                //  This is due to a parseInt problem that we cannot fix!
+
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
 

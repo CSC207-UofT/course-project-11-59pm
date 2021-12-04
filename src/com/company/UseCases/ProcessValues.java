@@ -4,6 +4,13 @@ import com.company.ProvinceConstruction.Province;
 
 import java.util.List;
 
+/**
+ *  This file contains the implementation for the ProcessValues Class.
+ *  Responsibility: This file is updates all the values for BOTH
+ *  the User and AI provinces, where the values are updated depending
+ *  on the choice the user's make and AI's provinces make.
+ */
+
 public class ProcessValues {
 
     public ProcessValues() {

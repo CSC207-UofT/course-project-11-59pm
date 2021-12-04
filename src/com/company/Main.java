@@ -1,13 +1,14 @@
 package com.company;
 
 import com.company.GameManager.GameEngine;
-
 import java.io.IOException;
+
 /**
- *
- * This is the main file that should be run for the whole program.
- *
- * */
+ *  This file contains the implementation for the Main Class.
+ *  Responsibility: This file is responsible for running the program
+ *  and calls on the Game Engine to start the game.
+ */
+
 public class Main {
 
     public static void main(String[] args) throws IOException, CloneNotSupportedException {
