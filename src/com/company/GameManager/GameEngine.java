@@ -93,12 +93,14 @@ public class GameEngine {
      * @throws CloneNotSupportedException if the object is not Cloneable due to missing
      *                                      implementation of the Cloneable Interface.
      */
+
     public void loopGame() throws CloneNotSupportedException {
         while (!playerProvince.isDeath()) {
             turn();
         }
         death();
     }
+
 
     /**
      * Runs each turn:
@@ -147,6 +149,7 @@ public class GameEngine {
         }
     }
 
+
     /**
      * Displays values after the User's choice given a Decision.
      */
@@ -190,9 +193,11 @@ public class GameEngine {
         processor.getUserDecision(choice, playerProvince, max);
     }
 
+
     /**
      * Displays the Province which are dead.
      */
+
     public void provinceDeath(Province province) {
         ui.displayText(province.getAiProvinceName() + " is dead");
         ui.displayText("\n");
@@ -202,6 +207,7 @@ public class GameEngine {
     /**
      * Displays when the User is dead and prompts the User to restart the game.
      */
+
     public void death() {
         ui.displayText("You have lost the game!");
         displayValues(playerProvince);
@@ -209,12 +215,14 @@ public class GameEngine {
         //TODO would you like to restart? and have them restart
     }
 
+
     /** Multi-tasked Function for Starting a Battle:
      *                     i) Displays the list of Provinces that can battle (Are still Alive).
      *                     ii) Prompts the User to choose their opponent
      *                     iii) Then, proceeds to start the battle between the user and its chosen province
      *                     iv) Displays the winner
      */
+
     public void battle_option() {
         boolean battle = ui.beginBattle();
 
@@ -248,6 +256,7 @@ public class GameEngine {
             ui.displayText("-------------------------");
             printAttributes(p);
             ui.displayText("=========================");
+
             counter += 1;
         }
     }

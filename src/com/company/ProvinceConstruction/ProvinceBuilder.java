@@ -10,9 +10,9 @@ import java.util.Random;
 
 public class ProvinceBuilder implements ProvinceBuilderLayout {
     /**
-     * Instances Variables:
-     * aiProvince: Province Object that represents the Ai Province
-     * userProvince: Province Object that represents the User Province
+     *
+     * @param aiProvince: Province Object that represents the Ai Province
+     * @param userProvince: Province Object that represents the User Province
      */
     private final Province aiProvince;
     private final Province userProvince;

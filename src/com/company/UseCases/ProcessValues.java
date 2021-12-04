@@ -19,25 +19,28 @@ public class ProcessValues {
 
     public void getUserDecision(String userDecision, Province province, int value){
         switch (userDecision) {
-            case "1": {
+            case "3": {
+                // civilians for gold; 1 civ: 2 gold
                 int currentValue = province.getProvinceCivilians();
                 int currentValue2 = province.getProvinceGold();
-                province.setProvinceCivilians(currentValue + value / 2);
-                province.setProvinceGold(currentValue2 - value);
+                province.setProvinceCivilians(currentValue - value);
+                province.setProvinceGold(currentValue2 + 2*value);
                 break;
             }
             case "2": {
+                // civilians for soldiers; 1 civ:1 soldier
                 int currentValue = province.getProvinceSoldiers();
                 int currentValue2 = province.getProvinceCivilians();
                 province.setProvinceSoldiers(currentValue + value);
                 province.setProvinceCivilians(currentValue2 - value);
                 break;
             }
-            case "3": {
-                int currentValue = province.getProvinceGold();
-                int currentValue2 = province.getProvinceCivilians();
-                province.setProvinceGold(currentValue + value);
-                province.setProvinceCivilians(currentValue2 - value);
+            case "1": {
+                // gold for food; 1 gold: 2 food
+                int currentValue = province.getProvinceFood();
+                int currentValue2 = province.getProvinceGold();
+                province.setProvinceFood(currentValue + 2*value);
+                province.setProvinceGold(currentValue2 - value);
 
                 break;
             }

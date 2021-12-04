@@ -31,8 +31,8 @@ public class AIDecisionMaker {
         float total = province.getProvinceFood() + province.getProvinceGold() +province.getProvinceFood();
         List<Float> percents = new ArrayList<Float>();
         // Add percents for choice weights
-        percents.add(province.getProvinceFood()/total);
-        percents.add(province.getProvinceFood() + province.getProvinceGold()/total);
+        percents.add((province.getProvinceFood()/total)*100);
+        percents.add((province.getProvinceFood() + province.getProvinceGold()/total)*100);
 
         List<String> choices = new ArrayList<>();
         Random rand = new Random();
@@ -89,10 +89,12 @@ public class AIDecisionMaker {
     public void makeDecisions(Province province){
         ProcessValues processor = new ProcessValues();
         List<String> choices = getDecisions(province);
-
+        //
+        Random random = new Random();
 
         for (String choice : choices) {
-            processor.getUserDecision(choice, province, province.returnMaximumValue(choice) / 2);
+            int bet = province.returnMaximumValue(choice)/ (5 + random.nextInt(5));
+            processor.getUserDecision(choice, province, bet);
         }
         List<Integer> value = randomizeAiEvent();
         processor.getUserEventDecision("Y", province, value);
@@ -115,6 +117,9 @@ public class AIDecisionMaker {
         processor.getUserEventDecision("Y", province, value);
     }
 
+    /** This function randomizes a list of number which represents if the user will have an event.
+     *
+     * */
     public List randomizeAiEvent(){
 
         List<Integer> randList = new ArrayList<>();
