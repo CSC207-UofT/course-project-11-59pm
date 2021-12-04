@@ -1,11 +1,9 @@
 package com.company.ProvinceConstruction;
 
 /**
- * This file contains the implementation for the
- * Province Class.
+ * This file contains the implementation for the Province Class which implements ProvinceLayout, Cloneable.
  * Responsibility: The Province is responsible for representing a
  * Province Object that contains the attribute within a Province.
- *
  **/
 
 public class Province implements ProvinceLayout, Cloneable {

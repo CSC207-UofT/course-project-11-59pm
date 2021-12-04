@@ -2,6 +2,11 @@ package com.company.Snapshots;
 
 import com.company.ProvinceConstruction.Province;
 
+/**
+ *  This file contains the implementation for the MementoProvince Class.
+ *  Responsibility: This file converts a given Province Object to a
+ *  MementoProvince Object.
+ */
 public class MementoProvince {
     private Province pA;
 
@@ -15,7 +20,6 @@ public class MementoProvince {
 
     /**
      * Getters and Setters
-     *
      */
     public Province getProvince() {
         return this.pA;
