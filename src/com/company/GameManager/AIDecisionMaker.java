@@ -51,21 +51,6 @@ public class AIDecisionMaker {
             }
         }
         return choices;
-        /*Random rand = new Random();
-        int choice;
-        List<String> choices = new ArrayList<>();
-
-        for (int i = 0; i < 3; i++) {
-            choice = rand.nextInt(4);
-            if (choice == 0) {
-                choices.add("1");
-            } else if (choice == 1) {
-                choices.add("2");
-            } else {
-                choices.add("3");
-            }
-        }
-        return choices;*/
     }
 
     /** Generate 1 number which represents the choice the given user made.

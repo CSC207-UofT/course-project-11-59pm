@@ -70,6 +70,7 @@ public class UserInterface {
             else {
                 isValid = true;
                 displayText("Adjustments will be made shortly.");
+                displayText("\n");
             }
         }
 
