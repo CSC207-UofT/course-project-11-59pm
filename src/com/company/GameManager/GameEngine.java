@@ -289,6 +289,9 @@ public class GameEngine {
                 (ctProvince.getMementoProvinceList().size()).getProvince();
     }
 
+    /** Displays all attributes of given province and formats it as nicely as text can be formatted.
+     *
+     * @param province the province that will be displayed*/
     private void printAttributes(Province province) {
         // TODO: Howard I have implemented the way u wanted but I run into
         //  INDEXOUTOFBOUNDS at the first iteration, but we just need 0, 0 i think?
