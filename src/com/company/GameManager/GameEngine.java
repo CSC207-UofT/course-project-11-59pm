@@ -20,6 +20,13 @@ import com.company.UseCases.ProcessValues;
 import com.company.GameSave.GameState;
 import com.company.GameSave.SaveLoad;
 
+/**
+ *
+ *
+ * This file is the main game engine. This should act as the middle man of the program, acting between interface and
+ * use cases.
+ *
+ * */
 public class GameEngine implements Cloneable {
     private final UserInterface ui;
     private final Decisions decisionList;

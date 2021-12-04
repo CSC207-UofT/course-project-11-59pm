@@ -120,15 +120,18 @@ public class UserInterface {
         return choice;
     }
 
-    public String getEventChoice(){
-        /* This even is very similar to getDecisions, but it only gets a y/n for events.
+    /** This even is very similar to getDecisions, but it only gets a y/n for events.
 
         upper or lower case is accepted */
+    public String getEventChoice(){
         this.displayText("Do you want this event Y/N?");
         String choice = input.nextLine();
         return getString(choice);
     }
 
+    /** Gets function checks if the given input is valid for events. only accepts upper or lower case Y and N
+     *
+     * @param choice the string to be checked*/
     private String getString(String choice) {
         List<String> validChoices = Arrays.asList("Y","N","y","n");
         boolean valid = validChoices.contains(choice);
@@ -142,12 +145,16 @@ public class UserInterface {
         return choice;
     }
 
-
+    /** This is the main output function used for UI that displays text to players
+     *
+     * @param Text the text to be displayed*/
     public void displayText(String Text){
         /*This method will display the decisions or text that is given to it*/
         System.out.println(Text);
     }
 
+    /** This function is used at the start of the game to get data for the player. This is all user inputted data
+     * and more specialized, so a function is created. */
     public List startPlayer() {
         this.displayText("What is your name: "); // ask user for their name
         String name = input.nextLine();
@@ -160,13 +167,17 @@ public class UserInterface {
         return Arrays.asList(name, provinceName);
     }
 
+    /** This function is used to ask if the player wants to start a battle and returns a boolean*/
     public boolean beginBattle() {
-        // A method that asks the user if the want to battle, and returns a boolean based on answer
         this.displayText("Would you like to battle? Y/N:");
         String choice = input.nextLine();
         return !getString(choice).equals("n") && !getString(choice).equals("N");
     }
 
+    /** This function is used to select an opponent. A list of valid opponents is given and the player enters a
+     * number to check which opponent it will be.
+     *
+     * @param opponentList a list of valid opponents that the user may face*/
     public String selectOpponent(List<String> opponentList) {
         // Allows user to pick an opponent
 
@@ -194,10 +205,13 @@ public class UserInterface {
         return opponentList.get(Integer.parseInt(choice) - 1);
     }
 
+    /** This function is used to initialize user interface */
     public static UserInterface initializeUI() {
         return new UserInterface();
     }
 
+    /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
+     * grouped together */
     public Boolean askLoad(){
         this.displayText("Would you like to load a previous save?(Y/N): ");
         String ans = input.nextLine();
@@ -218,7 +232,9 @@ public class UserInterface {
         this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
         return getFile();
     }
+    /** The four simple functions end here */
 
+    /** This function is used to get the save path of an existing save.*/
     private String getFile() {
         String ans = input.nextLine();
         if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
@@ -237,6 +253,7 @@ public class UserInterface {
 
         return ans;
     }
+
 
     public ArrayList<Integer> askForBounds(){
         ArrayList<Integer> bounds = new ArrayList<>();

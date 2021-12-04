@@ -8,7 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-
+/**
+ *
+ *
+ * This file is responsible for saving and loading data that the user saves.
+ *
+ *
+ * */
 public class SaveLoad {
 
 /**

@@ -2,6 +2,13 @@ package com.company.GameManager;
 import java.util.Random;
 import java.util.*;
 
+/**
+ *
+ *
+ * This file is responsible for all kinds of events. It keeps possible events as well as acts on those by returning
+ * events whenever asked to.
+ *
+ * */
 public class Events {
     /*This class is called on my gameManager to present random events to players.
      * It alters province resources and player entities
