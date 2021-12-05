@@ -214,14 +214,32 @@ public class UserInterface {
     /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
      * grouped together */
     public Boolean askLoad(){
-        this.displayText("Would you like to load a previous save?(Y/N): ");
-        String ans = input.nextLine();
-        return ans.equals("Y") || ans.equals("y");
+        this.displayText("Would you like to load a previous save? Y/N ");
+        String choice = input.nextLine();
+        List<String> validChoices = Arrays.asList("Y","N","y","n");
+        boolean valid = validChoices.contains(choice);
+
+        //this function will loop until a valid input is given
+        while (!valid) {
+            this.displayText("Please enter a valid choice (Enter Y/N)");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+        return choice.equalsIgnoreCase("Y");
     }
     public Boolean askSummary() {
-        this.displayText("Would you like to get a summary");
-        String ans = input.nextLine();
-        return ans.equalsIgnoreCase("Y");
+        this.displayText("Would you like to get a summary Y/N");
+        String choice = input.nextLine();
+        List<String> validChoices = Arrays.asList("Y","N","y","n");
+        boolean valid = validChoices.contains(choice);
+
+        //this function will loop until a valid input is given
+        while (!valid) {
+            this.displayText("Please enter a valid choice (Enter Y/N)");
+            choice = input.nextLine();
+            valid = validChoices.contains(choice);
+        }
+        return choice.equalsIgnoreCase("Y");
     }
 
     public String getFilePathLoad(){

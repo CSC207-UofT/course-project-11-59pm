@@ -18,6 +18,12 @@ public class Events {
         map.put("Do you want to slay the fiery dragon?", Arrays.asList(60, -10, -40, 20, 1, 1, 1, 1));
         map.put("Do you want to kill your daughter", Arrays.asList(20, -100, -20, 1, 1, 1, 1, 1));
 
+
+
+        map.put("Do you want to start a crusade?", Arrays.asList(-10, -50, 50, 0, 1, 1, 1, 1));
+        map.put("Do you want to slay the fiery dragon?", Arrays.asList(60, -10, -40, 20, 1, 1, 1, 1));
+        map.put("Do you want to kill your daughter", Arrays.asList(20, -100, -20, 1, 1, 1, 1, 1));
+
         /* The first value is the province followed by the event, and the second value in order is the change in
          * (Civilians, Gold, Soldiers, Food, subtract Gold, subtract civil, subtract soldiers, subtract food)
          * If you answer yes, they get added

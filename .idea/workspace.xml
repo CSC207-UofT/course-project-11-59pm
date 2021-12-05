@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting and pushing the bug in GameEngine related to memento, also added tests for memento.">
+      <change beforePath="$PROJECT_DIR$/src/com/company/GameManager/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GameManager/Events.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UI/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UI/UserInterface.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,6 +187,7 @@
       <workItem from="1636936050868" duration="650000" />
       <workItem from="1636948547672" duration="1485000" />
       <workItem from="1636955872616" duration="943000" />
+      <workItem from="1638744542097" duration="472000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -285,7 +289,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/course_project$GameManagerTest_testProcessEvent.ic" NAME="GameManagerTest.testProcessEvent Coverage Results" MODIFIED="1638413855525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/course_project$GameManagerTest_testProcessEvent.ic" NAME="GameManagerTest.testProcessEvent Coverage Results" MODIFIED="1638413855525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
