@@ -51,6 +51,8 @@ public class GameEngine {
         ctProvince = new CaretakerProvince();
         aiChoices = new AIDecisionMaker();
 
+        ui.displayText("Welcome to Rajan's Conquest! Collect resources, strengthen your army, and conquer all the " +
+                "neighboring provinces!");
         // Asking the User about their previous GameState
         Boolean saveBool = ui.askLoad();
         ArrayList<Object> list;
