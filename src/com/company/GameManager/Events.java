@@ -12,11 +12,25 @@ public class Events {
     // Instance Variable: a Map of a String and List of Integers
     private static final Map<String, List<Integer>> map = new HashMap<>();
     public Events(){
-        map.put("Do you want to marry the neighbouring kingdoms daughter?", Arrays.asList(10, 80, -20, -20, 1, 1, 1, 1));
-        map.put("Do you want to hold a party for the citizens?", Arrays.asList(-50, 100, 20, -40, 1, 1, 1, 1));
-        map.put("Do you want to start a crusade?", Arrays.asList(-10, -50, 50, 0, 1, 1, 1, 1));
-        map.put("Do you want to slay the fiery dragon?", Arrays.asList(60, -10, -40, 20, 1, 1, 1, 1));
-        map.put("Do you want to kill your daughter", Arrays.asList(20, -100, -20, 1, 1, 1, 1, 1));
+        map.put("A neighboring king is fielding suitors for his daughter, who is particularly taken with your second " +
+                "son; will you make the match?", Arrays.asList(10, 80, 30, -40, 1, 1, 1, 1));
+
+        map.put("Morale is running low in the province. A party would reinvigorate the civilians, and potentially " +
+                "attract more people to your cause. Will you do it?", Arrays.asList(20, -40, 30, -30, 1, 1, 1, 1));
+
+        map.put("Your clergymen are looking for more financial support in exchange for some valuable military " +
+                "endorsement. Will you accept their deal?", Arrays.asList(-15, -20, 60, -20, 1, 1, 1, 1));
+
+        map.put("Motivated by attacks on the province, your military commander proposes a training program to " +
+                "prepare your civilians for future conflicts. Will you approve the program?",
+                Arrays.asList(20, -30, 60, -30, 1, 1, 1, 1));
+
+        map.put("A fiery dragon has made its home in your mountains, and is setting crops and livestock ablaze. " +
+                "Will you slay the dragon?", Arrays.asList(20, 40, -100, 40, 1, 1, 1, 1));
+
+        map.put("Your first-born son, ambitious and jealous after a lifetime living in your shadow, is revealed " +
+                "to be spying on you for your enemies. The punishment for his treachery is death. Will you carry " +
+                "it out?", Arrays.asList(-20, 40, -20, 50, 1, 1, 1, 1));
 
         /* The first value is the province followed by the event, and the second value in order is the change in
          * (Civilians, Gold, Soldiers, Food, subtract Gold, subtract civil, subtract soldiers, subtract food)
@@ -25,14 +39,6 @@ public class Events {
          * */
     }
 
-    // TODO: Howard, Do we need this method? If so, implement within the GameEngine. Otherwise, remove
-    public static String getEvent(int eventNumber){
-        return (String) map.keySet().toArray()[eventNumber];
-    }
-
-    /**
-     * Return a randomly generates a Key from the preset Map provided.
-     */
     public static String getRandomEvent(){
         Random rand = new Random();
         int randomNumber = rand.nextInt(map.size());

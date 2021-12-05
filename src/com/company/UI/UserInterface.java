@@ -214,7 +214,7 @@ public class UserInterface {
     /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
      * grouped together */
     public Boolean askLoad(){
-        this.displayText("Would you like to load a previous save?(Y/N): ");
+        this.displayText("Would you like to load a previously saved game?(Y/N): ");
         String ans = input.nextLine();
         return ans.equals("Y") || ans.equals("y");
     }
@@ -255,15 +255,4 @@ public class UserInterface {
         return ans;
     }
 
-
-    public ArrayList<Integer> askForBounds(){
-        ArrayList<Integer> bounds = new ArrayList<>();
-        this.displayText("Enter the lowest state values you require: ");
-        int lowBound = input.nextInt();
-        this.displayText("Enter the highest state values you require: ");
-        int upBound = input.nextInt();
-        bounds.add(lowBound);
-        bounds.add(upBound);
-        return bounds;
-    }
 }
