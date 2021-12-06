@@ -125,7 +125,7 @@ public class UserInterface {
 
         upper or lower case is accepted */
     public String getEventChoice(){
-        this.displayText("Do you want this event Y/N?");
+        this.displayText("Enter Y for yes, or enter N for no:");
         String choice = input.nextLine();
         return getString(choice);
     }
