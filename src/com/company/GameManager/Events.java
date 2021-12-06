@@ -1,5 +1,4 @@
 package com.company.GameManager;
-import java.util.Random;
 import java.util.*;
 
 /**
@@ -22,7 +21,7 @@ public class Events {
                 "endorsement. Will you accept their deal?", Arrays.asList(-40, 10, 40, 20, 0, -10, -25, 0));
 
         map.put("Motivated by attacks on the province, your military commander proposes a training program to " +
-                "prepare your civilians for future conflicts. Will you approve the program?",
+                        "prepare your civilians for future conflicts. Will you approve the program?",
                 Arrays.asList(-30, 20, 60, -30, 0, -10, -20, 30));
 
         map.put("A fiery dragon has made its home in your mountains, and is setting crops and livestock ablaze. " +
@@ -33,7 +32,7 @@ public class Events {
                 "it out?", Arrays.asList(40, -20, -20, 30, 10, 10, 0, 10));
 
         map.put("A band of thugs is wreaking havoc on local villages. Your advisors suggest assembling a military " +
-                "unit to eliminate the threat with some of your current soldiers. Will you do it?",
+                        "unit to eliminate the threat with some of your current soldiers. Will you do it?",
                 Arrays.asList(-10, 20, -20, 20, -20, -10, 0, -10));
 
         map.put("Influenza is spreading across the province; the quarantined people are becoming restless, and " +
@@ -41,26 +40,26 @@ public class Events {
                 "to break out. Will you do it?", Arrays.asList(-10, -10, -10, 20, -10, -50, -20, 30));
 
         map.put("A local town has accused a woman of witchcraft, and wishes to burn her at the stake. Failing to " +
-                "give your approval could be controversial; will you approve the execution?",
+                        "give your approval could be controversial; will you approve the execution?",
                 Arrays.asList(20, -1, 20, 20, -10, -10, -10, -10));
 
         map.put("Due to food shortages in one of your villages, the people have begun attacking your other villages " +
-                "in order to sustain themselves. Will you eliminate them?",
+                        "in order to sustain themselves. Will you eliminate them?",
                 Arrays.asList(-10, 20, -20, 40, 10, -20, 0, -30));
 
         map.put("A tornado has swept across the land, decimating homes in your province. Will you pay to rebuild " +
                 "the destroyed property?", Arrays.asList(-30, 20, 20, 40, 20, -30, -10, -10));
 
         map.put("A charismatic religious leader is beginning to attract followers in your province, and you fear he " +
-                "may plan to turn your people against you? Will you assassinate him?",
+                        "may plan to turn your people against you? Will you assassinate him?",
                 Arrays.asList(-40, 20, 20, 20, -20, -40, -20, -30));
 
         map.put("Local schoolteachers are pushing anti-monarchy curricula to children which could threaten " +
-                "your position. You may defund them, thereby forcing them to get in line; will you?",
+                        "your position. You may defund them, thereby forcing them to get in line; will you?",
                 Arrays.asList(50, -10, 0, 0, 0, -20, -20, 20));
 
         map.put("An infestation of crickets is beginning to damage food supplies. Hiring professionals " +
-                "to exterminate them, however, could be quite expensive. Will you hire them?",
+                        "to exterminate them, however, could be quite expensive. Will you hire them?",
                 Arrays.asList(-50, 20, 0, 40, -20, -20, -10, -40));
 
         map.put("One of your most beloved generals, Howard, falls in battle. Will you commission a statue " +
@@ -71,7 +70,7 @@ public class Events {
                 "will you approve it?", Arrays.asList(-30, -10, 0, 0, 0, -30, -10, -20));
 
         map.put("Your religious advisors suggest you intertwine the roots of your family tree in order to keep " +
-                "bloodlines pure, despite widespread disapproval? Will you act on their advice?",
+                        "bloodlines pure, despite widespread disapproval? Will you act on their advice?",
                 Arrays.asList(-100, -100, -100, -100, 0, 0, 0, 0));
 
         map.put("Your military leaders recommend quick raids on nearby towns to collect their resources; " +
@@ -82,14 +81,8 @@ public class Events {
                 "in the process. Will you make the sacrifice?", Arrays.asList(40, 10, -10, 30, 20, 0, -30, 10));
 
         map.put("The once renowned Sir Robin deserted your army in terror, to the disgust of your people. In order " +
-                "to save face, your advisors suggest you execute him as punishment. Will you carry it out?",
+                        "to save face, your advisors suggest you execute him as punishment. Will you carry it out?",
                 Arrays.asList(-10, 10, 30, 20, -10, 0, -40, 10));
-
-
-
-        map.put("Do you want to start a crusade?", Arrays.asList(-10, -50, 50, 0, 1, 1, 1, 1));
-        map.put("Do you want to slay the fiery dragon?", Arrays.asList(60, -10, -40, 20, 1, 1, 1, 1));
-        map.put("Do you want to kill your daughter", Arrays.asList(20, -100, -20, 1, 1, 1, 1, 1));
 
         /* The first value is the province followed by the event, and the second value in order is the change in
          * (Gold, Civilian, Soldiers, Food, subtract Gold, subtract civil, subtract soldiers, subtract food)
@@ -100,7 +93,7 @@ public class Events {
 
     public static String getRandomEvent(){
         /*
-        * Produces a random event to be implemented in the game.*/
+         * Produces a random event to be implemented in the game.*/
         Random rand = new Random();
         int randomNumber = rand.nextInt(map.size());
         return (String) map.keySet().toArray()[randomNumber];

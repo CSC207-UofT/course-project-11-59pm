@@ -39,6 +39,7 @@ public class GameEngine {
     private final OriginatorProvince origProvince;
     private final CaretakerProvince ctProvince;
     private final Battle battleGenerator;
+    //private final Events event;
 
     public GameEngine() throws IOException {
         // First, initialize the UserInterface, and
@@ -50,6 +51,7 @@ public class GameEngine {
         origProvince = new OriginatorProvince();
         ctProvince = new CaretakerProvince();
         aiChoices = new AIDecisionMaker();
+        //event = new Events();
 
         ui.displayText("Welcome to Rajan's Conquest! Collect resources, strengthen your army, and conquer all the " +
                 "neighboring provinces!");
@@ -84,7 +86,7 @@ public class GameEngine {
             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
-            list = new ArrayList<Object>(ui.startPlayer());
+            list = new ArrayList<>(ui.startPlayer());
             savePoint(list, ui.getFilePathSave());
         }
         return list;
@@ -125,9 +127,10 @@ public class GameEngine {
         //second display
         printAttributes(playerProvince);
         processEvent();
+        printAttributes(playerProvince);
 
         Random rand = new Random();
-        int randomNumber = rand.nextInt(5);
+        int randomNumber = rand.nextInt(11);
         if (randomNumber < 6) {processDecision();}
         else {processEvent();}
         aiTurn();
@@ -158,14 +161,13 @@ public class GameEngine {
     /**
      * // TODO: Carson/Howard, can you write the documentation for this
      */
-    public List<Integer> processEvent() {
-        Events event = new Events();
+    public void processEvent() {
+        new Events();
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
         ui.displayText(eventName);
         String choice = ui.getEventChoice();
         processor.getUserEventDecision(choice, playerProvince, eventValues);
-        return eventValues;
     }
 
     /**
@@ -245,7 +247,6 @@ public class GameEngine {
             ui.displayText("Round: " + counter);
             ui.displayText("-------------------------");
             printAttributes(p);
-            ui.displayText("=========================");
 
             counter += 1;
         }
@@ -295,9 +296,6 @@ public class GameEngine {
      *
      * @param province the province that will be displayed*/
     private void printAttributes(Province province) {
-        // TODO: Howard I have implemented the way u wanted but I run into
-        //  INDEXOUTOFBOUNDS at the first iteration, but we just need 0, 0 i think?
-        // civilian value = old value + eventValue = new value
         if ((province.getUserProvinceName() != null)) {
             ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getUserProvinceName());
@@ -306,17 +304,13 @@ public class GameEngine {
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
-//        ui.displayText("Civilian value: " + province.getProvinceCivilians() + "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceCivilians());
+
         ui.displayText("Gold value: " + province.getProvinceGold());
-//        ui.displayText("Gold value: " + province.getProvinceGold()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceGold());
+
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
-//        ui.displayText("Soldier value: " + province.getProvinceSoldiers()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceSoldiers());
+
         ui.displayText("Food value: " + province.getProvinceFood());
-//        ui.displayText("Food value: " + province.getProvinceFood()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceFood());
+
         ui.displayText("===========================================================");
         ui.displayText("\n");
     }

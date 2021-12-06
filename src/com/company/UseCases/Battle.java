@@ -5,7 +5,7 @@ import com.company.ProvinceConstruction.Province;
 /**
  *  This file contains the implementation for the Battle Class.
  *  Responsibility: This file is to start the Battle between
- *  the two gieven
+ *  the two given
  */
 
 public class Battle {

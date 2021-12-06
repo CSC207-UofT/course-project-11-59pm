@@ -3,7 +3,6 @@ package com.company.UI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.List;
 
 /**
  *  This file contains the implementation for the UserInterface Class.
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
-    Scanner input = new Scanner(System.in);
+    final Scanner input = new Scanner(System.in);
 
     public String getDecisionsChoice(){
         /* Display choices and Get the choice of the player, and return the choice as a string

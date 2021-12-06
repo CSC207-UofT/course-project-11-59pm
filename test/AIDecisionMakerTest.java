@@ -1,8 +1,8 @@
-/**
- *
- * This file tests the AIDecisionMaker file and makes sure that all methods are working.
- *
- * */
+/*
+
+  This file tests the AIDecisionMaker file and makes sure that all methods are working.
+
+  */
 import com.company.GameManager.AIDecisionMaker;
 
 import com.company.ProvinceConstruction.Province;
@@ -15,21 +15,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AIDecisionMakerTest {
-    AIDecisionMaker decisionMaker;
-
-    @Before
-    public void setUp() {
-        decisionMaker = new AIDecisionMaker();
-    }
-
-    @After
-    public void tearDown() {
-    }
+    final AIDecisionMaker decisionMaker = new AIDecisionMaker();
 
     /** Checks that getDecision correctly returns a list of numbers between 1,2, or 3*/
     @Test
     public void testGetDecisions(){
-        // Initilize a dummy province to test on
+        // Initialize a dummy province to test on
         Province province = new Province();
         province.setProvinceGold(500);
         province.setProvinceCivilians(500);
@@ -92,10 +83,14 @@ public class AIDecisionMakerTest {
         decisionMaker.makeDecisions(province);
 
         // Check that something changed
-        assert province.getProvinceGold() == 500 || true;
-        assert province.getProvinceCivilians() == 500 || true;
-        assert province.getProvinceSoldiers() == 500 || true;
-        assert province.getProvinceFood() == 500 || true;
+        List<Boolean> changed = new ArrayList<>();
+        changed.add(province.getProvinceGold() != 500);
+        changed.add(province.getProvinceCivilians() != 500);
+        changed.add(province.getProvinceSoldiers() != 500);
+        changed.add(province.getProvinceFood() != 500);
+        for (Boolean item: changed){
+            assert item;
+        }
     }
     /** Checks if makeDecisions with the modifier executes and modifies the given province. Does not check if the values
      * are modified correct, only that something was modified.*/
@@ -121,9 +116,13 @@ public class AIDecisionMakerTest {
         decisionMaker.makeDecisions(province, modifier, skews);
 
         // Check that some value changed
-        assert province.getProvinceGold() == 500 || true;
-        assert province.getProvinceCivilians() == 500 || true;
-        assert province.getProvinceSoldiers() == 500 || true;
-        assert province.getProvinceFood() == 500 || true;
+        List<Boolean> changed = new ArrayList<>();
+        changed.add(province.getProvinceGold() != 500);
+        changed.add(province.getProvinceCivilians() != 500);
+        changed.add(province.getProvinceSoldiers() != 500);
+        changed.add(province.getProvinceFood() != 500);
+        for (Boolean item: changed){
+            assert item;
+        }
     }
 }

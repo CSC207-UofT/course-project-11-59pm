@@ -26,7 +26,7 @@ public class SaveLoad {
 
     public static void saveGame(String filePath, GameState saveInfo) throws IOException {
         ObjectOutputStream oos = null;
-        FileOutputStream fileOutput = null;
+        FileOutputStream fileOutput;
         try{
             //Clearing file, for new save file to overWrite
             new FileOutputStream(filePath).close();
@@ -51,7 +51,7 @@ public class SaveLoad {
      */
 
     public static GameState loadGame(String filePath) throws IOException {
-        GameState saveList = new GameState(new ArrayList<Object>());
+        GameState saveList = new GameState(new ArrayList<>());
         ObjectInputStream objectinputstream = null;
         try {
             FileInputStream streamIn = new FileInputStream(filePath);

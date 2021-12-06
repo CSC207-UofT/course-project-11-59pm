@@ -11,8 +11,8 @@ import java.util.Random;
 public class ProvinceBuilder implements ProvinceBuilderLayout {
     /**
      *
-     * @param aiProvince: Province Object that represents the Ai Province
-     * @param userProvince: Province Object that represents the User Province
+     * aiProvince: Province Object that represents the Ai Province
+     * userProvince: Province Object that represents the User Province
      */
     private final Province aiProvince;
     private final Province userProvince;
@@ -67,7 +67,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
 
     /**
      * Builds the name of the User Province
-     * @param userProvinceName: Province name to be assigned to the User Province
+     * userProvinceName: Province name to be assigned to the User Province
      */
     @Override
     public void buildUserProvinceName(String userProvinceName) {
@@ -111,8 +111,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
     }
 
     /**
-     * Returns the Ai Province
-     * @return: Ai Province Object
+     * Returns the Ai Province Object
      */
     @Override
     public Province getAiProvince() {
@@ -121,7 +120,6 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
 
     /**
      * Returns the User Province
-     * @return: User Province Object
      */
     @Override
     public Province getUserProvince() {
@@ -129,28 +127,28 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
     }
 
     /**
-     * @return: Returns a randomized value for the province gold
+     * Returns a randomized value for the province gold
      */
     public int randomProvinceGold(){
         return randomGenerator();
     }
 
     /**
-     * @return: Returns a randomized value for the provinces' civilians
+     * Returns a randomized value for the provinces' civilians
      */
     public int randomProvinceCivilians(){
         return randomGenerator();
     }
 
     /**
-     * @return: Returns a randomized value for the provinces' soldiers
+     * Returns a randomized value for the provinces' soldiers
      */
     public int randomProvinceSoldiers(){
         return randomGenerator();
     }
 
     /**
-     * @return: Returns a randomized value for the provinces' food
+     * Returns a randomized value for the provinces' food
      */
     public int randomProvinceFood(){
         return randomGenerator();
@@ -159,7 +157,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
     /**
      * Returns the random generated values for Food, Gold, Civilians and Soldiers
      * within the range of 100 to 600
-     * @return: randomized int, which represents the randomized values for
+     * returns randomized int, which represents the randomized values for
      * Food, Gold, Civilians and Soldiers
      */
     private int randomGenerator() {

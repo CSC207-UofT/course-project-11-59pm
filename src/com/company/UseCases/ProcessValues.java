@@ -58,11 +58,11 @@ public class ProcessValues {
      *
      * @param userDecision in Y,N which represents if the user wanted to act on this decision
      * @param province the province that  will be affected
-     * @param value a list of values that corrosponds with the mutiple values that will be affected. This means that
+     * @param value a list of values that corresponds with the multiple values that will be affected. This means that
      *              a list passed as [10,20,30,40] will modify gold by 10, civilians by 20, soldiers by 30, and food by
-     *              40. Added or subtraced is dependant on the value of userDecision. */
+     *              40. Added or subtracted is dependent on the value of userDecision. */
     public void getUserEventDecision(String userDecision, Province province, List<Integer> value){
-        if (userDecision.equals("Y")){
+        if (userDecision.equalsIgnoreCase("Y")){
             int currentValue1 = province.getProvinceGold();
             int currentValue2 = province.getProvinceCivilians();
             int currentValue3 = province.getProvinceSoldiers();
@@ -73,7 +73,7 @@ public class ProcessValues {
             province.setProvinceFood(currentValue4 + value.get(3));
 
         }
-        else if (userDecision.equals("N")){
+        else if (userDecision.equalsIgnoreCase("N")){
             int currentValue1 = province.getProvinceGold();
             int currentValue2 = province.getProvinceCivilians();
             int currentValue3 = province.getProvinceSoldiers();
@@ -85,7 +85,7 @@ public class ProcessValues {
         }
     }
 
-    //battle mathods that need processing values
+    //battle methods that need processing values
     public int getBattleSoldiers(Province province) {
         return province.getProvinceSoldiers();
     }

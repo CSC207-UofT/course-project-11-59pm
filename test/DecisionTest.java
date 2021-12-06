@@ -1,6 +1,5 @@
 import  com.company.GameManager.Decisions;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,17 +18,13 @@ public class DecisionTest {
 
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void testDecision() {
         ArrayList<String> lst = new ArrayList<>();
         lst.add("Do you want to boost your food for one round?");
         lst.add("Do you want to enlist more soldiers?");
         lst.add("Do you want to increase revenue?");
-        ArrayList dec = decisions.getDecisionQuestions();
+        ArrayList<String> dec = decisions.getDecisionQuestions();
         assert (Objects.equals(lst.size(), 3));
         for(Object d : dec){
             assert lst.contains(d);

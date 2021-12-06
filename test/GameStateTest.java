@@ -15,15 +15,6 @@ import org.junit.*;
  */
 
 public class GameStateTest {
-    @Before
-    public void setUp() {
-
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Added a tester to see if the creation of the 4 Ai Provinces is as expected
      * Checks to see if each Ai Province in the array list of AiProvinces is of type Province.
