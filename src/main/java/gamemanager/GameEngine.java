@@ -38,6 +38,7 @@ public class GameEngine {
     private final OriginatorProvince origProvince;
     private final CaretakerProvince ctProvince;
     private final Battle battleGenerator;
+    private String name;
 
     public GameEngine() throws IOException {
         // First, initialize the UserInterface, and
@@ -59,7 +60,7 @@ public class GameEngine {
         if(!saveBool) {
             ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
             ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
-            String name = (String) list.get(0);
+            name = (String) list.get(0);
             provinceUserAssembler.makeUserProvince(name);
             playerProvince = provinceUserAssembler.getUserProvince();
 
@@ -72,20 +73,22 @@ public class GameEngine {
     }
 
     /**
-     *  // TODO: Girish could you write this method's documentation.
+     *  Asks the user if they want to load a previous state.
+     *  If they load a previous state, new provinces are created
+     *  Then each province is updated with the save.ser file
+     *  If they choose to run a new game, then ui.startPlayer() is called
+     *  and the game runs normally
      *
-     *     - Sample input for windows filePath: C:\Users\YOURUSERNAME\Desktop
-     *     - Sample input for macOS filePath: /Users/username/Desktop
      * @param saveBool the result of the User's prompt
-     * @throws IOException if the user inputs improper data.
+     * @throws IOException if the save or load process does not work.
      */
     private ArrayList<Object> getSaveDecision(Boolean saveBool) throws IOException {
         ArrayList<Object> list;
         if (saveBool) {
-            list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
+            list = new ArrayList<>(loadPoint(ui.getFile()));
             ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
             ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
-            String name = (String) list.get(0);
+            name = (String) list.get(0);
             provinceUserAssembler.makeUserProvince(name);
             playerProvince = provinceUserAssembler.getUserProvince();
 
@@ -120,7 +123,8 @@ public class GameEngine {
     /**
      * Loops the game until the playerProvince is NOT dead.
      * @throws CloneNotSupportedException if the object is not Cloneable due to missing
-     *                                      implementation of the Cloneable Interface.
+     *                                      implementation of the Cloneable Interface
+     * @throws IOException if the save or load process does not work.
      */
     public void loopGame() throws CloneNotSupportedException, IOException {
         while (!playerProvince.isDeath()) {
@@ -142,6 +146,8 @@ public class GameEngine {
      * iii) After 3 turn (round ends), snapshot of the User attributes are taken.
      * iv) Then, the User is prompted to start a Battle
      * v) User has the option to get a summary of their attributes.
+     *
+     * @throws IOException if the save or load process does not work.
      */
     public void turn() throws CloneNotSupportedException, IOException {
         // Displaying the two Event
@@ -172,7 +178,8 @@ public class GameEngine {
             conclusion();
         }
 
-        savePoint(createSaveList("Girish"), ui.getFilePathSave());
+
+        savePoint(createSaveList(name), ui.getFile());
     }
 
     /**
@@ -208,6 +215,7 @@ public class GameEngine {
             }
         }
     }
+
 
     /**
      * Displays values after the User's choice given a Decision.
@@ -296,27 +304,39 @@ public class GameEngine {
     private void summaryOfStates(){
         int counter = 0;
         for (Province p: origProvince.setListOfMementoProvinces(ctProvince.getMementoProvinceList())){
-            ui.displayText("-------------------------");
+            ui.displayText("------------------------------");
             ui.displayText("Round: " + counter);
-            ui.displayText("-------------------------");
+            ui.displayText("------------------------------");
             printAttributes(p);
             counter += 1;
         }
     }
 
     /**
-     * TODO: Girish Finish the Documentation
+     * Takes in a save list, and file path, then uses the saveLoad function to save the current gameState to save.ser
+     *
+     * @param list the given array list to serialize
+     * @param filePathSave the file path of the save.ser file
      */
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
+        ui.displayText("*******************************");
         ui.displayText("Saving Game...");
         GameState gs = new GameState();
         gs.setSaveState(list);
         SaveLoad.saveGame(filePathSave, gs);
         ui.displayText("Game State Saved");
+        ui.displayText("*******************************");
         ui.displayText("\n");
     }
 
+    /**
+     * Creates an Arraylist of all attributes of the current
+     * gameState by adding the user's name, then adding
+     * each of the attributes of each province
+     *
+     * @param userName the user's name of the current gameState
+     */
     public ArrayList<Object> createSaveList(String userName){
         ArrayList<Province> lstOfProvince = aiProvinces;
         ArrayList<Object> newList = new ArrayList<>();
@@ -342,17 +362,23 @@ public class GameEngine {
 
 
     /**
-     * TODO: Girish Finish the Documentation
+     * Takes in an ArrayList, then uses loadGame to load contents of save.ser
+     *
+     * @param filePathLoad the file path of save.ser file
      */
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
         // Loads the save.ser file for the current GameState
+        ui.displayText("*******************************");
         ui.displayText("Loading Game State...");
+        ui.displayText("*******************************");
         ui.displayText("\n");
         return SaveLoad.loadGame(filePathLoad).getSaveState();
     }
 
     /**
      * Saves the Snapshot of the current state using the Memento Design Pattern
+     *
+     * @param p province we want to clone for memento
      */
     private void stateSnapshot(Province p) throws CloneNotSupportedException {
         Province copyProvince = (Province)p.clone();
@@ -361,7 +387,10 @@ public class GameEngine {
         ctProvince.addMementoProvince(mp);
     }
 
-
+    /**
+     * prints all attributes for the given province
+     * @param province the province we want to print
+     */
     private void printAttributes(Province province) {
         ui.displayText("===============================");
         if ((province.getUserProvinceName() != null)) {

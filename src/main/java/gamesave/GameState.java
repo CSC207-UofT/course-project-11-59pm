@@ -1,4 +1,3 @@
-
 package main.java.gamesave;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,11 +6,11 @@ import java.io.Serializable;
 /**
  * A gameState is a list of gameStateElements.
  */
-public class GameState implements Iterable, Serializable{
+public class GameState implements Iterable<Object>, Serializable{
     private ArrayList<Object> saveState;
 
     public GameState() {
-        ArrayList<Object> saveState = new ArrayList();
+        ArrayList<Object> saveState = new ArrayList<>();
     }
 
     /**
@@ -36,29 +35,26 @@ public class GameState implements Iterable, Serializable{
     /**
      * Returns the saveState.
      */
-
     public ArrayList<Object> getSaveState(){
         return saveState;
     }
 
-     /**
+    /**
      * Returns the number of elements in saveState.
      *
      * @return the number of gameStateElements in this gameState.
      */
-
     public int getSize() {
         return saveState.size();
     }
 
 
-    
-     /**
+
+    /**
      * Returns an iterator for this gameState.
      *
      * @return an iterator for this gameState.
      */
-
     @Override
     public Iterator<Object> iterator() {
         return new gameStateIterator();
@@ -68,40 +64,37 @@ public class GameState implements Iterable, Serializable{
         private int currentIndex = 0;
 
 
-    /**
-     * Returns true if the iteration has more elements.
-     *
-     * @return true if the iteration has more elements.
-     */
-     @Override
-     public boolean hasNext() {
+        /**
+         * Returns true if the iteration has more elements.
+         *
+         * @return true if the iteration has more elements.
+         */
+        @Override
+        public boolean hasNext() {
             return currentIndex < saveState.size();
         }
 
 
-     /**
-     * Returns the next element in the iteration.
-     *
-     * @return the next element in the iteration.
-     */
+        /**
+         * Returns the next element in the iteration.
+         *
+         * @return the next element in the iteration.
+         */
+        @Override
+        public Object next() {
+            return saveState.get(currentIndex++);
+        }
 
-    @Override
-    public Object next() {
-        return saveState.get(currentIndex++);
-    }
 
-
-     /**
-     * Removes from the underlying collection the last element returned by the iterator.
-     */
-
-    @Override
-    public void remove() {
-        saveState.remove(currentIndex);
-    }
+        /**
+         * Removes from the underlying collection the last element returned by the iterator.
+         */
+        @Override
+        public void remove() {
+            saveState.remove(currentIndex);
+        }
 
     }
+
 
 }
-
-    
