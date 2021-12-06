@@ -125,7 +125,7 @@ public class UserInterface {
 
         upper or lower case is accepted */
     public String getEventChoice(){
-        this.displayText("Do you want this event Y/N?");
+        this.displayText("Enter Y for yes, or enter N for no:");
         String choice = input.nextLine();
         return getString(choice);
     }
@@ -214,7 +214,7 @@ public class UserInterface {
     /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
      * grouped together */
     public Boolean askLoad(){
-        this.displayText("Would you like to load a previous save? Y/N ");
+        this.displayText("Would you like to load a previously saved game?(Y/N): ");
         String choice = input.nextLine();
         List<String> validChoices = Arrays.asList("Y","N","y","n");
         boolean valid = validChoices.contains(choice);
@@ -273,15 +273,4 @@ public class UserInterface {
         return ans;
     }
 
-
-    public ArrayList<Integer> askForBounds(){
-        ArrayList<Integer> bounds = new ArrayList<>();
-        this.displayText("Enter the lowest state values you require: ");
-        int lowBound = input.nextInt();
-        this.displayText("Enter the highest state values you require: ");
-        int upBound = input.nextInt();
-        bounds.add(lowBound);
-        bounds.add(upBound);
-        return bounds;
-    }
 }
