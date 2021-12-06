@@ -1,6 +1,6 @@
 
-import  com.company.GameSave.SaveLoad;
-import  com.company.GameSave.GameState;
+import  main.java.gamesave.SaveLoad;
+import  main.java.gamesave.GameState;
 
 import java.io.IOException;
 import java.nio.file.Path;

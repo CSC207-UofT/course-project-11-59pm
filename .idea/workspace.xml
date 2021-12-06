@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="pls work" />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="new howard branch used to finish the todos ansh made">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameManager/AIDecisionMaker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameManager/Decisions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameManager/Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameManager/GameEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameSave/GameState$gameStateIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameSave/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameSave/GameStateElement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/GameSave/SaveLoad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilderLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/UI/UserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/UseCases/Battle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/UseCases/ProcessValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameState/gameState$gameStateIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameState/gameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameState/saveLoad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/AIDecisionMakerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/AIDecisionMakerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/BattleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/BattleTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/DecisionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/DecisionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/EventTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/EventTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/save.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/BattleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/DecisionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/DecisionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/EventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/EventTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GameStateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GameStateTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

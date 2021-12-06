@@ -59,13 +59,14 @@ public class UserInterface {
             intAsStr = checkValid(checks,intAsStr);
 
             // check if given input is valid
-            if (!intAsStr){
+            System.out.println(choice);
+            if(choice.length() > 9){
+                displayText("Your input is too large! Please enter a smaller number");
+            }
+            else if (!intAsStr){
                 displayText("Your input is not valid! Enter a number:");
             }
             else if (Integer.parseInt(choice) > maximum){
-                // TODO: NOTE: if the value is too large, the program will crash
-                //  This is due to a parseInt problem that we cannot fix!
-
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
 
@@ -258,10 +259,10 @@ public class UserInterface {
     private String getFile() {
         String ans = input.nextLine();
         File f = new File(ans);
-/*        while(!(f.exists() && !f.isDirectory()) && !(ans.equalsIgnoreCase("Default"))){
+        while(!(f.exists() && !f.isDirectory()) && !(ans.equalsIgnoreCase("Default"))){
             this.displayText("Please enter a valid file path (Type 'default' for default filePath)");
             ans = input.nextLine();
-        }*/
+        }
         if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
             Path resourceDirectory = Paths.get("src");
             String filePath = resourceDirectory.toFile().getAbsolutePath();
