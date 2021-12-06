@@ -62,8 +62,8 @@ public class UserInterface {
                 displayText("Your input is not valid! Enter a number:");
             }
             else if (Integer.parseInt(choice) > maximum){
-                // TODO: NOTE: if the value is too large, the program will crash
-                //  This is due to a parseInt problem that we cannot fix!
+                /* NOTE: if the value is too large, the program will crash
+                    This is due to a parseInt problem that we cannot fix! */
 
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
@@ -156,7 +156,7 @@ public class UserInterface {
 
     /** This function is used at the start of the game to get data for the player. This is all user inputted data
      * and more specialized, so a function is created. */
-    public List startPlayer() {
+    public List<Object> startPlayer() {
         this.displayText("What is your name: "); // ask user for their name
         String name = input.nextLine();
 
@@ -251,15 +251,14 @@ public class UserInterface {
         this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
         return getFile();
     }
-    /** The four simple functions end here */
+    /* The four simple functions end here */
 
     /** This function is used to get the save path of an existing save.*/
     private String getFile() {
         String ans = input.nextLine();
         if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
             Path resourceDirectory = Paths.get("src");
-            String filePath = resourceDirectory.toFile().getAbsolutePath();
-            ans = filePath;
+            ans = resourceDirectory.toFile().getAbsolutePath();
         }
 
         if (ans.endsWith("/") || ans.endsWith("\\") )
