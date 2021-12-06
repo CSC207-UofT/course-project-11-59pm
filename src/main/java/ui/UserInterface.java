@@ -212,6 +212,7 @@ public class UserInterface {
         return new UserInterface();
     }
 
+
     /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
      * grouped together */
     public Boolean askLoad(){
@@ -228,6 +229,8 @@ public class UserInterface {
         }
         return choice.equalsIgnoreCase("Y");
     }
+
+    /** Ask if user wants a summary of the province attributes */
     public Boolean askSummary() {
         this.displayText("Would you like to get a summary Y/N");
         String choice = input.nextLine();
@@ -243,39 +246,24 @@ public class UserInterface {
         return choice.equalsIgnoreCase("Y");
     }
 
-    public String getFilePathLoad(){
-        this.displayText("Please paste the file path of where the folder containing save.ser save file is (Type 'default' for default filePath)");
-        return getFile();
-    }
-
-    public String getFilePathSave(){
-        this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
-        return getFile();
-    }
 
     /** This function is used to get the save path of an existing save.*/
-    private String getFile() {
-        String ans = input.nextLine();
-        File f = new File(ans);
-        while(!(f.exists() && !f.isDirectory()) && !(ans.equalsIgnoreCase("Default"))){
-            this.displayText("Please enter a valid file path (Type 'default' for default filePath)");
-            ans = input.nextLine();
-        }
-        if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
-            Path resourceDirectory = Paths.get("src");
-            String filePath = resourceDirectory.toFile().getAbsolutePath();
-            ans = filePath;
-        }
+    public String getFile() {
 
-        if (ans.endsWith("/") || ans.endsWith("\\") )
+
+        Path resourceDirectory = Paths.get("src");
+        String filePath = resourceDirectory.toFile().getAbsolutePath();
+
+
+        if (filePath.endsWith("/") || filePath.endsWith("\\") )
         {
-            ans = ans + "save.ser";
+            filePath = filePath + "save.ser";
         }
         else{
-            ans = ans + "/save.ser";
+            filePath = filePath + "/save.ser";
         }
 
-        return ans;
+        return filePath;
     }
 
 }
