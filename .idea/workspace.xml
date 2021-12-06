@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="commiting and pushing the bug in GameEngine related to memento, also added tests for memento." />
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="new howard branch used to finish the todos ansh made">
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/AIDecisionMaker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Battle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Decisions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProcessValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/Province.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceAssembler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/ProvinceConstruction/ProvinceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/CaretakerProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/MementoProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/com/company/Snapshots/OriginatorProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/gameEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/com/company/userInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/AIDecisionMakerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/AIDecisionMakerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/BattleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/BattleTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/DecisionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/DecisionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/1159 pm/EventTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/1159 pm/EventTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +113,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -184,6 +203,7 @@
       <workItem from="1636936050868" duration="650000" />
       <workItem from="1636948547672" duration="1485000" />
       <workItem from="1636955872616" duration="943000" />
+      <workItem from="1638744542097" duration="799000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -248,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636936487868</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new howard branch used to finish the todos ansh made">
+      <created>1638745336344</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1638745336344</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +298,8 @@
     <MESSAGE value="Most recent Battle class written, modified the Province class to add setter and getter method for the active attribute." />
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
-    <option name="LAST_COMMIT_MESSAGE" value="i literally did everything" />
+    <MESSAGE value="new howard branch used to finish the todos ansh made" />
+    <option name="LAST_COMMIT_MESSAGE" value="new howard branch used to finish the todos ansh made" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,7 +313,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/course_project$GameManagerTest_testProcessEvent.ic" NAME="GameManagerTest.testProcessEvent Coverage Results" MODIFIED="1638413855525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/course_project$MementoTest.ic" NAME="MementoTest Coverage Results" MODIFIED="1636989429253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/course_project$GameManagerTest_testProcessEvent.ic" NAME="GameManagerTest.testProcessEvent Coverage Results" MODIFIED="1638413855525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
