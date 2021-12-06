@@ -1,4 +1,4 @@
-package com.company.ProvinceConstruction;
+package main.java.provinceconstruction;
 
 /**
  * This file contains the implementation for the Province Class which implements ProvinceLayout, Cloneable.
@@ -149,14 +149,10 @@ public class Province implements ProvinceLayout, Cloneable {
      */
     public int returnMaximumValue(String choice){
         if (choice.equals("1")){
-            return getProvinceFood();
-        }
-
-        else if (choice.equals("2")){
-            return getProvinceCivilians();
+            return getProvinceGold();
         }
         else{
-            return getProvinceGold();
+            return getProvinceCivilians();
         }
     }
 
@@ -169,8 +165,8 @@ public class Province implements ProvinceLayout, Cloneable {
      * @return True if Gold, Civilians, Soldiers or Food dips to 0 or below.
      */
     public boolean isDeath(){
-        return getProvinceCivilians() <= 0 || getProvinceGold() < 0
-                || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
+        return getProvinceCivilians() <= 0 || getProvinceGold() <= 0
+                || getProvinceSoldiers() <= 0 || getProvinceFood() <= 0;
     }
 
     /**

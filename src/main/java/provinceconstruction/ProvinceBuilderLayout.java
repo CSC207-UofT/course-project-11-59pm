@@ -1,4 +1,4 @@
-package com.company.ProvinceConstruction;
+package main.java.provinceconstruction;
 /**
  * This file contains the implementation for the
  * ProvinceBuilderLayout which is then implemented by ProvinceBuilder.

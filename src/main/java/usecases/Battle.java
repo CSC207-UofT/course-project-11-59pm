@@ -1,11 +1,11 @@
-package com.company.UseCases;
+package main.java.usecases;
 
-import com.company.ProvinceConstruction.Province;
+import main.java.provinceconstruction.Province;
 
 /**
  *  This file contains the implementation for the Battle Class.
  *  Responsibility: This file is to start the Battle between
- *  the two gieven
+ *  the two given
  */
 
 public class Battle {

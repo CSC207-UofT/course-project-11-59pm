@@ -1,6 +1,7 @@
-package com.company;
+package main.java;
 
-import com.company.GameManager.GameEngine;
+import main.java.gamemanager.GameEngine;
+
 import java.io.IOException;
 
 /**

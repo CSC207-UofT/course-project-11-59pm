@@ -1,21 +1,21 @@
-package com.company.GameManager;
-import com.company.ProvinceConstruction.Province;
-import com.company.ProvinceConstruction.ProvinceAssembler;
-import com.company.ProvinceConstruction.ProvinceBuilder;
-import com.company.Snapshots.CaretakerProvince;
-import com.company.Snapshots.MementoProvince;
-import com.company.Snapshots.OriginatorProvince;
+package main.java.gamemanager;
+import main.java.provinceconstruction.Province;
+import main.java.provinceconstruction.ProvinceAssembler;
+import main.java.provinceconstruction.ProvinceBuilder;
+import main.java.snapshots.CaretakerProvince;
+import main.java.snapshots.MementoProvince;
+import main.java.snapshots.OriginatorProvince;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.company.UI.UserInterface;
-import com.company.UseCases.Battle;
-import com.company.UseCases.ProcessValues;
-import com.company.GameSave.GameState;
-import com.company.GameSave.SaveLoad;
+import main.java.ui.UserInterface;
+import main.java.usecases.Battle;
+import main.java.usecases.ProcessValues;
+import main.java.gamesave.GameState;
+import main.java.gamesave.SaveLoad;
 
 /**
  *  This file contains the implementation for the GameEngine Class.
@@ -125,10 +125,11 @@ public class GameEngine {
         //second display
         printAttributes(playerProvince);
         processEvent();
-
+        printAttributes(playerProvince);
         Random rand = new Random();
         int randomNumber = rand.nextInt(5);
-        if (randomNumber < 6) {processDecision();}
+        // RNG for odds that you have three events instead of a decision
+        if (randomNumber < 3) {processDecision();}
         else {processEvent();}
         aiTurn();
         stateSnapshot(playerProvince);
@@ -156,16 +157,18 @@ public class GameEngine {
 
 
     /**
-     * // TODO: Carson/Howard, can you write the documentation for this
+     * This function gets a random event and the displays it
+     * You then answer Y/N to the question, and it changes your parameters based on the individual event
      */
-    public List<Integer> processEvent() {
+    public void processEvent() {
         Events event = new Events();
+        /*The line above is actually needed
+        * If removed it will make a IllegalArgumentException*/
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
         ui.displayText(eventName);
         String choice = ui.getEventChoice();
         processor.getUserEventDecision(choice, playerProvince, eventValues);
-        return eventValues;
     }
 
     /**
@@ -188,21 +191,20 @@ public class GameEngine {
      */
 
     public void provinceDeath(Province province) {
-        ui.displayText(province.getAiProvinceName() + " is dead");
+        ui.displayText(province.getAiProvinceName() + " has been defeated.");
         ui.displayText("\n");
         province.die();
     }
 
     /**
-     * Displays when the User is dead and prompts the User to restart the game.
+     * Displays when the User is dead and then ends the program
      */
 
     public void death() {
         ui.displayText("You have lost the game!");
         printAttributes(playerProvince);
-        processEvent();
         ui.displayText("One of the values have reached zero :( :skull:");
-        //TODO would you like to restart? and have them restart
+        System.exit(0);
     }
 
 
@@ -245,7 +247,7 @@ public class GameEngine {
             ui.displayText("Round: " + counter);
             ui.displayText("-------------------------");
             printAttributes(p);
-            ui.displayText("=========================");
+//            ui.displayText("=========================");
 
             counter += 1;
         }
@@ -254,7 +256,7 @@ public class GameEngine {
     /**
      * TODO: Girish Finish the Documentation
      */
-    private void savePoint(ArrayList list, String filePathSave) throws IOException {
+    private void savePoint(ArrayList<Object> list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
         ui.displayText("Saving Game...");
         GameState gs = new GameState(list);
@@ -283,20 +285,10 @@ public class GameEngine {
         ctProvince.addMementoProvince(mp);
     }
 
-    /**
-     * Gets the Prev Snapshot
-     */
-    private Province getPrevSnapshot() {
-        return ctProvince.getMementoProvince
-                (ctProvince.getMementoProvinceList().size()).getProvince();
-    }
-
     /** Displays all attributes of given province and formats it as nicely as text can be formatted.
      *
      * @param province the province that will be displayed*/
     private void printAttributes(Province province) {
-        // TODO: Howard I have implemented the way u wanted but I run into
-        //  INDEXOUTOFBOUNDS at the first iteration, but we just need 0, 0 i think?
         // civilian value = old value + eventValue = new value
         if ((province.getUserProvinceName() != null)) {
             ui.displayText("===========================================================");

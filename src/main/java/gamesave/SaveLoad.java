@@ -1,5 +1,5 @@
 
-package com.company.GameSave;
+package main.java.gamesave;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

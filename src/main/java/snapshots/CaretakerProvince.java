@@ -1,4 +1,4 @@
-package com.company.Snapshots;
+package main.java.snapshots;
 
 import java.util.ArrayList;
 import java.util.List;

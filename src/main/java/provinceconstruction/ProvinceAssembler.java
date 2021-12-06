@@ -1,4 +1,4 @@
-package com.company.ProvinceConstruction;
+package main.java.provinceconstruction;
 import java.util.ArrayList;
 /**
  * This file contains the implementation for the ProvincesAssembler Class.

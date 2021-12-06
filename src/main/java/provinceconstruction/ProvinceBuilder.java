@@ -1,4 +1,4 @@
-package com.company.ProvinceConstruction;
+package main.java.provinceconstruction;
 import java.util.ArrayList;
 import java.util.Random;
 
