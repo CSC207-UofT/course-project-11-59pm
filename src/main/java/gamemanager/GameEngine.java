@@ -39,6 +39,7 @@ public class GameEngine {
     private final OriginatorProvince origProvince;
     private final CaretakerProvince ctProvince;
     private final Battle battleGenerator;
+    //private final Events event;
 
     public GameEngine() throws IOException {
         // First, initialize the UserInterface, and
@@ -50,6 +51,7 @@ public class GameEngine {
         origProvince = new OriginatorProvince();
         ctProvince = new CaretakerProvince();
         aiChoices = new AIDecisionMaker();
+        //event = new Events();
 
         ui.displayText("Welcome to Rajan's Conquest! Collect resources, strengthen your army, and conquer all the " +
                 "neighboring provinces!");
@@ -84,7 +86,7 @@ public class GameEngine {
             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
-            list = new ArrayList<Object>(ui.startPlayer());
+            list = new ArrayList<>(ui.startPlayer());
             savePoint(list, ui.getFilePathSave());
         }
         return list;
@@ -126,10 +128,10 @@ public class GameEngine {
         printAttributes(playerProvince);
         processEvent();
         printAttributes(playerProvince);
+
         Random rand = new Random();
-        int randomNumber = rand.nextInt(5);
-        // RNG for odds that you have three events instead of a decision
-        if (randomNumber < 3) {processDecision();}
+        int randomNumber = rand.nextInt(11);
+        if (randomNumber < 6) {processDecision();}
         else {processEvent();}
         aiTurn();
         stateSnapshot(playerProvince);
@@ -157,13 +159,10 @@ public class GameEngine {
 
 
     /**
-     * This function gets a random event and the displays it
-     * You then answer Y/N to the question, and it changes your parameters based on the individual event
+     * // TODO: Carson/Howard, can you write the documentation for this
      */
     public void processEvent() {
-        Events event = new Events();
-        /*The line above is actually needed
-        * If removed it will make a IllegalArgumentException*/
+        new Events();
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
         ui.displayText(eventName);
@@ -191,20 +190,21 @@ public class GameEngine {
      */
 
     public void provinceDeath(Province province) {
-        ui.displayText(province.getAiProvinceName() + " has been defeated.");
+        ui.displayText(province.getAiProvinceName() + " is dead");
         ui.displayText("\n");
         province.die();
     }
 
     /**
-     * Displays when the User is dead and then ends the program
+     * Displays when the User is dead and prompts the User to restart the game.
      */
 
     public void death() {
         ui.displayText("You have lost the game!");
         printAttributes(playerProvince);
+        processEvent();
         ui.displayText("One of the values have reached zero :( :skull:");
-        System.exit(0);
+        //TODO would you like to restart? and have them restart
     }
 
 
@@ -247,7 +247,6 @@ public class GameEngine {
             ui.displayText("Round: " + counter);
             ui.displayText("-------------------------");
             printAttributes(p);
-//            ui.displayText("=========================");
 
             counter += 1;
         }
@@ -256,7 +255,7 @@ public class GameEngine {
     /**
      * TODO: Girish Finish the Documentation
      */
-    private void savePoint(ArrayList<Object> list, String filePathSave) throws IOException {
+    private void savePoint(ArrayList list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
         ui.displayText("Saving Game...");
         GameState gs = new GameState(list);
@@ -285,11 +284,18 @@ public class GameEngine {
         ctProvince.addMementoProvince(mp);
     }
 
+    /**
+     * Gets the Prev Snapshot
+     */
+    private Province getPrevSnapshot() {
+        return ctProvince.getMementoProvince
+                (ctProvince.getMementoProvinceList().size()).getProvince();
+    }
+
     /** Displays all attributes of given province and formats it as nicely as text can be formatted.
      *
      * @param province the province that will be displayed*/
     private void printAttributes(Province province) {
-        // civilian value = old value + eventValue = new value
         if ((province.getUserProvinceName() != null)) {
             ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getUserProvinceName());
@@ -298,17 +304,13 @@ public class GameEngine {
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
-//        ui.displayText("Civilian value: " + province.getProvinceCivilians() + "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceCivilians());
+
         ui.displayText("Gold value: " + province.getProvinceGold());
-//        ui.displayText("Gold value: " + province.getProvinceGold()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceGold());
+
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
-//        ui.displayText("Soldier value: " + province.getProvinceSoldiers()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceSoldiers());
+
         ui.displayText("Food value: " + province.getProvinceFood());
-//        ui.displayText("Food value: " + province.getProvinceFood()+ "<EVENT_VALUE> = "
-//                + getPrevSnapshot().getProvinceFood());
+
         ui.displayText("===========================================================");
         ui.displayText("\n");
     }

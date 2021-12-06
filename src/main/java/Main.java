@@ -1,7 +1,5 @@
 package main.java;
-
 import main.java.gamemanager.GameEngine;
-
 import java.io.IOException;
 
 /**

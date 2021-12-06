@@ -1,8 +1,8 @@
-/**
- *
- * This file tests the Battle file and makes sure that all methods are working.
- *
- * */
+/*
+
+  This file tests the Battle file and makes sure that all methods are working.
+
+  */
 import main.java.usecases.Battle;
 
 import main.java.provinceconstruction.ProvinceAssembler;
@@ -21,10 +21,6 @@ public class BattleTest {
         b1 = new Battle();
         ProvinceBuilder p1 = new ProvinceBuilder();
         p = new ProvinceAssembler(p1);
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /** Checks that startsBattle correctly returns the name of the winning province*/

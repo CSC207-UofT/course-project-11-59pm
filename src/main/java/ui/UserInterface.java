@@ -1,10 +1,8 @@
 package main.java.ui;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.List;
 
 /**
  *  This file contains the implementation for the UserInterface Class.
@@ -15,7 +13,7 @@ import java.util.List;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
-    Scanner input = new Scanner(System.in);
+    final Scanner input = new Scanner(System.in);
 
     public String getDecisionsChoice(){
         /* Display choices and Get the choice of the player, and return the choice as a string
@@ -59,14 +57,13 @@ public class UserInterface {
             intAsStr = checkValid(checks,intAsStr);
 
             // check if given input is valid
-            System.out.println(choice);
-            if(choice.length() > 9){
-                displayText("Your input is too large! Please enter a smaller number");
-            }
-            else if (!intAsStr){
+            if (!intAsStr){
                 displayText("Your input is not valid! Enter a number:");
             }
             else if (Integer.parseInt(choice) > maximum){
+                /* NOTE: if the value is too large, the program will crash
+                    This is due to a parseInt problem that we cannot fix! */
+
                 displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
             }
 
@@ -158,7 +155,7 @@ public class UserInterface {
 
     /** This function is used at the start of the game to get data for the player. This is all user inputted data
      * and more specialized, so a function is created. */
-    public List startPlayer() {
+    public List<Object> startPlayer() {
         this.displayText("What is your name: "); // ask user for their name
         String name = input.nextLine();
 
@@ -253,20 +250,14 @@ public class UserInterface {
         this.displayText("Please paste the file path of folder of where you would like to save file to be  (Type 'default' for default filePath)");
         return getFile();
     }
-    /** The four simple functions end here */
+    /* The four simple functions end here */
 
     /** This function is used to get the save path of an existing save.*/
     private String getFile() {
         String ans = input.nextLine();
-        File f = new File(ans);
-        while(!(f.exists() && !f.isDirectory()) && !(ans.equalsIgnoreCase("Default"))){
-            this.displayText("Please enter a valid file path (Type 'default' for default filePath)");
-            ans = input.nextLine();
-        }
         if (((Objects.equals(ans, "default") || (Objects.equals(ans, "Default"))))) {
             Path resourceDirectory = Paths.get("src");
-            String filePath = resourceDirectory.toFile().getAbsolutePath();
-            ans = filePath;
+            ans = resourceDirectory.toFile().getAbsolutePath();
         }
 
         if (ans.endsWith("/") || ans.endsWith("\\") )

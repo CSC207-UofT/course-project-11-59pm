@@ -1,6 +1,4 @@
-import main.java.gamemanager.Events;
-import org.junit.After;
-import org.junit.Before;
+import  main.java.gamemanager.Events;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,23 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class EventTest {
-    /**
-     *
-     * This file tests the Events file and makes sure that all methods are working.
-     *
-     * */
-    private Events events;
-
-    @Before
-    public void setUp(){
-        events = new Events();
-
-    }
-
-    @After
-    public void tearDown() {
-
-    }
 
     @Test
     public void testEvent() {
@@ -41,7 +22,7 @@ public class EventTest {
     @Test
     public void testEventGetValue() {
         String ev = Events.getRandomEvent();
-        List lst = Events.getValues(ev);
+        List<Integer> lst = Events.getValues(ev);
         assert (Objects.equals(lst.size(), 8));
     }
 }

@@ -149,10 +149,14 @@ public class Province implements ProvinceLayout, Cloneable {
      */
     public int returnMaximumValue(String choice){
         if (choice.equals("1")){
-            return getProvinceGold();
+            return getProvinceFood();
+        }
+
+        else if (choice.equals("2")){
+            return getProvinceCivilians();
         }
         else{
-            return getProvinceCivilians();
+            return getProvinceGold();
         }
     }
 
@@ -165,8 +169,8 @@ public class Province implements ProvinceLayout, Cloneable {
      * @return True if Gold, Civilians, Soldiers or Food dips to 0 or below.
      */
     public boolean isDeath(){
-        return getProvinceCivilians() <= 0 || getProvinceGold() <= 0
-                || getProvinceSoldiers() <= 0 || getProvinceFood() <= 0;
+        return getProvinceCivilians() <= 0 || getProvinceGold() < 0
+                || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
     }
 
     /**

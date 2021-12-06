@@ -19,7 +19,7 @@ public class AIDecisionMaker {
         // Empty Constructor
     }
 
-    /** Totals all stats of given province up and creates a list of percentages that represent the odds of choising
+    /** Totals all stats of given province up and creates a list of percentages that represent the odds of choosing
      * a certain choice. This is the third iteration of the AI.
      *
      * @param province The province that is acting
@@ -29,7 +29,7 @@ public class AIDecisionMaker {
      */
     public List<String> getDecisions(Province province){
         float total = province.getProvinceFood() + province.getProvinceGold() +province.getProvinceFood();
-        List<Float> percents = new ArrayList<Float>();
+        List<Float> percents = new ArrayList<>();
         // Add percents for choice weights
         percents.add((province.getProvinceFood()/total)*100);
         percents.add((province.getProvinceFood() + province.getProvinceGold()/total)*100);
@@ -113,14 +113,14 @@ public class AIDecisionMaker {
         for (String choice : choices) {
             processor.getUserDecision(choice, province, modifier);
         }
-        List<Integer> value = randomizeAiEvent();
+        List<Integer> value =  randomizeAiEvent();
         processor.getUserEventDecision("Y", province, value);
     }
 
     /** This function randomizes a list of number which represents if the user will have an event.
      *
      * */
-    public List randomizeAiEvent(){
+    public List<Integer> randomizeAiEvent(){
 
         List<Integer> randList = new ArrayList<>();
         int counter = 0;
