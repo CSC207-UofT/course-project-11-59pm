@@ -78,10 +78,10 @@ public class ProcessValues {
             int currentValue2 = province.getProvinceCivilians();
             int currentValue3 = province.getProvinceSoldiers();
             int currentValue4 = province.getProvinceFood();
-            province.setProvinceGold(currentValue1 - value.get(4));
-            province.setProvinceCivilians(currentValue2 - value.get(5));
-            province.setProvinceSoldiers(currentValue3 - value.get(6));
-            province.setProvinceFood(currentValue4 - value.get(7));
+            province.setProvinceGold(currentValue1 + value.get(4));
+            province.setProvinceCivilians(currentValue2 + value.get(5));
+            province.setProvinceSoldiers(currentValue3 + value.get(6));
+            province.setProvinceFood(currentValue4 + value.get(7));
         }
     }
 
