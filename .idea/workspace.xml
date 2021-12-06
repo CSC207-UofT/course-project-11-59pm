@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="new howard branch used to finish the todos ansh made">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/1159 pm/save.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/1159 pm/save.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameManager/AIDecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamemanager/AIDecisionMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameManager/Decisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamemanager/Decisions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameManager/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamemanager/Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameManager/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamemanager/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameSave/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamesave/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameSave/GameStateElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamesave/GameStateElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GameSave/SaveLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamesave/SaveLoad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/provinceconstruction/Province.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/provinceconstruction/ProvinceAssembler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/provinceconstruction/ProvinceBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceBuilderLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/provinceconstruction/ProvinceBuilderLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/ProvinceConstruction/ProvinceLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/provinceconstruction/ProvinceLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Snapshots/CaretakerProvince.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snapshots/CaretakerProvince.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Snapshots/MementoProvince.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snapshots/MementoProvince.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Snapshots/OriginatorProvince.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/snapshots/OriginatorProvince.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UI/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UseCases/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecases/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UseCases/ProcessValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecases/ProcessValues.java" afterDir="false" />
-    </list>
+    <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="pls work" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +190,7 @@
       <workItem from="1636948547672" duration="1485000" />
       <workItem from="1636955872616" duration="943000" />
       <workItem from="1638744542097" duration="799000" />
-      <workItem from="1638756572872" duration="1610000" />
+      <workItem from="1638756572872" duration="1905000" />
     </task>
     <task id="LOCAL-00001" summary="Updated user interface. Removed setState and updated getDecisionsChoice to get from 1-3 rather than 1-5. getEventChoice now accepts Y,N,y,n so it is no longer case sensitive.">
       <created>1636689558687</created>
@@ -284,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638745336344</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="pls work">
+      <created>1638758462293</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1638758462293</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +293,8 @@
     <MESSAGE value="Updated AIDecisionMakerTest to test getDecisions" />
     <MESSAGE value="i literally did everything" />
     <MESSAGE value="new howard branch used to finish the todos ansh made" />
-    <option name="LAST_COMMIT_MESSAGE" value="new howard branch used to finish the todos ansh made" />
+    <MESSAGE value="pls work" />
+    <option name="LAST_COMMIT_MESSAGE" value="pls work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
