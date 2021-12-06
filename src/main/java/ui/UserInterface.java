@@ -65,8 +65,8 @@ public class UserInterface {
             else if (!intAsStr){
                 displayText("Your input is not valid! Enter a number:");
             }
-            else if (Integer.parseInt(choice) > maximum){
-                displayText("Your maximum is "+ maximum+"! You have passed this. Please enter a valid number");
+            else if (Integer.parseInt(choice) >= maximum){
+                displayText("Your maximum is "+ (maximum - 1) +"! You have passed this. Please enter a valid number");
             }
 
             else {

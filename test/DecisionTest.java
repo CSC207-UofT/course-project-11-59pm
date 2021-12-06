@@ -29,8 +29,5 @@ public class DecisionTest {
         for(Object d : dec){
             assert lst.contains(d);
         }
-
     }
-
-
 }

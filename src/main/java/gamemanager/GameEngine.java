@@ -185,7 +185,8 @@ public class GameEngine {
     }
 
     /**
-     * // TODO: Carson/Howard, can you write the documentation for this
+     * This function gets a random event and the displays it
+     * You then answer Y/N to the question, and it changes your parameters based on the individual event
      */
     public List<Integer> processEvent() {
         Events event = new Events();
@@ -226,6 +227,7 @@ public class GameEngine {
         ui.displayText("You have lost the game!");
         displayValues(playerProvince);
         ui.displayText("One of the values have reached zero :( :skull:");
+        System.exit(0);
     }
 
     /** Multi-tasked Function for Starting a Battle:
@@ -266,7 +268,6 @@ public class GameEngine {
             ui.displayText("Round: " + counter);
             ui.displayText("-------------------------");
             printAttributes(p);
-            ui.displayText("=========================");
             counter += 1;
         }
     }

@@ -15,7 +15,6 @@ public class Decisions {
     // Instance Variable: ArrayList with all the Possible Decisions Presented to User
     private final ArrayList<String> decisionQuestions = new ArrayList<>();
 
-    // TODO: Maybe we can add more decisions?
     public Decisions() {
         this.decisionQuestions.add("Do you want to boost your food for one round?");
         this.decisionQuestions.add("Do you want to enlist more soldiers?");
