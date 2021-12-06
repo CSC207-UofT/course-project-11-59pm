@@ -51,7 +51,7 @@ public class SaveLoad {
      */
 
     public static GameState loadGame(String filePath) throws IOException {
-        GameState saveList = new GameState(new ArrayList<>());
+        GameState saveList = new GameState();
         ObjectInputStream objectinputstream = null;
         try {
             FileInputStream streamIn = new FileInputStream(filePath);

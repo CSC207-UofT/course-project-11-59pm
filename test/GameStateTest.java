@@ -30,7 +30,8 @@ public class GameStateTest {
         list.add("test2");
         list.add("test3");
 
-        GameState gs = new GameState(list);
+        GameState gs = new GameState();
+        gs.setSaveState(list);
 
 
         Path resourceDirectory = Paths.get("src");
@@ -62,7 +63,8 @@ public class GameStateTest {
     @Test
     public void gameStateSizeTest() {
         ArrayList<Object> list = new ArrayList<>();
-        GameState gs = new GameState(list);
+        GameState gs = new GameState();
+        gs.setSaveState(list);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");
@@ -75,7 +77,8 @@ public class GameStateTest {
     @Test
     public void gameStateSaveListTest() {
         ArrayList<Object> list1 = new ArrayList<>();
-        GameState gs = new GameState(list1);
+        GameState gs = new GameState();
+        gs.setSaveState(list1);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");
@@ -92,7 +95,8 @@ public class GameStateTest {
     @Test
     public void gameStateIterator() {
         ArrayList<Object> list1 = new ArrayList<>();
-        GameState gs = new GameState(list1);
+        GameState gs = new GameState();
+        gs.setSaveState(list1);
         gs.addGameStateElement("First");
         gs.addGameStateElement("Second");
         gs.addGameStateElement("Third");

@@ -85,6 +85,19 @@ public class ProcessValues {
         }
     }
 
+    public void updateProvince(Province province, List<Object> value, Boolean User, String name){
+        if (User){
+            province.setUserProvinceName(name);
+        }else{
+            province.setAiProvinceName(name);
+        }
+        province.setProvinceCivilians((Integer) value.get(0));
+        province.setProvinceGold((Integer) value.get(1));
+        province.setProvinceSoldiers((Integer) value.get(2));
+        province.setProvinceFood((Integer) value.get(3));
+
+    }
+
     //battle methods that need processing values
     public int getBattleSoldiers(Province province) {
         return province.getProvinceSoldiers();

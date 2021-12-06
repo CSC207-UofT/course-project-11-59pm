@@ -8,12 +8,13 @@ import java.io.Serializable;
  * A gameState is a list of gameStateElements.
  */
 public class GameState implements Iterable, Serializable{
-    private final ArrayList<Object> saveState;
+    private ArrayList<Object> saveState;
 
-    public GameState(ArrayList<Object> saveState) {
-        this.saveState = saveState;
+    public GameState() {
+        ArrayList<Object> saveState = new ArrayList();
     }
-/**
+
+    /**
      * Adds a new gameStateElement with gameStateData and parameter type.
      *
      * @param gameStateData  data for the gameStateElement
@@ -21,6 +22,14 @@ public class GameState implements Iterable, Serializable{
 
     public void addGameStateElement(Object gameStateData){
         saveState.add(gameStateData);
+
+    }
+    /**
+     * Set the saveState.
+     */
+
+    public void setSaveState(ArrayList<Object> saveList){
+        this.saveState = saveList;
 
     }
 

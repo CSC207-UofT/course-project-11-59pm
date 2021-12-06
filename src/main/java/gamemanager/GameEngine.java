@@ -32,8 +32,8 @@ public class GameEngine {
     private final UserInterface ui;
     private final Decisions decisionList;
     private final ProcessValues processor;
-    private final Province playerProvince;
-    private final ArrayList<Province> aiProvinces;
+    private  Province playerProvince;
+    private  ArrayList<Province> aiProvinces;
     private final AIDecisionMaker aiChoices;
     private final OriginatorProvince origProvince;
     private final CaretakerProvince ctProvince;
@@ -56,15 +56,19 @@ public class GameEngine {
         list = getSaveDecision(saveBool);
 
         // Creation of the User Province
-        ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
-        ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
-        String name = (String) list.get(1);
-        provinceUserAssembler.makeUserProvince(name);
-        playerProvince = provinceUserAssembler.getUserProvince();
+        if(!saveBool) {
+            ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
+            ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
+            String name = (String) list.get(0);
+            provinceUserAssembler.makeUserProvince(name);
+            playerProvince = provinceUserAssembler.getUserProvince();
 
-        // Creation of the 4 AI Provinces
-        ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
-        aiProvinces = provinceAiAssembler.create();
+            // Creation of the 4 AI Provinces
+            ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
+            aiProvinces = provinceAiAssembler.create();
+        }
+
+
     }
 
     /**
@@ -79,10 +83,36 @@ public class GameEngine {
         ArrayList<Object> list;
         if (saveBool) {
             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
+            ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
+            ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
+            String name = (String) list.get(0);
+            provinceUserAssembler.makeUserProvince(name);
+            playerProvince = provinceUserAssembler.getUserProvince();
+
+            // Creation of the 4 AI Provinces
+            ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
+            aiProvinces = provinceAiAssembler.create();
+
+            String userProvinceName = (String) list.get(1);
+            List<Object> subArr = list.subList(2, 6);
+
+            processor.updateProvince(playerProvince, subArr, true, userProvinceName);
+
+
+            int counter = 6;
+            for (Province p: aiProvinces){
+                String userAiName = (String) list.get(counter);
+                List<Object> subArr1 = list.subList(counter + 1, counter + 5);
+
+                processor.updateProvince(p, subArr1, true, userAiName);
+                counter += 5;
+            }
+            for (Province p: aiProvinces) {
+                printAttributes(p);
+            }
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
             list = new ArrayList<Object>(ui.startPlayer());
-            savePoint(list, ui.getFilePathSave());
         }
         return list;
     }
@@ -92,7 +122,7 @@ public class GameEngine {
      * @throws CloneNotSupportedException if the object is not Cloneable due to missing
      *                                      implementation of the Cloneable Interface.
      */
-    public void loopGame() throws CloneNotSupportedException {
+    public void loopGame() throws CloneNotSupportedException, IOException {
         while (!playerProvince.isDeath()) {
             turn();
         }
@@ -113,7 +143,7 @@ public class GameEngine {
      * iv) Then, the User is prompted to start a Battle
      * v) User has the option to get a summary of their attributes.
      */
-    public void turn() throws CloneNotSupportedException {
+    public void turn() throws CloneNotSupportedException, IOException {
         // Displaying the two Event
         printAttributes(playerProvince);
         processEvent();
@@ -141,6 +171,8 @@ public class GameEngine {
         if (allDead()){
             conclusion();
         }
+
+        savePoint(createSaveList("Girish"), ui.getFilePathSave());
     }
 
     /**
@@ -278,11 +310,36 @@ public class GameEngine {
     private void savePoint(ArrayList list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
         ui.displayText("Saving Game...");
-        GameState gs = new GameState(list);
+        GameState gs = new GameState();
+        gs.setSaveState(list);
         SaveLoad.saveGame(filePathSave, gs);
         ui.displayText("Game State Saved");
         ui.displayText("\n");
     }
+
+    public ArrayList<Object> createSaveList(String userName){
+        ArrayList<Province> lstOfProvince = aiProvinces;
+        ArrayList<Object> newList = new ArrayList<>();
+        newList.add(userName);
+        // Adding the playerPlayer's attributes
+        newList.add(playerProvince.getUserProvinceName());
+        newList.add(playerProvince.getProvinceCivilians());
+        newList.add(playerProvince.getProvinceGold());
+        newList.add(playerProvince.getProvinceSoldiers());
+        newList.add(playerProvince.getProvinceSoldiers());
+
+        // Adding the Ai Province's Attributes
+        for (Province p: lstOfProvince){
+            newList.add(p.getAiProvinceName());
+            newList.add(p.getProvinceCivilians());
+            newList.add(p.getProvinceGold());
+            newList.add(p.getProvinceSoldiers());
+            newList.add(p.getProvinceGold());
+
+        }
+        return newList;
+    }
+
 
     /**
      * TODO: Girish Finish the Documentation
