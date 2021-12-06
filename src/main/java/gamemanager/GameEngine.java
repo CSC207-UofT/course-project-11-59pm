@@ -9,7 +9,6 @@ import main.java.snapshots.OriginatorProvince;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import main.java.ui.UserInterface;
 import main.java.usecases.Battle;
@@ -39,7 +38,6 @@ public class GameEngine {
     private final OriginatorProvince origProvince;
     private final CaretakerProvince ctProvince;
     private final Battle battleGenerator;
-    //private final Events event;
 
     public GameEngine() throws IOException {
         // First, initialize the UserInterface, and
@@ -51,10 +49,7 @@ public class GameEngine {
         origProvince = new OriginatorProvince();
         ctProvince = new CaretakerProvince();
         aiChoices = new AIDecisionMaker();
-        //event = new Events();
 
-        ui.displayText("Welcome to Rajan's Conquest! Collect resources, strengthen your army, and conquer all the " +
-                "neighboring provinces!");
         // Asking the User about their previous GameState
         Boolean saveBool = ui.askLoad();
         ArrayList<Object> list;
@@ -86,7 +81,7 @@ public class GameEngine {
             list = new ArrayList<>(loadPoint(ui.getFilePathLoad()));
             ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
-            list = new ArrayList<>(ui.startPlayer());
+            list = new ArrayList<Object>(ui.startPlayer());
             savePoint(list, ui.getFilePathSave());
         }
         return list;
@@ -97,14 +92,12 @@ public class GameEngine {
      * @throws CloneNotSupportedException if the object is not Cloneable due to missing
      *                                      implementation of the Cloneable Interface.
      */
-
     public void loopGame() throws CloneNotSupportedException {
         while (!playerProvince.isDeath()) {
             turn();
         }
         death();
     }
-
 
     /**
      * Runs each turn:
@@ -127,29 +120,56 @@ public class GameEngine {
         //second display
         printAttributes(playerProvince);
         processEvent();
-        printAttributes(playerProvince);
 
-        Random rand = new Random();
-        int randomNumber = rand.nextInt(11);
-        if (randomNumber < 6) {processDecision();}
-        else {processEvent();}
+        printAttributes(playerProvince);
+        processDecision();
+
         aiTurn();
         stateSnapshot(playerProvince);
+
+        if (allDead()){
+            conclusion();
+        }
+
         battle_option();
         if (ui.askSummary()){
             summaryOfStates();
         }
+
+        // Checks to see if all the other provinces have been beaten
+
+        if (allDead()){
+            conclusion();
+        }
+    }
+
+    /**
+     * An equivalent of the Python "all" function to see if the user has beaten all provinces
+     */
+    private boolean allDead(){
+        for (Province aiProvince: aiProvinces){
+            if (aiProvince.getStatus()) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Ends the game
+     */
+    private void conclusion(){
+        ui.displayText("Congratulations, you have conquered all the other provinces! You win!");
+        System.exit(0);
     }
 
     /**
      * Makes the Decisions for all 4 AI Provinces in the back which is hidden from the User.
      */
     private void aiTurn() {
-        printAttributes(playerProvince);
+        displayValues(playerProvince);
         for (Province currProvince : aiProvinces) {
             if (currProvince.getStatus()) {
                 aiChoices.makeDecisions(currProvince);
-                printAttributes(currProvince);
+                displayValues(currProvince);
                 if (currProvince.isDeath()) {
                     provinceDeath(currProvince);
                 }
@@ -157,17 +177,24 @@ public class GameEngine {
         }
     }
 
+    /**
+     * Displays values after the User's choice given a Decision.
+     */
+    private void displayValues(Province province) {
+        printAttributes(province);
+    }
 
     /**
      * // TODO: Carson/Howard, can you write the documentation for this
      */
-    public void processEvent() {
-        new Events();
+    public List<Integer> processEvent() {
+        Events event = new Events();
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
         ui.displayText(eventName);
         String choice = ui.getEventChoice();
         processor.getUserEventDecision(choice, playerProvince, eventValues);
+        return eventValues;
     }
 
     /**
@@ -184,29 +211,22 @@ public class GameEngine {
         processor.getUserDecision(choice, playerProvince, max);
     }
 
-
     /**
      * Displays the Province which are dead.
      */
-
     public void provinceDeath(Province province) {
-        ui.displayText(province.getAiProvinceName() + " is dead");
-        ui.displayText("\n");
+        ui.displayText("***" + province.getAiProvinceName() + " is dead" + "***");
         province.die();
     }
 
     /**
      * Displays when the User is dead and prompts the User to restart the game.
      */
-
     public void death() {
         ui.displayText("You have lost the game!");
-        printAttributes(playerProvince);
-        processEvent();
+        displayValues(playerProvince);
         ui.displayText("One of the values have reached zero :( :skull:");
-        //TODO would you like to restart? and have them restart
     }
-
 
     /** Multi-tasked Function for Starting a Battle:
      *                     i) Displays the list of Provinces that can battle (Are still Alive).
@@ -214,7 +234,6 @@ public class GameEngine {
      *                     iii) Then, proceeds to start the battle between the user and its chosen province
      *                     iv) Displays the winner
      */
-
     public void battle_option() {
         boolean battle = ui.beginBattle();
 
@@ -227,7 +246,7 @@ public class GameEngine {
                 }
             }
             String enemy = ui.selectOpponent(provinces);
-            ui.displayText(enemy);
+            System.out.println(enemy);
             for (Province province: aiProvinces){
                 if (province.getAiProvinceName().equals(enemy)){
                     String winner = battleGenerator.startsBattle(playerProvince, province);
@@ -247,7 +266,7 @@ public class GameEngine {
             ui.displayText("Round: " + counter);
             ui.displayText("-------------------------");
             printAttributes(p);
-
+            ui.displayText("=========================");
             counter += 1;
         }
     }
@@ -284,34 +303,18 @@ public class GameEngine {
         ctProvince.addMementoProvince(mp);
     }
 
-    /**
-     * Gets the Prev Snapshot
-     */
-    private Province getPrevSnapshot() {
-        return ctProvince.getMementoProvince
-                (ctProvince.getMementoProvinceList().size()).getProvince();
-    }
 
-    /** Displays all attributes of given province and formats it as nicely as text can be formatted.
-     *
-     * @param province the province that will be displayed*/
     private void printAttributes(Province province) {
+        ui.displayText("===============================");
         if ((province.getUserProvinceName() != null)) {
-            ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getUserProvinceName());
         } else {
-            ui.displayText("===========================================================");
             ui.displayText("Values for province: " + province.getAiProvinceName());
         }
         ui.displayText("Civilian value: " + province.getProvinceCivilians());
-
         ui.displayText("Gold value: " + province.getProvinceGold());
-
         ui.displayText("Soldier value: " + province.getProvinceSoldiers());
-
         ui.displayText("Food value: " + province.getProvinceFood());
-
-        ui.displayText("===========================================================");
-        ui.displayText("\n");
+        ui.displayText("===============================");
     }
 }

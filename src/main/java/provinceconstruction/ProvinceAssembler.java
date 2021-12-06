@@ -26,7 +26,7 @@ public class ProvinceAssembler {
 
     /**
      * Gets the Ai Province
-     * @return: Returns the Ai Province Object
+     * Returns the Ai Province Object
      */
     public Province getAiProvince(){
         return this.provinceBuilder.getAiProvince();
@@ -34,7 +34,7 @@ public class ProvinceAssembler {
 
     /**
      * Gets the User Province
-     * @return: Returns the User Province Object
+     *  Returns the User Province Object
      */
     public Province getUserProvince(){
         return this.provinceBuilder.getUserProvince();
@@ -62,7 +62,7 @@ public class ProvinceAssembler {
 
     /**
      * Creates four Ai Provinces and returns them through an arraylist
-     * @return: Array List of the 4 Ai Provinces
+     * Array List of the 4 Ai Provinces
      */
     public ArrayList<Province> create(){
         ProvinceBuilder provinceBuilder = new ProvinceBuilder();
