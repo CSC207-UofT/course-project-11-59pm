@@ -173,7 +173,10 @@ public class UserInterface {
     public boolean beginBattle() {
         this.displayText("Would you like to battle? Y/N:");
         String choice = input.nextLine();
-        return !getString(choice).equals("n") && !getString(choice).equals("N");
+
+        String battle_choice = getString(choice);
+
+        return !battle_choice.equals("n") && !battle_choice.equals("N");
     }
 
     /** This function is used to select an opponent. A list of valid opponents is given and the player enters a
