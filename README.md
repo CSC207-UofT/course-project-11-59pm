@@ -18,12 +18,11 @@ Our game is an text based adventure game. The user will get a chance to play as 
 - In a new game state: [Selecting N for the first tbe Previous Load Game State] <br />
     &nbsp; Then you will be prompted to type your name <br />
     &nbsp; After you type your name, you will then be able to type the Province name <br />
-    &nbsp; As you play the game, you will encounter the question about saving your gameState <br />
-    &nbsp; If yes, the GameState will saved
+    &nbsp; As you play the game, the gameState will automatically save <br />
     <br />
     
 - If you load a game state: [Selecting Y for the first tbe Previous Load Game State] <br />
-    &nbsp; If you input "default" it will automatically load a save.ser in the projects src file <br />
+    &nbsp; The program will automatically load a save.ser in the projects src file <br />
     &nbsp; After loading the file, the console should welcome you back to the game <br />
     <br />
     
