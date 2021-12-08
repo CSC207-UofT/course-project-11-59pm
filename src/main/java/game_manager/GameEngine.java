@@ -1,7 +1,7 @@
-package main.java.gamemanager;
-import main.java.provinceconstruction.Province;
-import main.java.provinceconstruction.ProvinceAssembler;
-import main.java.provinceconstruction.ProvinceBuilder;
+package main.java.game_manager;
+import main.java.province_construction.Province;
+import main.java.province_construction.ProvinceAssembler;
+import main.java.province_construction.ProvinceBuilder;
 import main.java.snapshots.CaretakerProvince;
 import main.java.snapshots.MementoProvince;
 import main.java.snapshots.OriginatorProvince;
@@ -13,8 +13,8 @@ import java.util.List;
 import main.java.ui.UserInterface;
 import main.java.usecases.Battle;
 import main.java.usecases.ProcessValues;
-import main.java.gamesave.GameState;
-import main.java.gamesave.SaveLoad;
+import main.java.game_save.GameState;
+import main.java.game_save.SaveLoad;
 
 /**
  *  This file contains the implementation for the GameEngine Class.

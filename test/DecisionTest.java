@@ -1,4 +1,4 @@
-import  main.java.gamemanager.Decisions;
+import  main.java.game_manager.Decisions;
 
 import org.junit.Before;
 import org.junit.Test;

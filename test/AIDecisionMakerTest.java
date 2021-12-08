@@ -3,9 +3,9 @@
   This file tests the AIDecisionMaker file and makes sure that all methods are working.
 
   */
-import main.java.gamemanager.AIDecisionMaker;
+import main.java.game_manager.AIDecisionMaker;
 
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 import org.junit.*;
 
 import java.util.ArrayList;
