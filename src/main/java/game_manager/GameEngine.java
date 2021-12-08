@@ -330,11 +330,10 @@ public class GameEngine {
                 }
             }
             String enemy = ui.selectOpponent(provinces);
-            System.out.println(enemy);
             for (Province province: aiProvinces){
                 if (province.getAiProvinceName().equals(enemy)){
                     String winner = battleGenerator.startsBattle(playerProvince, province);
-                    ui.displayText("The Winner of the battle is " + winner);
+                    ui.displayText("\nThe Winner of the battle is " + winner + "\n");
                 }
             }
         }
