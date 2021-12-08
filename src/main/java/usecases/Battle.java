@@ -27,7 +27,7 @@ public class Battle {
         // Get the number of soldier present for both the Provinces
         int player1_SoldierCount = processValues.getBattleSoldiers(userProvince);
         int player2_SoldierCount = processValues.getBattleSoldiers(aiProvince);
-
+        // There will be a total of three rounds
         int battleRounds = 2;
         //using process values
         while (battleRounds >= 0) {
@@ -44,24 +44,28 @@ public class Battle {
 
                 player1_SoldierCount -= deaths;
                 player2_SoldierCount -= deaths;
-
+                // ProcessValues will register the new soldier count for provinces
                 processValues.battleRoundProcess(userProvince, player1_SoldierCount);
                 processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
 
             } else if (player1_Ratio > player2_Ratio) {
                 float deaths = (float) Math.random() * player2_Ratio;
                 player2_SoldierCount -= deaths;
+                // ProcessValues will register the new soldier count for provinces
                 processValues.battleRoundProcess(userProvince, player1_SoldierCount);
                 processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
             } else {
                 float deaths = (float) Math.random() * player1_Ratio;
                 player1_SoldierCount -= deaths;
+                // ProcessValues will register the new soldier count for provinces
                 processValues.battleRoundProcess(userProvince, player1_SoldierCount);
                 processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
             }
             battleRounds -= 1;
 
         }
+        // determining winner of the battle based on which province has
+        // more soldiers by the end of the 3 rounds
         if (player1_SoldierCount > player2_SoldierCount){
             return processValues.battleWinner(userProvince);
         }

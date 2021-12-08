@@ -105,10 +105,23 @@ public class ProcessValues {
     public int getBattleSoldiers(Province province) {
         return province.getProvinceSoldiers();
     }
+
+    /**
+     * This method will set the soldier count of the Province p to the new value count.
+     * @param p: Province
+     * @param count: int
+     */
     public void battleRoundProcess(Province p, int count) {
         p.setProvinceSoldiers(count);
     }
 
+    /**
+     *  This method will return the name of the province that won the battle.
+     *  if the province is an AIProvince then their AI name will be printed,
+     *  otherwise the user province name will be printed
+     * @param p: Province
+     *
+     */
     public String battleWinner(Province p) {
         if(p.getUserProvinceName() == null){
             return p.getAiProvinceName();}
@@ -118,6 +131,7 @@ public class ProcessValues {
     /**
      * Updates food values depending on a province's population each turn */
     public void foodConsumption(Province p) {
+        // The food amount is set to the number of soldiers and civilians in the province
         p.setProvinceFood(p.getProvinceFood() - ((p.getProvinceSoldiers() + p.getProvinceCivilians()) / 20));
     }
 }
