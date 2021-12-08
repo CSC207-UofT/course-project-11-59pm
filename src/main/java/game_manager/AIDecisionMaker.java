@@ -28,17 +28,17 @@ public class AIDecisionMaker {
      * May decide to return more than 1 value in the list.
      */
     public List<String> getDecisions(Province province){
-        float total = province.getProvinceFood() + province.getProvinceGold() +province.getProvinceFood();
+        float total = province.getProvinceGold()+province.getProvinceSoldiers()+ province.getProvinceFood();
         List<Float> percents = new ArrayList<>();
         // Add percents for choice weights
-        percents.add((province.getProvinceFood()/total)*100);
-        percents.add((province.getProvinceFood() + province.getProvinceGold()/total)*100);
-
+        percents.add((total/province.getProvinceFood()));
+        percents.add((percents.get(0) + total/province.getProvinceGold()));
+        percents.add((percents.get(1) + total/province.getProvinceSoldiers()));
         List<String> choices = new ArrayList<>();
         Random rand = new Random();
-        int choice;
+        float choice;
         for (int i = 0; i < 3; i++) {
-            choice = rand.nextInt(100);
+            choice = rand.nextFloat() * percents.get(2);
             if (choice <= percents.get(0)) {
                 // Boost food
                 choices.add("1");
@@ -93,7 +93,7 @@ public class AIDecisionMaker {
         Random random = new Random();
 
         for (String choice : choices) {
-            int bet = province.returnMaximumValue(choice)/ (5 + random.nextInt(5));
+            int bet = (province.returnMaximumValue(choice)/ (5 + random.nextInt(5)));
             processor.getUserDecision(choice, province, bet);
         }
         List<Integer> value = randomizeAiEvent();

@@ -149,14 +149,10 @@ public class Province implements ProvinceLayout, Cloneable {
      */
     public int returnMaximumValue(String choice){
         if (choice.equals("1")){
-            return getProvinceFood();
-        }
-
-        else if (choice.equals("2")){
-            return getProvinceCivilians();
+            return getProvinceGold();
         }
         else{
-            return getProvinceGold();
+            return getProvinceCivilians();
         }
     }
 
