@@ -173,11 +173,15 @@ public class GameEngine {
         printAttributes(playerProvince);
         processEvent();
 
+        if (playerProvince.isDeath()){
+            death();}
+        //TODO:must check to see if dead after every decision/event
         printAttributes(playerProvince);
 
         // will make decision about increasing food/soldiers/civilian
         processDecision();
-
+        if (playerProvince.isDeath()){
+            death();}
         //each AI province will make a similar decision
         // and we check to see if they have died
         aiTurn();
@@ -232,7 +236,9 @@ public class GameEngine {
         displayValues(playerProvince);
         for (Province currProvince : aiProvinces) {
             if (currProvince.getStatus()) {
-                aiChoices.makeDecisions(currProvince);
+                // TODO: Changed this, made it so gold has to be positive to go on
+                if (currProvince.getProvinceGold() > 0){
+                    aiChoices.makeDecisions(currProvince);}
                 displayValues(currProvince);
                 if (currProvince.isDeath()) {
                     provinceDeath(currProvince);
