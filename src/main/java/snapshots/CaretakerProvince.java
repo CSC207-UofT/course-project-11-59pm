@@ -14,13 +14,13 @@ public class CaretakerProvince {
      * Instance Variables:
      * listOfMementoProvinces: An ArrayList of to store the MementoProvinces Objects.
      */
-    private final List<MementoProvince> listOfMementoProvinces = new ArrayList<>();
+    private final List<MementoProvince> LIST_OF_MEMENTO_PROVINCES = new ArrayList<>();
 
     /**
      * Adds the given MementoProvince Object to the ArrayList.
      * @param mp represents a given MementoProvince Object
      */
-    public void addMementoProvince(MementoProvince mp){this.listOfMementoProvinces.add(mp);
+    public void addMementoProvince(MementoProvince mp){this.LIST_OF_MEMENTO_PROVINCES.add(mp);
     }
 
    /**
@@ -30,14 +30,14 @@ public class CaretakerProvince {
     * @param index represents the index at of the MementoProvince Object
     */
     public MementoProvince getMementoProvince(int index){
-        return listOfMementoProvinces.get(index);
+        return LIST_OF_MEMENTO_PROVINCES.get(index);
     }
 
     /**
      * Getter
      */
     public List<MementoProvince> getMementoProvinceList(){
-        return this.listOfMementoProvinces;
+        return this.LIST_OF_MEMENTO_PROVINCES;
     }
 
 }

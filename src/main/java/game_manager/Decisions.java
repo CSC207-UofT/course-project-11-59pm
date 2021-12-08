@@ -2,7 +2,7 @@
 Decisions Class prompts the user with 3 options at the start of each event.
 The Questions are related to either Money, Food or the Army.
  */
-package main.java.gamemanager;
+package main.java.game_manager;
 import java.util.ArrayList;
 
 /**
@@ -13,21 +13,21 @@ import java.util.ArrayList;
 public class Decisions {
 
     // Instance Variable: ArrayList with all the Possible Decisions Presented to User
-    private final ArrayList<String> decisionQuestions = new ArrayList<>();
+    private final ArrayList<String> DECISIONS_QUESTIONS = new ArrayList<>();
 
     public Decisions() {
-        this.decisionQuestions.add("Do you want to boost your food for one round?");
-        this.decisionQuestions.add("Do you want to enlist more soldiers?");
-        this.decisionQuestions.add("Do you want to increase revenue?");
+        this.DECISIONS_QUESTIONS.add("Do you want to boost your food for one round?");
+        this.DECISIONS_QUESTIONS.add("Do you want to enlist more soldiers?");
+        this.DECISIONS_QUESTIONS.add("Do you want to increase revenue?");
     }
     /* Returns the ArrayList with All the Possible Decisions */
-    public ArrayList<String> getDecisionQuestions() {
-        return decisionQuestions;
+    public ArrayList<String> getDECISIONS_QUESTIONS() {
+        return DECISIONS_QUESTIONS;
     }
 
     /* Displays All Decision Questions In the Console */
     public void displayQuestions(){
-        for (String decisionQuestion : decisionQuestions) {
+        for (String decisionQuestion : DECISIONS_QUESTIONS) {
             System.out.println(decisionQuestion);
         }
     }

@@ -1,4 +1,4 @@
-package main.java.provinceconstruction;
+package main.java.province_construction;
 import java.util.ArrayList;
 /**
  * This file contains the implementation for the ProvincesAssembler Class.
@@ -29,7 +29,7 @@ public class ProvinceAssembler {
      * Returns the Ai Province Object
      */
     public Province getAiProvince(){
-        return this.provinceBuilder.getAiProvince();
+        return this.provinceBuilder.getAI_PROVINCE();
     }
 
     /**
@@ -37,7 +37,7 @@ public class ProvinceAssembler {
      *  Returns the User Province Object
      */
     public Province getUserProvince(){
-        return this.provinceBuilder.getUserProvince();
+        return this.provinceBuilder.getUSER_PROVINCE();
     }
     /**
      * Assembles all the components of a province and creates an Ai Province

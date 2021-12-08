@@ -1,4 +1,4 @@
-package main.java.provinceconstruction;
+package main.java.province_construction;
 
 /**
  * This file contains the implementation for the Province Class which implements ProvinceLayout, Cloneable.

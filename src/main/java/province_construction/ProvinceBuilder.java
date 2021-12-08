@@ -1,4 +1,4 @@
-package main.java.provinceconstruction;
+package main.java.province_construction;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,16 +14,16 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      * aiProvince: Province Object that represents the Ai Province
      * userProvince: Province Object that represents the User Province
      */
-    private final Province aiProvince;
-    private final Province userProvince;
-    private static final ArrayList<Integer> listIndexVisited = new ArrayList<>();
+    private final Province AI_PROVINCE;
+    private final Province USER_PROVINCE;
+    private static final ArrayList<Integer> LIST_INDEX_VISITED = new ArrayList<>();
 
     /*
     Constructor
      */
     public ProvinceBuilder() {
-        this.aiProvince = new Province();
-        this.userProvince = new Province();
+        this.AI_PROVINCE = new Province();
+        this.USER_PROVINCE = new Province();
     }
 
 
@@ -40,7 +40,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
         listOfProvinces.add("Province3");
         listOfProvinces.add("Province4");
         int randomInt = indexVisited();
-        aiProvince.setAiProvinceName(listOfProvinces.get(randomInt));
+        AI_PROVINCE.setAiProvinceName(listOfProvinces.get(randomInt));
 
     }
 
@@ -50,10 +50,10 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     public int indexVisited(){
         int randomIndex = getIndex();
-        while(listIndexVisited.contains(randomIndex)) {
+        while(LIST_INDEX_VISITED.contains(randomIndex)) {
             randomIndex = getIndex();
         }
-        listIndexVisited.add(randomIndex);
+        LIST_INDEX_VISITED.add(randomIndex);
         return randomIndex;
     }
 
@@ -71,7 +71,7 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     @Override
     public void buildUserProvinceName(String userProvinceName) {
-        userProvince.setUserProvinceName(userProvinceName);
+        USER_PROVINCE.setUserProvinceName(userProvinceName);
     }
 
     /*
@@ -79,8 +79,8 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     @Override
     public void buildProvinceGold() {
-        aiProvince.setProvinceGold(randomProvinceGold());
-        userProvince.setProvinceGold(randomProvinceGold());
+        AI_PROVINCE.setProvinceGold(randomProvinceGold());
+        USER_PROVINCE.setProvinceGold(randomProvinceGold());
     }
 
     /*
@@ -88,8 +88,8 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     @Override
     public void buildProvinceCivilians() {
-        aiProvince.setProvinceCivilians(randomProvinceCivilians());
-        userProvince.setProvinceCivilians(randomProvinceCivilians());
+        AI_PROVINCE.setProvinceCivilians(randomProvinceCivilians());
+        USER_PROVINCE.setProvinceCivilians(randomProvinceCivilians());
     }
 
     /*
@@ -97,8 +97,8 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     @Override
     public void buildProvinceSoldiers() {
-        aiProvince.setProvinceSoldiers(randomProvinceSoldiers());
-        userProvince.setProvinceSoldiers(randomProvinceSoldiers());
+        AI_PROVINCE.setProvinceSoldiers(randomProvinceSoldiers());
+        USER_PROVINCE.setProvinceSoldiers(randomProvinceSoldiers());
     }
 
     /*
@@ -106,24 +106,24 @@ public class ProvinceBuilder implements ProvinceBuilderLayout {
      */
     @Override
     public void buildProvinceFood() {
-        aiProvince.setProvinceFood(randomProvinceFood());
-        userProvince.setProvinceFood(randomProvinceFood());
+        AI_PROVINCE.setProvinceFood(randomProvinceFood());
+        USER_PROVINCE.setProvinceFood(randomProvinceFood());
     }
 
     /**
      * Returns the Ai Province Object
      */
     @Override
-    public Province getAiProvince() {
-        return this.aiProvince;
+    public Province getAI_PROVINCE() {
+        return this.AI_PROVINCE;
     }
 
     /**
      * Returns the User Province
      */
     @Override
-    public Province getUserProvince() {
-        return this.userProvince;
+    public Province getUSER_PROVINCE() {
+        return this.USER_PROVINCE;
     }
 
     /**

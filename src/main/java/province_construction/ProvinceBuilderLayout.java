@@ -1,4 +1,4 @@
-package main.java.provinceconstruction;
+package main.java.province_construction;
 /**
  * This file contains the implementation for the
  * ProvinceBuilderLayout which is then implemented by ProvinceBuilder.
@@ -40,11 +40,11 @@ public interface ProvinceBuilderLayout {
     /*
      * Returns the Ai Province
      */
-     Province getAiProvince();
+     Province getAI_PROVINCE();
 
     /*
      * Returns the User Province
      */
-     Province getUserProvince();
+     Province getUSER_PROVINCE();
 }
 

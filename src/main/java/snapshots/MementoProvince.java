@@ -1,6 +1,6 @@
 package main.java.snapshots;
 
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 
 /**
  *  This file contains the implementation for the MementoProvince Class.

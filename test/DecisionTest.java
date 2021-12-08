@@ -1,4 +1,4 @@
-import  main.java.gamemanager.Decisions;
+import  main.java.game_manager.Decisions;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class DecisionTest {
         lst.add("Do you want to boost your food for one round?");
         lst.add("Do you want to enlist more soldiers?");
         lst.add("Do you want to increase revenue?");
-        ArrayList<String> dec = decisions.getDecisionQuestions();
+        ArrayList<String> dec = decisions.getDECISIONS_QUESTIONS();
         assert (Objects.equals(lst.size(), 3));
         for(Object d : dec){
             assert lst.contains(d);

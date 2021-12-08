@@ -3,11 +3,11 @@
   This file tests the Battle file and makes sure that all methods are working.
 
   */
-import main.java.usecases.Battle;
+import main.java.use_cases.Battle;
 
-import main.java.provinceconstruction.ProvinceAssembler;
-import main.java.provinceconstruction.Province;
-import main.java.provinceconstruction.ProvinceBuilder;
+import main.java.province_construction.ProvinceAssembler;
+import main.java.province_construction.Province;
+import main.java.province_construction.ProvinceBuilder;
 import org.junit.*;
 
 import java.util.*;

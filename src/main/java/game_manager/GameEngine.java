@@ -1,7 +1,7 @@
-package main.java.gamemanager;
-import main.java.provinceconstruction.Province;
-import main.java.provinceconstruction.ProvinceAssembler;
-import main.java.provinceconstruction.ProvinceBuilder;
+package main.java.game_manager;
+import main.java.province_construction.Province;
+import main.java.province_construction.ProvinceAssembler;
+import main.java.province_construction.ProvinceBuilder;
 import main.java.snapshots.CaretakerProvince;
 import main.java.snapshots.MementoProvince;
 import main.java.snapshots.OriginatorProvince;
@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.java.ui.UserInterface;
-import main.java.usecases.Battle;
-import main.java.usecases.ProcessValues;
-import main.java.gamesave.GameState;
-import main.java.gamesave.SaveLoad;
+import main.java.use_cases.Battle;
+import main.java.use_cases.ProcessValues;
+import main.java.game_save.GameState;
+import main.java.game_save.SaveLoad;
 
 /**
  *  This file contains the implementation for the GameEngine Class.
@@ -29,34 +29,34 @@ public class GameEngine {
      * the Game Engine.
      * NOTE: We have made all the instance variables final to ensure that they do not get mutated during the game.
      */
-    private final UserInterface ui;
-    private final Decisions decisionList;
-    private final ProcessValues processor;
+    private final UserInterface UI;
+    private final Decisions DECISIONS_LIST;
+    private final ProcessValues PROCESSOR;
     private  Province playerProvince;
     private  ArrayList<Province> aiProvinces;
-    private final AIDecisionMaker aiChoices;
-    private final OriginatorProvince origProvince;
-    private final CaretakerProvince ctProvince;
-    private final Battle battleGenerator;
+    private final AIDecisionMaker AI_CHOICES;
+    private final OriginatorProvince ORIGINATOR_PROVINCE;
+    private final CaretakerProvince CT_PROVINCE;
+    private final Battle BATTLE_GENERATOR;
     private String name;
 
     public GameEngine() throws IOException {
         // First, initialize the UserInterface, and
         // other instances classes that are instance variables
-        ui = UserInterface.initializeUI();
-        decisionList = new Decisions();
-        processor = new ProcessValues();
-        battleGenerator = new Battle();
-        origProvince = new OriginatorProvince();
-        ctProvince = new CaretakerProvince();
-        aiChoices = new AIDecisionMaker();
+        UI = UserInterface.initializeUI();
+        DECISIONS_LIST = new Decisions();
+        PROCESSOR = new ProcessValues();
+        BATTLE_GENERATOR = new Battle();
+        ORIGINATOR_PROVINCE = new OriginatorProvince();
+        CT_PROVINCE = new CaretakerProvince();
+        AI_CHOICES = new AIDecisionMaker();
 
         // Opening game message
-        ui.displayText("Welcome to Rajan's Conquest! Gather resources, assemble your army, and conquer all the " +
+        UI.displayText("Welcome to Rajan's Conquest! Gather resources, assemble your army, and conquer all the " +
                 "neighbouring provinces!");
 
         // Asking the User about their previous GameState
-        Boolean saveBool = ui.askLoad();
+        Boolean saveBool = UI.askLoad();
         ArrayList<Object> list;
         list = getSaveDecision(saveBool);
 
@@ -89,7 +89,7 @@ public class GameEngine {
     private ArrayList<Object> getSaveDecision(Boolean saveBool) throws IOException {
         ArrayList<Object> list;
         if (saveBool) {
-            list = new ArrayList<>(loadPoint(ui.getFile()));
+            list = new ArrayList<>(loadPoint(UI.getFile()));
             ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
             ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
             name = (String) list.get(0);
@@ -103,7 +103,7 @@ public class GameEngine {
             String userProvinceName = (String) list.get(1);
             List<Object> subArr = list.subList(2, 6);
 
-            processor.updateProvince(playerProvince, subArr, true, userProvinceName);
+            PROCESSOR.updateProvince(playerProvince, subArr, true, userProvinceName);
 
 
             int counter = 6;
@@ -111,15 +111,15 @@ public class GameEngine {
                 String userAiName = (String) list.get(counter);
                 List<Object> subArr1 = list.subList(counter + 1, counter + 5);
 
-                processor.updateProvince(p, subArr1, true, userAiName);
+                PROCESSOR.updateProvince(p, subArr1, true, userAiName);
                 counter += 5;
             }
             for (Province p: aiProvinces) {
                 printAttributes(p);
             }
-            ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+            UI.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
         } else{
-            list = new ArrayList<Object>(ui.startPlayer());
+            list = new ArrayList<Object>(UI.startPlayer());
         }
         return list;
     }
@@ -172,7 +172,7 @@ public class GameEngine {
         }
 
         battle_option();
-        if (ui.askSummary()){
+        if (UI.askSummary()){
             summaryOfStates();
         }
 
@@ -185,7 +185,7 @@ public class GameEngine {
         }
 
 
-        savePoint(createSaveList(name), ui.getFile());
+        savePoint(createSaveList(name), UI.getFile());
     }
 
     /**
@@ -202,7 +202,7 @@ public class GameEngine {
      * Ends the game
      */
     private void conclusion(){
-        ui.displayText("Congratulations, you have conquered all the other provinces! You win!");
+        UI.displayText("Congratulations, you have conquered all the other provinces! You win!");
         System.exit(0);
     }
 
@@ -213,7 +213,7 @@ public class GameEngine {
         displayValues(playerProvince);
         for (Province currProvince : aiProvinces) {
             if (currProvince.getStatus()) {
-                aiChoices.makeDecisions(currProvince);
+                AI_CHOICES.makeDecisions(currProvince);
                 displayValues(currProvince);
                 if (currProvince.isDeath()) {
                     provinceDeath(currProvince);
@@ -238,9 +238,9 @@ public class GameEngine {
         Events event = new Events();
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
-        ui.displayText(eventName);
-        String choice = ui.getEventChoice();
-        processor.getUserEventDecision(choice, playerProvince, eventValues);
+        UI.displayText(eventName);
+        String choice = UI.getEventChoice();
+        PROCESSOR.getUserEventDecision(choice, playerProvince, eventValues);
     }
 
     /**
@@ -251,10 +251,10 @@ public class GameEngine {
      *                    iv) Sends this information to the ProcessValues for updating.
      */
     private void processDecision() {
-        decisionList.displayQuestions();
-        String choice = ui.getDecisionsChoice();
-        int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
-        processor.getUserDecision(choice, playerProvince, max);
+        DECISIONS_LIST.displayQuestions();
+        String choice = UI.getDecisionsChoice();
+        int max = UI.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
+        PROCESSOR.getUserDecision(choice, playerProvince, max);
     }
 
     /**
@@ -262,9 +262,9 @@ public class GameEngine {
      */
 
     private void foodReduction() {
-        processor.foodConsumption(playerProvince);
+        PROCESSOR.foodConsumption(playerProvince);
         for (Province province: aiProvinces) {
-            processor.foodConsumption(province);
+            PROCESSOR.foodConsumption(province);
         }
     }
 
@@ -273,7 +273,7 @@ public class GameEngine {
      * Displays the Province which are dead.
      */
     public void provinceDeath(Province province) {
-        ui.displayText("***" + province.getAiProvinceName() + " is dead" + "***");
+        UI.displayText("***" + province.getAiProvinceName() + " is dead" + "***");
         province.die();
     }
 
@@ -281,9 +281,9 @@ public class GameEngine {
      * Displays when the User is dead and prompts the User to restart the game.
      */
     public void death() {
-        ui.displayText("You have lost the game!");
+        UI.displayText("You have lost the game!");
         displayValues(playerProvince);
-        ui.displayText("One of the values have reached zero :( :skull:");
+        UI.displayText("One of the values have reached zero :( :skull:");
         System.exit(0);
     }
 
@@ -294,7 +294,7 @@ public class GameEngine {
      *                     iv) Displays the winner
      */
     public void battle_option() {
-        boolean battle = ui.beginBattle();
+        boolean battle = UI.beginBattle();
 
         List<String> provinces = new ArrayList<>();
 
@@ -304,12 +304,12 @@ public class GameEngine {
                     provinces.add(province.getAiProvinceName());
                 }
             }
-            String enemy = ui.selectOpponent(provinces);
+            String enemy = UI.selectOpponent(provinces);
             System.out.println(enemy);
             for (Province province: aiProvinces){
                 if (province.getAiProvinceName().equals(enemy)){
-                    String winner = battleGenerator.startsBattle(playerProvince, province);
-                    ui.displayText("The Winner of the battle is " + winner);
+                    String winner = BATTLE_GENERATOR.startsBattle(playerProvince, province);
+                    UI.displayText("The Winner of the battle is " + winner);
                 }
             }
         }
@@ -320,10 +320,10 @@ public class GameEngine {
      */
     private void summaryOfStates(){
         int counter = 0;
-        for (Province p: origProvince.setListOfMementoProvinces(ctProvince.getMementoProvinceList())){
-            ui.displayText("------------------------------");
-            ui.displayText("Round: " + counter);
-            ui.displayText("------------------------------");
+        for (Province p: ORIGINATOR_PROVINCE.setListOfMementoProvinces(CT_PROVINCE.getMementoProvinceList())){
+            UI.displayText("------------------------------");
+            UI.displayText("Round: " + counter);
+            UI.displayText("------------------------------");
             printAttributes(p);
             counter += 1;
         }
@@ -337,14 +337,14 @@ public class GameEngine {
      */
     private void savePoint(ArrayList<Object> list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
-        ui.displayText("*******************************");
-        ui.displayText("Saving Game...");
+        UI.displayText("*******************************");
+        UI.displayText("Saving Game...");
         GameState gs = new GameState();
         gs.setSaveState(list);
         SaveLoad.saveGame(filePathSave, gs);
-        ui.displayText("Game State Saved");
-        ui.displayText("*******************************");
-        ui.displayText("\n");
+        UI.displayText("Game State Saved");
+        UI.displayText("*******************************");
+        UI.displayText("\n");
     }
 
     /**
@@ -385,10 +385,10 @@ public class GameEngine {
      */
     private ArrayList<Object> loadPoint(String filePathLoad) throws IOException {
         // Loads the save.ser file for the current GameState
-        ui.displayText("*******************************");
-        ui.displayText("Loading Game State...");
-        ui.displayText("*******************************");
-        ui.displayText("\n");
+        UI.displayText("*******************************");
+        UI.displayText("Loading Game State...");
+        UI.displayText("*******************************");
+        UI.displayText("\n");
         return SaveLoad.loadGame(filePathLoad).getSaveState();
     }
 
@@ -399,9 +399,9 @@ public class GameEngine {
      */
     private void stateSnapshot(Province p) throws CloneNotSupportedException {
         Province copyProvince = (Province)p.clone();
-        origProvince.setProvince(copyProvince);
-        MementoProvince mp = origProvince.createMementoProvinces();
-        ctProvince.addMementoProvince(mp);
+        ORIGINATOR_PROVINCE.setProvince(copyProvince);
+        MementoProvince mp = ORIGINATOR_PROVINCE.createMementoProvinces();
+        CT_PROVINCE.addMementoProvince(mp);
     }
 
     /**
@@ -409,16 +409,16 @@ public class GameEngine {
      * @param province the province we want to print
      */
     private void printAttributes(Province province) {
-        ui.displayText("===============================");
+        UI.displayText("===============================");
         if ((province.getUserProvinceName() != null)) {
-            ui.displayText("Values for province: " + province.getUserProvinceName());
+            UI.displayText("Values for province: " + province.getUserProvinceName());
         } else {
-            ui.displayText("Values for province: " + province.getAiProvinceName());
+            UI.displayText("Values for province: " + province.getAiProvinceName());
         }
-        ui.displayText("Civilian value: " + province.getProvinceCivilians());
-        ui.displayText("Gold value: " + province.getProvinceGold());
-        ui.displayText("Soldier value: " + province.getProvinceSoldiers());
-        ui.displayText("Food value: " + province.getProvinceFood());
-        ui.displayText("===============================");
+        UI.displayText("Civilian value: " + province.getProvinceCivilians());
+        UI.displayText("Gold value: " + province.getProvinceGold());
+        UI.displayText("Soldier value: " + province.getProvinceSoldiers());
+        UI.displayText("Food value: " + province.getProvinceFood());
+        UI.displayText("===============================");
     }
 }

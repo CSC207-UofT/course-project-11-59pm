@@ -1,6 +1,6 @@
-package main.java.usecases;
+package main.java.use_cases;
 
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 
 import java.util.List;
 

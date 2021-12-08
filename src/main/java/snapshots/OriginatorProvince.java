@@ -1,6 +1,6 @@
 package main.java.snapshots;
 
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 
 import java.util.ArrayList;
 import java.util.List;

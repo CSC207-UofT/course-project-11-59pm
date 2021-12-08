@@ -1,8 +1,8 @@
 
-package main.java.gamemanager;
+package main.java.game_manager;
 
-import main.java.provinceconstruction.Province;
-import main.java.usecases.ProcessValues;
+import main.java.province_construction.Province;
+import main.java.use_cases.ProcessValues;
 
 import java.util.ArrayList;
 import java.util.List;
