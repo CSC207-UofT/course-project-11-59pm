@@ -62,15 +62,7 @@ public class GameEngine {
 
         // Creation of the User Province
         if(!saveBool) {
-            ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
-            ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
-            name = (String) list.get(0);
-            provinceUserAssembler.makeUserProvince(name);
-            playerProvince = provinceUserAssembler.getUserProvince();
-
-            // Creation of the 4 AI Provinces
-            ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
-            aiProvinces = provinceAiAssembler.create();
+            startProvince(list);
         }
 
 
@@ -89,41 +81,43 @@ public class GameEngine {
     private ArrayList<Object> getSaveDecision(Boolean saveBool) throws IOException {
         ArrayList<Object> list;
         if (saveBool) {
-            list = new ArrayList<>(loadPoint(ui.getFile()));
-            ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
-            ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
-            name = (String) list.get(0);
-            provinceUserAssembler.makeUserProvince(name);
-            playerProvince = provinceUserAssembler.getUserProvince();
+            File f = new File(ui.getFile());
+            if(f.exists() && !f.isDirectory()) {
+                list = new ArrayList<>(loadPoint(ui.getFile()));
+                startProvince(list);
 
-            // Creation of the 4 AI Provinces
-            ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
-            aiProvinces = provinceAiAssembler.create();
+                String userProvinceName = (String) list.get(1);
+                List<Object> subArr = list.subList(2, 6);
 
-            String userProvinceName = (String) list.get(1);
-            List<Object> subArr = list.subList(2, 6);
-
-            processor.updateProvince(playerProvince, subArr, true, userProvinceName);
+                processor.updateProvince(playerProvince, subArr, true, userProvinceName);
 
 
-            int counter = 6;
-            for (Province p: aiProvinces){
-                String userAiName = (String) list.get(counter);
-                List<Object> subArr1 = list.subList(counter + 1, counter + 5);
+                int counter = 6;
+                for (Province p: aiProvinces){
+                    String userAiName = (String) list.get(counter);
+                    List<Object> subArr1 = list.subList(counter + 1, counter + 5);
 
-                processor.updateProvince(p, subArr1, true, userAiName);
-                counter += 5;
+                    processor.updateProvince(p, subArr1, true, userAiName);
+                    counter += 5;
+                }
+                for (Province p: aiProvinces) {
+                    printAttributes(p);
+                }
+                ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+            }else{
+                ui.displayText("There is no save.ser file!");
+                ui.displayText("Starting new game...");
+                list = new ArrayList<Object>(ui.startPlayer());
+                startProvince(list);
+
             }
-            for (Province p: aiProvinces) {
-                printAttributes(p);
-            }
-            ui.displayText("Welcome back to Rajan's Conquest, " + list.get(0));
+
         } else{
             list = new ArrayList<Object>(ui.startPlayer());
         }
         return list;
     }
-
+    
     /**
      * Loops the game until the playerProvince is NOT dead.
      * @throws CloneNotSupportedException if the object is not Cloneable due to missing
@@ -135,6 +129,23 @@ public class GameEngine {
             turn();
         }
         death();
+    }
+    
+    /**
+     * When the game is started, this function initializes our provinces 
+     *
+     * @param list The list with the game parameters parsed from gameState
+     */
+    public void startProvince(ArrayList<Object> list) {
+        ProvinceBuilder provinceBuilder1 = new ProvinceBuilder();
+        ProvinceAssembler provinceUserAssembler = new ProvinceAssembler(provinceBuilder1);
+        name = (String) list.get(0);
+        provinceUserAssembler.makeUserProvince(name);
+        playerProvince = provinceUserAssembler.getUserProvince();
+
+        // Creation of the 4 AI Provinces
+        ProvinceAssembler provinceAiAssembler = new ProvinceAssembler();
+        aiProvinces = provinceAiAssembler.create();
     }
 
     /**
