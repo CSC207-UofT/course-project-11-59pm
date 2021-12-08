@@ -55,7 +55,7 @@ public class Events {
                 Arrays.asList(-40, 20, 20, 20, -20, -40, -20, -30));
 
         map.put("Local schoolteachers are pushing anti-monarchy curricula to children which could threaten " +
-                        "your position. You may defund them, thereby forcing them to get in line; will you?",
+                        "your position. You may de fund them, thereby forcing them to get in line; will you?",
                 Arrays.asList(50, -10, 0, 0, 0, -20, -20, 20));
 
         map.put("An infestation of crickets is beginning to damage food supplies. Hiring professionals " +

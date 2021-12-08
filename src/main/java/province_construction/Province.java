@@ -165,8 +165,8 @@ public class Province implements ProvinceLayout, Cloneable {
      * @return True if Gold, Civilians, Soldiers or Food dips to 0 or below.
      */
     public boolean isDeath(){
-        return getProvinceCivilians() <= 0 || getProvinceGold() < 0
-                || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
+        //TODO: Change it so that province wont commit suicide after no gold
+        return getProvinceCivilians() <= 0 || getProvinceSoldiers() < 0 || getProvinceFood() < 0;
     }
 
     /**
