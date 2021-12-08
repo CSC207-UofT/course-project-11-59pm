@@ -108,13 +108,13 @@ public class GameEngine {
             }else{
                 ui.displayText("There is no save.ser file!");
                 ui.displayText("Starting new game...");
-                list = new ArrayList<Object>(ui.startPlayer());
+                list = new ArrayList<>(ui.startPlayer());
                 startProvince(list);
 
             }
 
         } else{
-            list = new ArrayList<Object>(ui.startPlayer());
+            list = new ArrayList<>(ui.startPlayer());
         }
         return list;
     }
@@ -174,20 +174,27 @@ public class GameEngine {
         processEvent();
 
         printAttributes(playerProvince);
+
+        // will make decision about increasing food/soldiers/civilian
         processDecision();
 
+        //each AI province will make a similar decision
+        // and we check to see if they have died
         aiTurn();
         stateSnapshot(playerProvince);
 
+        //game ends if all provinces are dead
         if (allDead()){
             conclusion();
         }
 
+        // go into battle with the provinces that are still alive
         battle_option();
         if (ui.askSummary()){
             summaryOfStates();
         }
 
+        //each round there is food reduction
         foodReduction();
 
         // Checks to see if all the other provinces have been beaten
@@ -196,7 +203,7 @@ public class GameEngine {
             conclusion();
         }
 
-
+        // saving the game after each round
         savePoint(createSaveList(name), ui.getFile());
     }
 

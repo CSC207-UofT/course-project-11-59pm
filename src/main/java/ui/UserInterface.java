@@ -1,6 +1,4 @@
 package main.java.ui;
-
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -157,7 +155,7 @@ public class UserInterface {
 
     /** This function is used at the start of the game to get data for the player. This is all user inputted data
      * and more specialized, so a function is created. */
-    public List startPlayer() {
+    public List<String> startPlayer() {
         this.displayText("What is your name: "); // ask user for their name
         String name = input.nextLine();
 
