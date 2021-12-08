@@ -12,7 +12,7 @@ import java.util.*;
 
 public class UserInterface {
     //This Scanner object takes the input on the next line, it will be used commonly
-    Scanner input = new Scanner(System.in);
+    final Scanner input = new Scanner(System.in);
 
     public String getDecisionsChoice(){
         /* Display choices and Get the choice of the player, and return the choice as a string

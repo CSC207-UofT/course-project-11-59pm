@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0f1f7fa8-e9e9-4070-b28f-5cbc42e87279" name="Changes" comment="refactored names and packages to follow rules.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game_manager/AIDecisionMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game_manager/AIDecisionMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/province_construction/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/province_construction/Province.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/save.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AIDecisionMakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +112,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.AIDecisionMakerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.Main" />
       <module name="1159 pm" />
@@ -122,20 +126,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in 1159 pm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AIDecisionMakerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="1159 pm" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="AIDecisionMakerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameEngineTest.testDeath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in 1159 pm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="1159 pm" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GameEngineTest" />
-      <option name="METHOD_NAME" value="testDeath" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProvinceTest" />
-        <item itemvalue="JUnit.GameEngineTest.testProvinceDeath" />
-        <item itemvalue="JUnit.GameEngineTest.testDeath" />
+        <item itemvalue="JUnit.AIDecisionMakerTest" />
         <item itemvalue="JUnit.All in 1159 pm" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ProvinceTest" />
+        <item itemvalue="JUnit.GameEngineTest.testProvinceDeath" />
       </list>
     </recent_temporary>
   </component>
