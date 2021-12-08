@@ -2,7 +2,7 @@
 Decisions Class prompts the user with 3 options at the start of each event.
 The Questions are related to either Money, Food or the Army.
  */
-package main.java.gamemanager;
+package main.java.game_manager;
 import java.util.ArrayList;
 
 /**

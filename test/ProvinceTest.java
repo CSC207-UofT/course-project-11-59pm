@@ -1,4 +1,4 @@
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 import org.junit.*;
 
 /**

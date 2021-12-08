@@ -1,6 +1,6 @@
 package main.java.usecases;
 
-import main.java.provinceconstruction.Province;
+import main.java.province_construction.Province;
 
 /**
  *  This file contains the implementation for the Battle Class.

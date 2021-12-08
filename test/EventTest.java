@@ -1,4 +1,4 @@
-import  main.java.gamemanager.Events;
+import  main.java.game_manager.Events;
 import org.junit.Test;
 
 import java.util.*;

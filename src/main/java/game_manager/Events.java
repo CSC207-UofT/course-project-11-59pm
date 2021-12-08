@@ -1,4 +1,4 @@
-package main.java.gamemanager;
+package main.java.game_manager;
 import java.util.*;
 
 /**

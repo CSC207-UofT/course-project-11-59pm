@@ -1,7 +1,6 @@
-import main.java.gamemanager.GameEngine;
-import main.java.provinceconstruction.Province;
-import main.java.provinceconstruction.ProvinceAssembler;
-import main.java.provinceconstruction.ProvinceBuilder;
+import main.java.province_construction.Province;
+import main.java.province_construction.ProvinceAssembler;
+import main.java.province_construction.ProvinceBuilder;
 
 import main.java.snapshots.OriginatorProvince;
 import main.java.snapshots.CaretakerProvince;
