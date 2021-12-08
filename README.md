@@ -31,7 +31,7 @@ Your objective of the game is for your provience to not die ie keep all values a
 As well as battling other proviences <br />
 To win the game you want to capture all proviences <br />
 Every round you can either encouter a random story event where the input is Y/N <br />
-Or a decision event, where you choose from 3 options listed where the input is 1,2, or 3 <br />. 
+Or a decision event, where you choose from 3 options listed where the input is 1,2, or 3 <br />
 During the turns, user can generate summary of the States that happened which <br />
-basically displays the attirbutes for their province. <br />.
+basically displays the attirbutes for their province. <br />
   
