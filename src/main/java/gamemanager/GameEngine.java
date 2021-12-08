@@ -51,6 +51,10 @@ public class GameEngine {
         ctProvince = new CaretakerProvince();
         aiChoices = new AIDecisionMaker();
 
+        // Opening game message
+        ui.displayText("Welcome to Rajan's Conquest! Gather resources, assemble your army, and conquer all the " +
+                "neighbouring provinces!");
+
         // Asking the User about their previous GameState
         Boolean saveBool = ui.askLoad();
         ArrayList<Object> list;
@@ -172,6 +176,8 @@ public class GameEngine {
             summaryOfStates();
         }
 
+        foodReduction();
+
         // Checks to see if all the other provinces have been beaten
 
         if (allDead()){
@@ -228,14 +234,13 @@ public class GameEngine {
      * This function gets a random event and the displays it
      * You then answer Y/N to the question, and it changes your parameters based on the individual event
      */
-    public List<Integer> processEvent() {
+    public void processEvent() {
         Events event = new Events();
         String eventName = Events.getRandomEvent();
         List<Integer> eventValues = Events.getValues(eventName);
         ui.displayText(eventName);
         String choice = ui.getEventChoice();
         processor.getUserEventDecision(choice, playerProvince, eventValues);
-        return eventValues;
     }
 
     /**
@@ -251,6 +256,18 @@ public class GameEngine {
         int max = ui.getDecisionValues(choice, playerProvince.returnMaximumValue(choice));
         processor.getUserDecision(choice, playerProvince, max);
     }
+
+    /**
+     * Reduces food each round depending on how many soldiers and civilians are on a team.
+     */
+
+    private void foodReduction() {
+        processor.foodConsumption(playerProvince);
+        for (Province province: aiProvinces) {
+            processor.foodConsumption(province);
+        }
+    }
+
 
     /**
      * Displays the Province which are dead.
@@ -318,7 +335,7 @@ public class GameEngine {
      * @param list the given array list to serialize
      * @param filePathSave the file path of the save.ser file
      */
-    private void savePoint(ArrayList list, String filePathSave) throws IOException {
+    private void savePoint(ArrayList<Object> list, String filePathSave) throws IOException {
         // Creates a save file for the current GameState
         ui.displayText("*******************************");
         ui.displayText("Saving Game...");
