@@ -111,4 +111,8 @@ public class ProcessValues {
             return p.getAiProvinceName();}
         return p.getUserProvinceName();
     }
+
+    public void foodConsumption(Province p) {
+        p.setProvinceFood(p.getProvinceFood() - ((p.getProvinceSoldiers() + p.getProvinceCivilians()) / 20));
+    }
 }
