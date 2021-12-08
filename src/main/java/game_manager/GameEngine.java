@@ -6,6 +6,7 @@ import main.java.snapshots.CaretakerProvince;
 import main.java.snapshots.MementoProvince;
 import main.java.snapshots.OriginatorProvince;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
