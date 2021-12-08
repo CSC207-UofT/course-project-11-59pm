@@ -54,7 +54,7 @@ public class GameEngine {
 
         // Opening game message
         ui.displayText("Welcome to Rajan's Conquest! Gather resources, assemble your army, and conquer all the " +
-                "neighbouring provinces!");
+                "neighbouring provinces! \n");
 
         // Asking the User about their previous GameState
         Boolean saveBool = ui.askLoad();
@@ -409,11 +409,13 @@ public class GameEngine {
      *
      * @param p province we want to clone for memento
      */
-    private void stateSnapshot(Province p) throws CloneNotSupportedException {
-        Province copyProvince = (Province)p.clone();
-        origProvince.setProvince(copyProvince);
-        MementoProvince mp = origProvince.createMementoProvinces();
-        ctProvince.addMementoProvince(mp);
+    private void stateSnapshot(Province p) {
+        try {Province copyProvince = (Province)p.clone();
+            origProvince.setProvince(copyProvince);
+            MementoProvince mp = origProvince.createMementoProvinces();
+            ctProvince.addMementoProvince(mp); } catch (CloneNotSupportedException c){
+            ui.displayText("The Object is not Cloneable");
+        }
     }
 
     /**
