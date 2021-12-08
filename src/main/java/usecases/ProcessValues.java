@@ -85,6 +85,8 @@ public class ProcessValues {
         }
     }
 
+    /**
+     * Updates province's values: civilians, gold, soldiers, and food. */
     public void updateProvince(Province province, List<Object> value, Boolean User, String name){
         if (User){
             province.setUserProvinceName(name);
@@ -98,7 +100,8 @@ public class ProcessValues {
 
     }
 
-    //battle methods that need processing values
+    /**
+     * Processes values necessary for Battle implementation */
     public int getBattleSoldiers(Province province) {
         return province.getProvinceSoldiers();
     }
@@ -112,6 +115,8 @@ public class ProcessValues {
         return p.getUserProvinceName();
     }
 
+    /**
+     * Updates food values depending on a province's population each turn */
     public void foodConsumption(Province p) {
         p.setProvinceFood(p.getProvinceFood() - ((p.getProvinceSoldiers() + p.getProvinceCivilians()) / 20));
     }
