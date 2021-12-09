@@ -1,7 +1,3 @@
-/*
-Decisions Class prompts the user with 3 options at the start of each event.
-The Questions are related to either Money, Food or the Army.
- */
 package main.java.game_manager;
 import java.util.ArrayList;
 
@@ -20,7 +16,10 @@ public class Decisions {
         this.decisionQuestions.add("Do you want to enlist more soldiers?");
         this.decisionQuestions.add("Do you want to increase revenue?");
     }
-    /* Returns the ArrayList with All the Possible Decisions */
+
+    /**
+     * Returns the ArrayList with All the Possible Decisions
+     */
     public ArrayList<String> getDecisionQuestions() {
         return decisionQuestions;
     }

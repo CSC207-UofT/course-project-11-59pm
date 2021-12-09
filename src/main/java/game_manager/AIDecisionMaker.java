@@ -117,9 +117,9 @@ public class AIDecisionMaker {
         processor.getUserEventDecision("Y", province, value);
     }
 
-    /** This function randomizes a list of number which represents if the user will have an event.
-     *
-     * */
+    /**
+     * This function randomizes a list of number which represents if the user will have an event.
+     */
     public List<Integer> randomizeAiEvent(){
 
         List<Integer> randList = new ArrayList<>();

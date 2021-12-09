@@ -23,15 +23,6 @@ public class CaretakerProvince {
     public void addMementoProvince(MementoProvince mp){this.listOfMementoProvinces.add(mp);
     }
 
-   /**
-    * Returns a MementoProvince Object by the given index.
-    * Preconditions: index must be within the size of the List<MementoProvince>,
-    *      in other words, 0  <= index <= |List<MementoProvince>|
-    * @param index represents the index at of the MementoProvince Object
-    */
-    public MementoProvince getMementoProvince(int index){
-        return listOfMementoProvinces.get(index);
-    }
 
     /**
      * Getter

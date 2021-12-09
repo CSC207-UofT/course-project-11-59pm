@@ -10,7 +10,13 @@ import java.util.*;
 public class Events {
     // Instance Variable: a Map of a String and List of Integers
     private static final Map<String, List<Integer>> map = new HashMap<>();
+
+    // Constructor for getting Event
     public Events(){
+        getEvents();
+    }
+
+    private void getEvents() {
         map.put("A neighboring king is fielding suitors for his daughter, who is particularly taken with your second " +
                 "son; will you make the match?", Arrays.asList(80, 20, 30, -50, 0, 0, 0, 0));
 
@@ -83,21 +89,18 @@ public class Events {
         map.put("The once renowned Sir Robin deserted your army in terror, to the disgust of your people. In order " +
                         "to save face, your advisors suggest you execute him as punishment. Will you carry it out?",
                 Arrays.asList(-10, 10, 30, 20, -10, 0, -40, 10));
-
-        /* The first value is the province followed by the event, and the second value in order is the change in
-         * (Gold, Civilian, Soldiers, Food, subtract Gold, subtract civil, subtract soldiers, subtract food)
-         * If you answer yes, they get added
-         * If you answer no, they get subtracted
-         * */
     }
 
+    /**
+     * Produces a random event to be implemented in the game.
+     */
     public static String getRandomEvent(){
-        /*
-         * Produces a random event to be implemented in the game.*/
+
         Random rand = new Random();
         int randomNumber = rand.nextInt(map.size());
         return (String) map.keySet().toArray()[randomNumber];
     }
+
     /**
      * Returns the List of Integers.
      * Preconditions: the Key must be within the preset Map provided.
