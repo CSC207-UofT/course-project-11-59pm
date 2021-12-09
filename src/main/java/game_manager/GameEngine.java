@@ -121,11 +121,9 @@ public class GameEngine {
     
     /**
      * Loops the game until the playerProvince is NOT dead.
-     * @throws CloneNotSupportedException if the object is not Cloneable due to missing
-     *                                      implementation of the Cloneable Interface
      * @throws IOException if the save or load process does not work.
      */
-    public void loopGame() throws CloneNotSupportedException, IOException {
+    public void loopGame() throws IOException {
         while (!playerProvince.isDeath()) {
             turn();
         }
@@ -165,7 +163,7 @@ public class GameEngine {
      *
      * @throws IOException if the save or load process does not work.
      */
-    public void turn() throws CloneNotSupportedException, IOException {
+    public void turn() throws IOException {
         // Displaying the two Event
         printAttributes(playerProvince);
         processEvent();

@@ -21,17 +21,7 @@ public class UserInterface {
         displayText("Please choose your choice (Enter a number, 1-3):");
         String choice = input.nextLine();
         // The following line is how many choices we provide
-        List<String> validChoices = Arrays.asList("1","2","3");
-        boolean valid = validChoices.contains(choice);
-
-        // This function will loop until it gets a valid input
-        while (!valid) {
-            displayText("Please enter a valid choice (Enter a number, 1-3)");
-            choice = input.nextLine();
-            valid = validChoices.contains(choice);
-        }
-
-        return choice;
+        return getValidChoice(choice, Arrays.asList("1","2","3"), "Please enter a valid choice (Enter a number, 1-3)");
     }
 
     /** Gets the value that the player wants to spend to gain a specific resource
@@ -133,20 +123,27 @@ public class UserInterface {
      *
      * @param choice the string to be checked*/
     private String getString(String choice) {
-        List<String> validChoices = Arrays.asList("Y","N","y","n");
-        boolean valid = validChoices.contains(choice);
+        return getValidChoice(choice, Arrays.asList("Y", "N", "y", "n"), "Please enter a valid choice (Enter Y/N)");
+    }
+
+
+    /**
+     * Helper for the getString() that returns if the string is valid or not
+     * */
+    private String getValidChoice(String choice, List<String> strings, String s) {
+        boolean valid = strings.contains(choice);
 
         //this function will loop until a valid input is given
         while (!valid) {
-            this.displayText("Please enter a valid choice (Enter Y/N)");
+            this.displayText(s);
             choice = input.nextLine();
-            valid = validChoices.contains(choice);
+            valid = strings.contains(choice);
         }
         return choice;
     }
 
-    /** This is the main output function used for UI that displays text to players
-     *
+    /**
+     * This is the main output function used for UI that displays text to player.
      * @param Text the text to be displayed*/
     public void displayText(String Text){
         /*This method will display the decisions or text that is given to it*/
@@ -217,25 +214,21 @@ public class UserInterface {
     /** This following functions are used to save and load data of a game, they are very simple, and will therefore be
      * grouped together */
     public Boolean askLoad(){
-        this.displayText("Would you like to load a previously saved game?(Y/N): ");
-        String choice = input.nextLine();
-        List<String> validChoices = Arrays.asList("Y","N","y","n");
-        boolean valid = validChoices.contains(choice);
-
-        //this function will loop until a valid input is given
-        while (!valid) {
-            this.displayText("Please enter a valid choice (Enter Y/N)");
-            choice = input.nextLine();
-            valid = validChoices.contains(choice);
-        }
-        return choice.equalsIgnoreCase("Y");
+        return validChoice("Would you like to load a previously saved game?(Y/N): ");
     }
 
     /** Ask if user wants a summary of the province attributes */
     public Boolean askSummary() {
-        this.displayText("Would you like to get a summary Y/N");
+        return validChoice("Would you like to get a summary Y/N");
+    }
+
+    /**
+     * Helper function for askLoad() and askSummary() that returns the valid choices.
+     */
+    private Boolean validChoice(String s) {
+        this.displayText(s);
         String choice = input.nextLine();
-        List<String> validChoices = Arrays.asList("Y","N","y","n");
+        List<String> validChoices = Arrays.asList("Y", "N", "y", "n");
         boolean valid = validChoices.contains(choice);
 
         //this function will loop until a valid input is given

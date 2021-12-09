@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, CloneNotSupportedException {
+    public static void main(String[] args) throws IOException {
         GameEngine engine = new GameEngine();
         engine.loopGame();
     }
