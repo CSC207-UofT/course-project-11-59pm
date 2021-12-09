@@ -59,6 +59,10 @@ public class GameStateTest {
         assert Objects.equals(newList,newList2);
 
     }
+    /**
+     * Test to see whether the items are added properly into the
+     * game-state list.
+     */
 
     @Test
     public void gameStateSizeTest() {
@@ -73,7 +77,10 @@ public class GameStateTest {
 
 
     }
-
+    /**
+     * Test to see whether the saving of the game states
+     * are added properly into th game-state list.
+     */
     @Test
     public void gameStateSaveListTest() {
         ArrayList<Object> list1 = new ArrayList<>();
@@ -92,6 +99,10 @@ public class GameStateTest {
 
     }
 
+    /**
+     * Test to see whether the items are added properly into the
+     * game-state list and iterations are working properly.
+     */
     @Test
     public void gameStateIterator() {
         ArrayList<Object> list1 = new ArrayList<>();
