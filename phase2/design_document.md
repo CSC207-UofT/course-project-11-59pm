@@ -141,7 +141,8 @@ We also tackled the occasional warning regarding the for loops being replaced wi
 - We believe that our game is sufficiently ambitious as we have created a game where a user can firstly control a province and play against AI controlled provinces. With every province there are statistics such as Gold, soldiers, and civilians to keep track of which can be affected by different decisions/events. There are also Use cases such as battles that have detailed algorithms of how they decide a winner, which is not purely based on chance. alongside being able to play the game, a user is able to load a game when the game is first started and able to save after each round that is played.
 
 - We have implemented serialization in the class GameState which allows the user to load and save game states to files. The user can load the game at the beginning of the game and can save after each round.
-
+- 
+## Progress Report 
 ### Summary of Contributions to the Project
 
 **Ansh:** Implemented the Memento Design Pattern with Sayna, Province Class (initially) and Discussed the implementation of the Design Pattern with Armaan. Other Areas that I helped wherever needed such as in the GameEngine. In the future, as the game gets complicated I plan on adding more attributes to the province class and then further refining the design patterns that I worked on with Armaan and Sayna.
