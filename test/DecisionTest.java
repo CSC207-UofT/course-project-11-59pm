@@ -18,6 +18,9 @@ public class DecisionTest {
 
     }
 
+    /**
+     * Tests to see if the decisions are the same as the ones outputted to the user
+     */
     @Test
     public void testDecision() {
         ArrayList<String> lst = new ArrayList<>();
