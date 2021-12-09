@@ -298,7 +298,7 @@ public class GameEngine {
      * Displays the Province which are dead.
      */
     public void provinceDeath(Province province) {
-        ui.displayText("***" + province.getAiProvinceName() + " is dead" + "***");
+        ui.displayText("*** Province is dead! ***");
         province.die();
     }
 
@@ -391,11 +391,20 @@ public class GameEngine {
 
         // Adding the Ai Province's Attributes
         for (Province p: lstOfProvince){
-            newList.add(p.getAiProvinceName());
-            newList.add(p.getProvinceCivilians());
-            newList.add(p.getProvinceGold());
-            newList.add(p.getProvinceSoldiers());
-            newList.add(p.getProvinceGold());
+            if (p.getStatus()) {
+                newList.add(p.getAiProvinceName());
+                newList.add(p.getProvinceCivilians());
+                newList.add(p.getProvinceGold());
+                newList.add(p.getProvinceSoldiers());
+                newList.add(p.getProvinceGold());
+            } else {
+                // This province is dead, therefore we are making all values zero
+                newList.add(p.getAiProvinceName());
+                for(int i = 0; i<=3; i++){
+                    newList.add(0);
+                }
+
+            }
 
         }
         return newList;
