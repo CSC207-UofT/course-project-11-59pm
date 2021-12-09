@@ -5,10 +5,11 @@ Our game is an text based adventure game. The user will get a chance to play as 
 
  If the player gets the chance to win all five provinces before the game ends, they win. Otherwise, the province with the most amount of land conuqered will win the game.
 
+## NOTE: Our Accessibility Report, Our Progress Report and Specification are included with our Design Document. 
 ## Phase 2: Extendability Ideas: After Phase 2
 - Different Types of Battle
-- The UI needs to be more appealing  
-- Might think about extending the game with more attributes -- territories 
+- Might think about extending the game with more attributes -- territories
+- Creating the Provinces Decisions Maker more efficient or adding several more provinces.  
 
 ## Instructions To Run the program: 
 - You will first be prompted if you would like to load a previous save (Input: Y/N) <br />
