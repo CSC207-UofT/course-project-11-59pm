@@ -129,7 +129,8 @@ public class ProcessValues {
     }
 
     /**
-     * Updates food values depending on a province's population each turn */
+     * Updates food values depending on a province's population each turn
+     */
     public void foodConsumption(Province p) {
         // The food amount is set to the number of soldiers and civilians in the province
         p.setProvinceFood(p.getProvinceFood() - ((p.getProvinceSoldiers() + p.getProvinceCivilians()) / 20));

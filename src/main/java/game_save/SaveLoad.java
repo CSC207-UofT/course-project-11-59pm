@@ -42,7 +42,7 @@ public class SaveLoad {
     }
 
     
-/**
+    /**
      * This is the loadGame function. Opens the save file, that for each line of the file adds one index
      * to the ArrayList called saveInfo.
      *
