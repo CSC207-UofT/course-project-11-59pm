@@ -205,8 +205,6 @@ For this pull request, I changed the names of the folders to match the package c
 
 
 ### Accessibility Report Questions
-
-1.
   1. **Equitable Use:** Our program acts the same way for all users since there is no discrimination or segregation between users. We never ask for personal data so we cannot differentiate any users, and so everyone is treated fair. The design of our program allows for 100% privacy and security since users never need to enter their personal information.
   2. **Flexibility in Use:** Since the program is not timed or reliant on any specific right or hand access, then the program adheres to the principal. Right or left hand users operate the same since we use simple key inputs on the keyboard, and the entire program acts at the users pace, allowing them to play on their own time. The accuracy and precision requirements of the user are low, since the program uses simple key inputs.
   3. **Simple and Intuitive Use:** The program is simple and intuitive for the user, eliminating complexity. The program only uses simple key inputs, and if the user types incorrectly, the program asks them again for valid input. Information is always blocked together for related data, such as province attributes, and there is always prompting whenever input is needed from the user. When a task is complete, there is always a summary of their data displayed so that there is feedback after what they did.
