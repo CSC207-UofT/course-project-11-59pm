@@ -40,7 +40,7 @@ public class Battle {
 
             // 3. Update each soldier counts
             if (player1_Ratio == player2_Ratio) {
-                int deaths = (int) Math.round(Math.random() * (player2_Ratio + player1_Ratio));
+                int deaths = (int) Math.round(Math.random() * (player2_Ratio + player1_Ratio)) * 20;
 
                 player1_SoldierCount -= deaths;
                 player2_SoldierCount -= deaths;
@@ -49,13 +49,13 @@ public class Battle {
                 processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
 
             } else if (player1_Ratio > player2_Ratio) {
-                float deaths = (float) Math.random() * player2_Ratio;
+                float deaths = (float) Math.random() * player2_Ratio * 20;
                 player2_SoldierCount -= deaths;
                 // ProcessValues will register the new soldier count for provinces
                 processValues.battleRoundProcess(userProvince, player1_SoldierCount);
                 processValues.battleRoundProcess(aiProvince, player2_SoldierCount);
             } else {
-                float deaths = (float) Math.random() * player1_Ratio;
+                float deaths = (float) Math.random() * player1_Ratio * 20;
                 player1_SoldierCount -= deaths;
                 // ProcessValues will register the new soldier count for provinces
                 processValues.battleRoundProcess(userProvince, player1_SoldierCount);
