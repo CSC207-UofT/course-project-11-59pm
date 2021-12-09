@@ -8,7 +8,7 @@ import main.java.province_construction.Province;
  *  MementoProvince Object.
  */
 public class MementoProvince {
-    private Province pA;
+    private final Province pA;
 
     /**
      * Constructor that sets the ProvinceAssembler.
@@ -23,10 +23,6 @@ public class MementoProvince {
      */
     public Province getProvince() {
         return this.pA;
-    }
-
-    public void setProvince(Province p) {
-        this.pA = p;
     }
 
 }

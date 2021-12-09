@@ -37,13 +37,6 @@ public class OriginatorProvince {
         return ListOfP;
     }
 
-    /**
-     * Getters and Setters
-     */
-    public Province getProvince(){
-        return p;
-    }
-
     public void setProvince(Province p){
         this.p = p;
     }
